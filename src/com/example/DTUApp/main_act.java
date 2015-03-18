@@ -12,6 +12,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TabWidget;
 
+// added comment or checkin in GIT
 /**
  * Created by Gerard Verhaegh on 3/14/2015.
  */
