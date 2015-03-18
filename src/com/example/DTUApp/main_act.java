@@ -57,10 +57,12 @@ public class main_act extends Activity {
             }
         });
 
-        current_frag = new start_frag();
-        SetFragment();
+        if (savedInstanceState == null) {
+            current_frag = new start_frag();
+            SetFragment();
 
-        global_app ga = global_app.getInstance();
+            global_app ga = global_app.getInstance();
+        }
     }
 
     private void GetNextFragment() {
@@ -97,8 +99,9 @@ public class main_act extends Activity {
         FragmentManager fm = getFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        fragmentTransaction.setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out);
         fragmentTransaction.replace(R.id.fragment_container, current_frag);
-        //fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 
