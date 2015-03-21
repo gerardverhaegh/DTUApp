@@ -1,5 +1,6 @@
 package com.example.DTUApp;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,7 @@ import android.widget.TabWidget;
 //import android.app.FragmentManager;
 
 // added comment or checkin in GIT
+
 /**
  * Created by Gerard Verhaegh on 3/14/2015.
  */
@@ -29,28 +31,24 @@ public class main_act extends FragmentActivity {
 
         setContentView(R.layout.main_act);
 
-        TabWidget btn_backward = (TabWidget)findViewById(R.id.btn_backward);
-        btn_backward.setOnClickListener(new View.OnClickListener()
-        {
+        TabWidget btn_backward = (TabWidget) findViewById(R.id.btn_backward);
+        btn_backward.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 GetPreviousFragment();
             }
         });
 
-        TabWidget btn_forward = (TabWidget)findViewById(R.id.btn_forward);
-        btn_forward.setOnClickListener(new View.OnClickListener()
-        {
+        TabWidget btn_forward = (TabWidget) findViewById(R.id.btn_forward);
+        btn_forward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 GetNextFragment();
             }
         });
 
-        TabWidget btn_speak = (TabWidget)findViewById(R.id.btn_speak);
-        btn_speak.setOnClickListener(new View.OnClickListener()
-        {
+        TabWidget btn_speak = (TabWidget) findViewById(R.id.btn_speak);
+        btn_speak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 current_frag = new communication_frag();
@@ -58,38 +56,36 @@ public class main_act extends FragmentActivity {
             }
         });
 
+        TabWidget btn_preferences = (TabWidget) findViewById(R.id.btn_preferences);
+        btn_preferences.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), preferences_act.class);
+                startActivity(i);
+            }
+        });
+
         if (savedInstanceState == null) {
             current_frag = new start_frag();
             SetFragment();
-
-            global_app ga = global_app.getInstance();
         }
     }
 
     private void GetNextFragment() {
 
-        if (current_frag instanceof start_frag)
-        {
+        if (current_frag instanceof start_frag) {
             current_frag = new question_evaluation_frag();
             SetFragment();
-        }
-        else if (current_frag instanceof question_evaluation_frag)
-        {
+        } else if (current_frag instanceof question_evaluation_frag) {
             current_frag = new evaluation_frag();
             SetFragment();
-        }
-        else if (current_frag instanceof evaluation_frag)
-        {
+        } else if (current_frag instanceof evaluation_frag) {
             current_frag = new find_location1_frag();
             SetFragment();
-        }
-        else if (current_frag instanceof find_location1_frag)
-        {
+        } else if (current_frag instanceof find_location1_frag) {
             current_frag = new map_frag();
             SetFragment();
-        }
-        else if (current_frag instanceof map_frag)
-        {
+        } else if (current_frag instanceof map_frag) {
             current_frag = new finished_game_frag();
             SetFragment();
         }
@@ -100,8 +96,7 @@ public class main_act extends FragmentActivity {
         SetFragment();
     }
 
-    private void SetFragment()
-    {
+    private void SetFragment() {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -111,26 +106,19 @@ public class main_act extends FragmentActivity {
         fragmentTransaction.commit();
     }
 
-    public void setResult(String answer)
-    {
-        if (current_frag instanceof question_evaluation_frag)
-        {
-            if (answer == "yes")
-            {
+    public void setResult(String answer) {
+        if (current_frag instanceof question_evaluation_frag) {
+            if (answer == "yes") {
                 current_frag = new evaluation_frag();
                 SetFragment();
-            }
-            else if (answer == "no")
-            {
+            } else if (answer == "no") {
                 current_frag = new find_location1_frag();
                 SetFragment();
             }
         }
 
-        if (current_frag instanceof map_frag)
-        {
-            if (answer == "done")
-            {
+        if (current_frag instanceof map_frag) {
+            if (answer == "done") {
                 current_frag = new finished_game_frag();
                 SetFragment();
             }

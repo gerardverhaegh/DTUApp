@@ -66,7 +66,7 @@ public class map_frag extends Fragment implements LocationListener {
         // create map
         googleMap = ((SupportMapFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.map_fragment)).getMap();
 
-        mtv = (TextView)v.findViewById(R.id.txtStatus);
+        mtv = (TextView) v.findViewById(R.id.txtStatus);
 
         //resources = getResources();
         initGooglePlayStatus();
@@ -77,13 +77,12 @@ public class map_frag extends Fragment implements LocationListener {
     }
 
     @Override
-    public void onDestroyView()
-    {
+    public void onDestroyView() {
         super.onDestroyView();
         Log.d("GVE", "Destroy fragment");
-        LocationManager locationManager = (LocationManager)getActivity().getSystemService(getActivity().LOCATION_SERVICE);
+        LocationManager locationManager = (LocationManager) getActivity().getSystemService(getActivity().LOCATION_SERVICE);
         locationManager.removeUpdates(this);
-        locationManager=null;
+        locationManager = null;
         googleMap = null;
         //resources = null;
         bFirstTime = true;
@@ -100,7 +99,7 @@ public class map_frag extends Fragment implements LocationListener {
         }
     }
 
-   private void initGooglePlayStatus() {
+    private void initGooglePlayStatus() {
         // Getting Google Play availability status
         int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getActivity().getBaseContext());
 
@@ -175,7 +174,7 @@ public class map_frag extends Fragment implements LocationListener {
     }
 
     private void initLocationManager() {
-        LocationManager locationManager = (LocationManager)getActivity().getSystemService(getActivity().LOCATION_SERVICE);
+        LocationManager locationManager = (LocationManager) getActivity().getSystemService(getActivity().LOCATION_SERVICE);
         Criteria criteria = new Criteria();
         String provider = locationManager.getBestProvider(criteria, true);
         Location location = locationManager.getLastKnownLocation(provider);
@@ -192,15 +191,14 @@ public class map_frag extends Fragment implements LocationListener {
         double longitude = location.getLongitude();
         LatLng latLng = new LatLng(latitude, longitude);
 
-        if (bFirstTime)
-        {
+        if (bFirstTime) {
             mLocationStart = new Location(location);
             googleMap.setMyLocationEnabled(true);
             googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
-            if(mCircle == null || mMarker == null){
+            if (mCircle == null || mMarker == null) {
                 drawMarkerWithCircle(latLng);
-            }else{
+            } else {
                 //updateMarkerWithCircle(latLng);
             }
 
@@ -214,13 +212,10 @@ public class map_frag extends Fragment implements LocationListener {
 
         dWalkedDistanceKM = calc_distance_km(mLocationStart, location);
 
-        if (dWalkedDistanceKM < 1.0)
-        {
+        if (dWalkedDistanceKM < 1.0) {
             // in meters
-            mtv.setText(String.format("Gået afstand: %3.0f (m)", 1000*dWalkedDistanceKM));
-        }
-        else
-        {
+            mtv.setText(String.format("Gået afstand: %3.0f (m)", 1000 * dWalkedDistanceKM));
+        } else {
             // in km
             mtv.setText(String.format("Gået afstand: %2.1f (km)", dWalkedDistanceKM));
         }
@@ -231,10 +226,8 @@ public class map_frag extends Fragment implements LocationListener {
 
         Log.d("GVE", "Walked: " + dWalkedDistanceKM + ", needed: " + mRadiusInKM);
 
-        if (dWalkedDistanceKM > mRadiusInKM)
-        {
-            if (!m_bKeepGoing)
-            {
+        if (dWalkedDistanceKM > mRadiusInKM) {
+            if (!m_bKeepGoing) {
                 PopupDialog();
             }
         }
@@ -256,7 +249,7 @@ public class map_frag extends Fragment implements LocationListener {
                         m_bKeepGoing = true;
                     }
                 })
-                //.setIcon(android.R.drawable.ic_dialog_alert)
+                        //.setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
     }
 
@@ -269,11 +262,11 @@ public class map_frag extends Fragment implements LocationListener {
         mMarker.setPosition(position);
     }
 
-    private void drawMarkerWithCircle(LatLng position){
+    private void drawMarkerWithCircle(LatLng position) {
         int strokeColor = 0x200000ff; // outline
         int shadeColor = 0x100000ff; //opaque fill
 
-        CircleOptions circleOptions = new CircleOptions().center(position).radius(1000*mRadiusInKM).fillColor(shadeColor).strokeColor(strokeColor).strokeWidth(1);
+        CircleOptions circleOptions = new CircleOptions().center(position).radius(1000 * mRadiusInKM).fillColor(shadeColor).strokeColor(strokeColor).strokeWidth(1);
         mCircle = googleMap.addCircle(circleOptions);
     }
 
@@ -281,14 +274,13 @@ public class map_frag extends Fragment implements LocationListener {
         float equatorLength = 40075004 / 2; // in meters, zoom lvl=1, about 1/2 of the world fits on the screen
 
         // we want to be able to see: 2 * 1000 * mRadiusInKM meters in our screenWidth
-        zoomLvl = logX(equatorLength / (2 * 1000 * (float)mRadiusInKM), 2);
+        zoomLvl = logX(equatorLength / (2 * 1000 * (float) mRadiusInKM), 2);
 
         Log.i("GVE", "zoom level = " + zoomLvl);
         return zoomLvl;
     }
 
-    private float logX(float x, int base)
-    {
+    private float logX(float x, int base) {
         return (float) (Math.log(x) / Math.log(base));
     }
 

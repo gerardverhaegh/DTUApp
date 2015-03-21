@@ -1,31 +1,28 @@
 package com.example.DTUApp;
 
 //import android.app.Fragment;
-import android.support.v4.app.Fragment;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.quickblox.auth.QBAuth;
 import com.quickblox.auth.model.QBSession;
-import com.quickblox.chat.QBChatService;
-import com.quickblox.core.LogLevel;
 import com.quickblox.core.QBEntityCallbackImpl;
-import com.quickblox.core.QBRequestCanceler;
 import com.quickblox.core.QBSettings;
-import com.quickblox.core.exception.BaseServiceException;
-import com.quickblox.core.exception.QBResponseException;
-import com.quickblox.core.server.BaseService;
 import com.quickblox.users.QBUsers;
 import com.quickblox.users.model.QBUser;
 
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -43,8 +40,8 @@ public class communication_frag extends Fragment {
          */
         View v = inflater.inflate(R.layout.communication_frag, container, false);
 
-        ImageView iv = (ImageView) v.findViewById(R.id.iv);
-        iv.setImageResource(R.raw.communication);
+/*        ImageView iv = (ImageView) v.findViewById(R.id.iv);
+        iv.setImageResource(R.raw.communication);*/
 
         txtStatus = (TextView) v.findViewById(R.id.txtStatus);
 
@@ -63,7 +60,23 @@ public class communication_frag extends Fragment {
                 StopSession();
             }
         });
-        
+
+        Button btnSignUp = (Button) v.findViewById(R.id.btnSignUp);
+        btnSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SignUp();
+            }
+        });
+
+        Button btnGetAllUsers = (Button) v.findViewById(R.id.btnGetAllUsers);
+        btnGetAllUsers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GetAllUsers();
+            }
+        });
+
         return v;
     }
 
@@ -94,7 +107,6 @@ public class communication_frag extends Fragment {
             public void onSuccess(QBSession qbSession, Bundle bundle) {
                 txtStatus.setText("createSession success");
                 //startMapActivity();
-                //SignIn(qbSession, bundle);
             }
 
             @Override
@@ -119,60 +131,72 @@ public class communication_frag extends Fragment {
         startActivity(intent);
     }
 
-/*    private void SignIn(QBSession session, Bundle params) {
-        // Register new user
-        final QBUser user = new QBUser("gve1", "koek4321");
+    private void SignUp() {
+        LayoutInflater li = LayoutInflater.from(getActivity());
+        View prompt = li.inflate(R.layout.login_dialog, null);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+        alertDialogBuilder.setView(prompt);
+        //final String username = getActivity().getIntent().getStringExtra("USERNAME");
+        final EditText user = (EditText) prompt.findViewById(R.id.userNameEditText);
 
-        //user.setId(session.getUserId());
-        //txtStatus.setText("userid: " + session.getUserId());
+        user.setText(global_app.GetPref().getString("Username", "PickAUserName"));
+        final EditText pass = (EditText) prompt.findViewById(R.id.passwordEditText);
+        pass.setText(global_app.GetPref().getString("Username", "PickAUserPassword"));
+        //user.setText(getActivity().getIntent().getStringExtra("USERNAME"));
 
-        QBRequestCanceler qbRequestCanceler = QBUsers.signIn(user, new QBEntityCallbackImpl<QBUser>() {
-                @Override
-                public void onSuccess(QBUser user, Bundle args) {
-                    StartChatService(user, args);
-                }
+        alertDialogBuilder.setCancelable(false)
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        String password = pass.getText().toString();
+                        String username = user.getText().toString();
+                        SignUpInQB(username, password);
+                    }
+                });
 
-                @Override
-                public void onError(List<String> errors) {
-                    // error
-                    txtStatus.setText("createSession error");
+        alertDialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.cancel();
+
+            }
+        });
+        alertDialogBuilder.show();
+    }
+
+    private void SignUpInQB(final String username, final String password) {
+        txtStatus.setText("SignUpInQB: " + username + " " + password);
+        QBUser qbUser = new QBUser();
+        qbUser.setLogin(username);
+        qbUser.setPassword(password);
+        QBUsers.signUpSignInTask(qbUser, new QBEntityCallbackImpl<QBUser>() {
+            @Override
+            public void onSuccess(QBUser qbUser, Bundle bundle) {
+                global_app.GetPref().edit().putString("Username", username).putString("Password", password).commit();
+                txtStatus.setText("signUpSignInTask success");
+            }
+
+            @Override
+            public void onError(List<String> strings) {
+                txtStatus.setText("signUpSignInTask error");
+            }
+        });
+    }
+
+    private void GetAllUsers() {
+        QBUsers.getUsers(null, new QBEntityCallbackImpl<ArrayList<QBUser>>() {
+            @Override
+            public void onSuccess(ArrayList<QBUser> qbUsers, Bundle bundle) {
+                for (int i = 0; i < qbUsers.size(); i++)
+                {
+                    Log.d("GVE", "user: " + qbUsers.get(i).getLogin());
                 }
             }
-        );
-    }*/
 
-/*    private void StartChatService(QBUser user, Bundle args) {
-        // success
-        try {
-            Date expirationDate = BaseService.getBaseService().getTokenExpirationDate();
-            txtStatus.setText("expirationDate: " + expirationDate);
-        } catch (BaseServiceException e) {
-            e.printStackTrace();
-        }
+            @Override
+            public void onError(List<String> errors) {
 
-        // initialize Chat service
-        QBChatService chatService = null;
-        if (!QBChatService.isInitialized()) {
-            QBChatService.init(getActivity().getApplicationContext());
-            chatService = QBChatService.getInstance();
-        }
-
-        if (chatService == null) {
-            txtStatus.setText("chatService null");
-        } else {
-            chatService.login(user, new QBEntityCallbackImpl() {
-                @Override
-                public void onSuccess() {
-                    // success
-                    txtStatus.setText("chatService login SUCCESS");
-                }
-
-                @Override
-                public void onError(List errors) {
-                    // errors
-                    txtStatus.setText("chatService login ERROR");
-                }
-            });
-        }
-    }*/
+            }
+        });
+    }
 }

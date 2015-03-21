@@ -49,6 +49,13 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@android:drawable/ic_btn_speak_now"/>
+
+        <TabWidget
+            android:id="@+id/btn_preferences"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@android:drawable/ic_menu_preferences"/>
     </LinearLayout>
 </LinearLayout>
 

@@ -2,6 +2,7 @@ package com.example.DTUApp;
 
 
 //import android.app.Fragment;
+
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -23,26 +24,22 @@ public class question_evaluation_frag extends Fragment {
          */
         View v = inflater.inflate(R.layout.question_evaluation_frag, container, false);
 
-        ImageView iv = (ImageView)v.findViewById(R.id.iv);
+        ImageView iv = (ImageView) v.findViewById(R.id.iv);
         iv.setImageResource(R.raw.question_evaluation);
 
-        Button btn_yes = (Button)v.findViewById(R.id.btn_yes);
-        btn_yes.setOnClickListener(new View.OnClickListener()
-        {
+        Button btn_yes = (Button) v.findViewById(R.id.btn_yes);
+        btn_yes.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 main_act activity = (main_act) getActivity();
                 activity.setResult("yes");
             }
         });
 
-        Button btn_no = (Button)v.findViewById(R.id.btn_no);
-        btn_no.setOnClickListener(new View.OnClickListener()
-        {
+        Button btn_no = (Button) v.findViewById(R.id.btn_no);
+        btn_no.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 main_act activity = (main_act) getActivity();
                 activity.setResult("no");
             }
