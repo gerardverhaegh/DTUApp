@@ -1,22 +1,23 @@
 package com.example.DTUApp;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.content.Intent;
+import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TabWidget;
 
+//import android.app.Fragment;
+//import android.app.FragmentManager;
+
 // added comment or checkin in GIT
 /**
  * Created by Gerard Verhaegh on 3/14/2015.
  */
-public class main_act extends Activity {
+public class main_act extends FragmentActivity {
     private Fragment current_frag = null;
 
     @Override
@@ -84,7 +85,12 @@ public class main_act extends Activity {
         }
         else if (current_frag instanceof find_location1_frag)
         {
-            current_frag = new find_location2_frag();
+            current_frag = new map_frag();
+            SetFragment();
+        }
+        else if (current_frag instanceof map_frag)
+        {
+            current_frag = new finished_game_frag();
             SetFragment();
         }
     }
@@ -96,16 +102,16 @@ public class main_act extends Activity {
 
     private void SetFragment()
     {
-        FragmentManager fm = getFragmentManager();
+        FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-        fragmentTransaction.setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out);
+        //fragmentTransaction.setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out, android.R.animator.fade_in, android.R.animator.fade_out);
         fragmentTransaction.replace(R.id.fragment_container, current_frag);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 
-    public void setAnswer(String answer)
+    public void setResult(String answer)
     {
         if (current_frag instanceof question_evaluation_frag)
         {
@@ -117,6 +123,15 @@ public class main_act extends Activity {
             else if (answer == "no")
             {
                 current_frag = new find_location1_frag();
+                SetFragment();
+            }
+        }
+
+        if (current_frag instanceof map_frag)
+        {
+            if (answer == "done")
+            {
+                current_frag = new finished_game_frag();
                 SetFragment();
             }
         }

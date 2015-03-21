@@ -1,7 +1,8 @@
 package com.example.DTUApp;
 
 
-import android.app.Fragment;
+//import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,7 +33,7 @@ public class question_evaluation_frag extends Fragment {
             public void onClick(View v)
             {
                 main_act activity = (main_act) getActivity();
-                activity.setAnswer("yes");
+                activity.setResult("yes");
             }
         });
 
@@ -43,7 +44,7 @@ public class question_evaluation_frag extends Fragment {
             public void onClick(View v)
             {
                 main_act activity = (main_act) getActivity();
-                activity.setAnswer("no");
+                activity.setResult("no");
             }
         });
 
