@@ -44,8 +44,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".main_act"/>
-        <activity android:name=".map_frag"/>
-        <activity android:name=".logindialog_act"/>
         <activity android:name=".preferences_act"/>
+        <activity android:name=".listofusers_act"/>
     </application>
 </manifest>

@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.format.DateFormat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -187,10 +186,14 @@ public class communication_frag extends Fragment {
         QBUsers.getUsers(null, new QBEntityCallbackImpl<ArrayList<QBUser>>() {
             @Override
             public void onSuccess(ArrayList<QBUser> qbUsers, Bundle bundle) {
-                for (int i = 0; i < qbUsers.size(); i++)
-                {
-                    Log.d("GVE", "user: " + qbUsers.get(i).getLogin());
+                ArrayList<String> s = new ArrayList<String>();
+
+                for (int i = 0; i < qbUsers.size(); i++) {
+                    s.add(qbUsers.get(i).getLogin());
                 }
+                Intent i = new Intent(getActivity(), listofusers_act.class);
+                i.putStringArrayListExtra("Usernames", s);
+                startActivityForResult(i, 0);
             }
 
             @Override
