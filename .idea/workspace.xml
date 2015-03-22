@@ -18,52 +18,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="166c20fb-6cf2-46ac-b777-1bc437e4788b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/chat/ApplicationSingleton.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/chat/core/ChatManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/example/DTUApp/DialogsActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/chat/core/GroupChatManagerImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/chat/core/PrivateChatManagerImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/dialogs_activity.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/DTUApp.apk" afterPath="$PROJECT_DIR$/out/production/DTUApp/DTUApp.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/DTUApp.unaligned.apk" afterPath="$PROJECT_DIR$/out/production/DTUApp/DTUApp.unaligned.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/R$id.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/R$integer.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/R$integer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/R$layout.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/R$raw.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/R$raw.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/R$string.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/R$style.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/R$style.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/R$styleable.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/R$styleable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/R$xml.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/R$xml.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/R.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/R.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/communication_frag$1.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/communication_frag$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/communication_frag$2.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/communication_frag$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/communication_frag$3.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/communication_frag$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/communication_frag$4.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/communication_frag$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/communication_frag$5.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/communication_frag$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/communication_frag$6.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/communication_frag$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/communication_frag$7.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/communication_frag$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/communication_frag$8.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/communication_frag$8.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/communication_frag$9.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/communication_frag$9.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/communication_frag.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/communication_frag.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/constants.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/constants.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/evaluation_frag.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/evaluation_frag.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/find_location1_frag.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/find_location1_frag.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/find_location2_frag.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/find_location2_frag.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/finished_game_frag.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/finished_game_frag.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/listofusers_act.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/listofusers_act.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/main_act.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/main_act.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/map_frag.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/map_frag.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/preferences_act.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/preferences_act.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/question_evaluation_frag.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/question_evaluation_frag.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/start_act.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/start_act.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/start_frag.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/start_frag.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/DTUApp/communication_frag.java" afterPath="$PROJECT_DIR$/src/com/example/DTUApp/communication_frag.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/communication_frag.xml" afterPath="$PROJECT_DIR$/res/layout/communication_frag.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/DTUApp/constants.java" afterPath="$PROJECT_DIR$/src/com/example/DTUApp/constants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/DTUApp/listofusers_act.java" afterPath="$PROJECT_DIR$/src/com/example/DTUApp/listofusers_act.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/DTUApp/preferences_act.java" afterPath="$PROJECT_DIR$/src/com/example/DTUApp/preferences_act.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DTUApp.iws" />
@@ -104,8 +62,8 @@
       <file leaf-file-name="communication_frag.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/communication_frag.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.84647304" vertical-offset="8925" max-vertical-offset="11951">
-              <caret line="545" column="53" selection-start-line="545" selection-start-column="53" selection-end-line="545" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.5226537" vertical-offset="9282" max-vertical-offset="11951">
+              <caret line="609" column="52" selection-start-line="609" selection-start-column="52" selection-end-line="609" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#9623#9631#0" expanded="true" />
@@ -119,18 +77,18 @@
                 <element signature="e#21169#21279#0" expanded="true" />
                 <element signature="e#21278#21279#0" expanded="true" />
                 <element signature="e#21383#21392#0" expanded="true" />
-                <element signature="e#25562#25563#0" expanded="true" />
-                <element signature="e#25619#25620#0" expanded="true" />
-                <element signature="e#25709#25710#0" expanded="true" />
-                <element signature="e#25770#25771#0" expanded="true" />
-                <element signature="e#25838#25839#0" expanded="true" />
-                <element signature="e#25902#25903#0" expanded="true" />
-                <element signature="e#26211#26212#0" expanded="true" />
-                <element signature="e#26273#26274#0" expanded="true" />
-                <element signature="e#26347#26348#0" expanded="true" />
-                <element signature="e#26417#26418#0" expanded="true" />
-                <element signature="e#26498#26499#0" expanded="true" />
-                <element signature="e#26564#26565#0" expanded="true" />
+                <element signature="e#25582#25583#0" expanded="true" />
+                <element signature="e#25639#25640#0" expanded="true" />
+                <element signature="e#25729#25730#0" expanded="true" />
+                <element signature="e#25790#25791#0" expanded="true" />
+                <element signature="e#25858#25859#0" expanded="true" />
+                <element signature="e#25922#25923#0" expanded="true" />
+                <element signature="e#26231#26232#0" expanded="true" />
+                <element signature="e#26293#26294#0" expanded="true" />
+                <element signature="e#26367#26368#0" expanded="true" />
+                <element signature="e#26437#26438#0" expanded="true" />
+                <element signature="e#26518#26519#0" expanded="true" />
+                <element signature="e#26584#26585#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -764,14 +722,14 @@
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41759464" sideWeight="0.17803837" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.266147" sideWeight="0.17803837" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294621" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27282852" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41759464" sideWeight="0.82196164" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.266147" sideWeight="0.82196164" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2750533" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28730512" sideWeight="0.33901918" order="7" side_tool="true" content_ui="tabs" />
@@ -1301,8 +1259,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/communication_frag.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.84647304" vertical-offset="8925" max-vertical-offset="11951">
-          <caret line="545" column="53" selection-start-line="545" selection-start-column="53" selection-end-line="545" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.5226537" vertical-offset="9282" max-vertical-offset="11951">
+          <caret line="609" column="52" selection-start-line="609" selection-start-column="52" selection-end-line="609" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#9623#9631#0" expanded="true" />
@@ -1316,18 +1274,18 @@
             <element signature="e#21169#21279#0" expanded="true" />
             <element signature="e#21278#21279#0" expanded="true" />
             <element signature="e#21383#21392#0" expanded="true" />
-            <element signature="e#25562#25563#0" expanded="true" />
-            <element signature="e#25619#25620#0" expanded="true" />
-            <element signature="e#25709#25710#0" expanded="true" />
-            <element signature="e#25770#25771#0" expanded="true" />
-            <element signature="e#25838#25839#0" expanded="true" />
-            <element signature="e#25902#25903#0" expanded="true" />
-            <element signature="e#26211#26212#0" expanded="true" />
-            <element signature="e#26273#26274#0" expanded="true" />
-            <element signature="e#26347#26348#0" expanded="true" />
-            <element signature="e#26417#26418#0" expanded="true" />
-            <element signature="e#26498#26499#0" expanded="true" />
-            <element signature="e#26564#26565#0" expanded="true" />
+            <element signature="e#25582#25583#0" expanded="true" />
+            <element signature="e#25639#25640#0" expanded="true" />
+            <element signature="e#25729#25730#0" expanded="true" />
+            <element signature="e#25790#25791#0" expanded="true" />
+            <element signature="e#25858#25859#0" expanded="true" />
+            <element signature="e#25922#25923#0" expanded="true" />
+            <element signature="e#26231#26232#0" expanded="true" />
+            <element signature="e#26293#26294#0" expanded="true" />
+            <element signature="e#26367#26368#0" expanded="true" />
+            <element signature="e#26437#26438#0" expanded="true" />
+            <element signature="e#26518#26519#0" expanded="true" />
+            <element signature="e#26584#26585#0" expanded="true" />
           </folding>
         </state>
       </provider>

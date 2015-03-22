@@ -607,7 +607,7 @@ public class communication_frag extends Fragment {
             //long time = DateUtils.getCurrentTime();
             String time = "NOWWWWW";
             chatMessage.setProperty("date_sent", time + "");
-            chatMessage.setBody(" (a message from: " + qbThisUser.getLogin() + ")");
+            chatMessage.setBody(txtSend.getText() + " (a message from: " + qbThisUser.getLogin() + ")");
 
             Log.d("GVE", "------------SENDING: processMessage: " + chatMessage.getBody() + " from " + qbThisUser.getLogin() + " to " + userID);
 
