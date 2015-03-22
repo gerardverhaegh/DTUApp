@@ -60,7 +60,7 @@ public class preferences_act extends PreferenceActivity implements
         }
         if (p instanceof EditTextPreference) {
             EditTextPreference editTextPref = (EditTextPreference) p;
-            if (p.getTitle().toString().contains("assword")) {
+            if (false){//p.getTitle().toString().contains("assword")) {
                 p.setSummary("******");
             } else {
                 p.setSummary(editTextPref.getText());
