@@ -17,6 +17,8 @@ public class constants {
     public static final String INDEX = "Index";
     public static final int LIST_INDEX = 0;
 
+    public static final int THIS_USER = 0;
+    public static final int OTHER_USER = 1;
 
     public static int LOCATION_MIN_TIME = 1000;
     public static int LOCATION_PER_PAGE = 100;

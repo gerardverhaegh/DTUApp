@@ -165,7 +165,7 @@ public class map_frag extends Fragment implements LocationListener {
                                     resources.getString(R.string.dlg_status) + (data
                                     .getUserStatus() != null ? data.getUserStatus() : resources.getString(R.string.empty));*/
                         }
-                        dialogutils.showLong(context, "message");
+                        //dialogutils.showLong(context, "message");
                         return false;
                     }
                 });

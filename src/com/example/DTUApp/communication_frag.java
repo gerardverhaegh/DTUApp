@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
-import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -98,19 +97,27 @@ public class communication_frag extends Fragment {
             }
         });
 
-        Button btnGetAllUsers = (Button) v.findViewById(R.id.btnGetAllUsers);
-        btnGetAllUsers.setOnClickListener(new View.OnClickListener() {
+/*        Button btnSignOut = (Button) v.findViewById(R.id.btnSignOut);
+        btnSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GetAllUsers();
+                SignOut();
+            }
+        });*/
+
+        Button btnGetOtherUser = (Button) v.findViewById(R.id.btnGetOtherUser);
+        btnGetOtherUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PickFromAllUsers(constants.OTHER_USER);
             }
         });
 
-        Button btnGetThisUSer = (Button) v.findViewById(R.id.btnGetThisUSer);
-        btnGetThisUSer.setOnClickListener(new View.OnClickListener() {
+        Button btnGetThisUser = (Button) v.findViewById(R.id.btnGetThisUser);
+        btnGetThisUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SelectThisUser();
+                PickFromAllUsers(constants.THIS_USER);
             }
         });
 
@@ -133,45 +140,32 @@ public class communication_frag extends Fragment {
         return v;
     }
 
+    private void StopSession() {
+        ChatLogout();
+    }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         ChatLogout();
-        StopSession();
-        chatService = null;
         qbThisUser = null;
         qbOtherUser = null;
         qbOtherUsers = null;
+        chatService = null;
+        privateChatManagerListener = null;
+        privateChatMessageListener = null;
+        groupChatManager = null;
     }
 
     private void CreateSession() {
-        //Toast.makeText(getActivity().getApplicationContext(), "Logging in", Toast.LENGTH_SHORT).show();
-
-        txtStatus.setText("Logging in");
-
         // String appId, String authKey, String authSecret
         QBSettings.getInstance().fastConfigInit(constants.APP_ID, constants.AUTH_KEY, constants.AUTH_SECRET);
-
-        //String api = QBSettings.getInstance().getApiVersion();
-        //QBSettings.getInstance().setLogLevel(LogLevel.DEBUG);
-        //String dm = QBSettings.getInstance().getChatServerDomain();
-
-        //Toast.makeText(getActivity().getApplicationContext(), "hallo 2" + api + " " + dm, Toast.LENGTH_SHORT).show();
-
-        String date = (DateFormat.format("dd-MM-yyyy hh:mm:ss", new java.util.Date()).toString());
-
-        txtStatus.setText("Date of login: " + date);
-
-        System.out.println("--------------------" + date + "-------------------------");
-
 
         qbThisUser = new QBUser(constants.USER_LOGIN, constants.USER_PASSWORD);
         QBAuth.createSession(qbThisUser, new QBEntityCallbackImpl<QBSession>() {
             @Override
             public void onSuccess(QBSession qbSession, Bundle bundle) {
                 txtStatus.setText("createSession success");
-                //startMapActivity();
             }
 
             @Override
@@ -182,33 +176,16 @@ public class communication_frag extends Fragment {
         });
     }
 
-    private void StopSession() {
-        txtStatus.setText("session stopped");
-/*        try {
-            //QBAuth.deleteSession();
-            //txtStatus.setText("session stopped");
-        } catch (QBResponseException e) {
-            e.printStackTrace();
-        }*/
-    }
-
-    private void startMapActivity() {
-        Intent intent = new Intent(this.getActivity(), map_frag.class);
-        startActivity(intent);
-    }
-
     private void SignUp() {
         LayoutInflater li = LayoutInflater.from(getActivity());
         View prompt = li.inflate(R.layout.login_dialog, null);
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
         alertDialogBuilder.setView(prompt);
-        //final String username = getActivity().getIntent().getStringExtra("USERNAME");
         final EditText user = (EditText) prompt.findViewById(R.id.userNameEditText);
 
         user.setText(global_app.GetPref().getString(constants.USERNAME, "Gerard"));
         final EditText pass = (EditText) prompt.findViewById(R.id.passwordEditText);
         pass.setText(global_app.GetPref().getString(constants.PASSWORD, "longpassword123"));
-        //user.setText(getActivity().getIntent().getStringExtra("USERNAME"));
 
         alertDialogBuilder.setCancelable(false)
                 .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
@@ -244,36 +221,16 @@ public class communication_frag extends Fragment {
 
             @Override
             public void onError(List<String> errors) {
-
-                Toast.makeText(getActivity().getApplicationContext(), errors.toString(), Toast.LENGTH_SHORT).show();
                 txtStatus.setText("signUpSignInTask error");
             }
         });
     }
 
-    private void GetAllUsers() {
-        QBUsers.getUsers(null, new QBEntityCallbackImpl<ArrayList<QBUser>>() {
-            @Override
-            public void onSuccess(ArrayList<QBUser> qbUsers, Bundle bundle) {
-                qbOtherUsers = qbUsers;
-                ArrayList<String> s = new ArrayList<String>();
-
-                for (int i = 0; i < qbUsers.size(); i++) {
-                    s.add(qbOtherUsers.get(i).getLogin());
-                }
-                Intent i = new Intent(getActivity(), listofusers_act.class);
-                i.putStringArrayListExtra(constants.USERNAMES, s);
-                startActivityForResult(i, 0);
-            }
-
-            @Override
-            public void onError(List<String> errors) {
-                Toast.makeText(getActivity().getApplicationContext(), errors.toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
+    private void SignOut() {
+        // not yet implemented
     }
 
-    private void SelectThisUser() {
+    private void PickFromAllUsers(final int Function) {
         QBUsers.getUsers(null, new QBEntityCallbackImpl<ArrayList<QBUser>>() {
             @Override
             public void onSuccess(ArrayList<QBUser> qbUsers, Bundle bundle) {
@@ -285,7 +242,7 @@ public class communication_frag extends Fragment {
                 }
                 Intent i = new Intent(getActivity(), listofusers_act.class);
                 i.putStringArrayListExtra(constants.USERNAMES, s);
-                startActivityForResult(i, 1);
+                startActivityForResult(i, Function);
             }
 
             @Override
@@ -296,24 +253,23 @@ public class communication_frag extends Fragment {
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        if (requestCode == 0) {
+        if (requestCode == constants.OTHER_USER) {
             if (resultCode == constants.LIST_INDEX) {
                 int index = data.getIntExtra(constants.INDEX, -1);
                 qbOtherUser = qbOtherUsers.get(index);
-                Toast.makeText(getActivity().getApplicationContext(), "Other User: " + qbOtherUser.getLogin() + " " + qbOtherUser.getPassword(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity().getApplicationContext(), "Other User: " + qbOtherUser.getLogin() + " " + qbOtherUser.getPassword(), Toast.LENGTH_SHORT).show();
             }
         }
 
-        if (requestCode == 1) {
+        if (requestCode  == constants.THIS_USER) {
             if (resultCode == constants.LIST_INDEX) {
                 int index = data.getIntExtra(constants.INDEX, -1);
                 qbThisUser = qbOtherUsers.get(index);
                 qbThisUser.setPassword(global_app.GetPref().getString(constants.PASSWORD, "No password found"));
-                Toast.makeText(getActivity().getApplicationContext(), "This User: " + qbThisUser.getLogin() + " " + qbThisUser.getPassword(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity().getApplicationContext(), "This User: " + qbThisUser.getLogin() + " " + qbThisUser.getPassword(), Toast.LENGTH_SHORT).show();
             }
         }
-    }//onActivityResult
+    }
 
     private void LoginChat() {
         // Initialise Chat service
@@ -322,43 +278,18 @@ public class communication_frag extends Fragment {
             chatService = QBChatService.getInstance();
         }
 
-/*        try {
-            QBChatService.getInstance().startAutoSendPresence(60);
-        } catch (SmackException.NotLoggedInException e) {
-            e.printStackTrace();
-        }*/
-
-        //AddConnectionListener();
-
         QBAuth.createSession(qbThisUser, new QBEntityCallbackImpl<QBSession>() {
             @Override
             public void onSuccess(QBSession session, Bundle params) {
                 // success, login to chat
-
                 qbThisUser.setId(session.getUserId());
                 txtStatus.setText("createSession success: " + session.getUserId());
 
                 loginToChat(qbThisUser);
-
-/*                chatService.login(qbThisUser, new QBEntityCallbackImpl() {
-                    @Override
-                    public void onSuccess() {
-                        // success
-                        txtStatus.setText("chatService.login success");
-                        SendChatMessage();
-                    }
-
-                    @Override
-                    public void onError(List errors) {
-                        // error
-                        txtStatus.setText("chatService.login error: " + errors.toString());
-                    }
-                });*/
             }
 
             @Override
             public void onError(List<String> errors) {
-                // errors
                 txtStatus.setText("createSession error: " + errors.toString());
             }
         });
@@ -371,16 +302,8 @@ public class communication_frag extends Fragment {
             chatService.login(user, new QBEntityCallbackImpl() {
                 @Override
                 public void onSuccess() {
-
                     Log.d("GVE", "chatService.login success");
 
-                    //SendChatMessage();
-
-
-                    //txtStatus.setText("chatService.login success");
-
-                    // Start sending presences
-                    //
                     try {
                         chatService.startAutoSendPresence(60);
                     } catch (SmackException.NotLoggedInException e) {
@@ -390,44 +313,15 @@ public class communication_frag extends Fragment {
                     AddConnectionListener();
                     StartListeningForPrivateChats();
                     StartListeningForGroupChats();
-/*
-                Intent intent = new Intent(getActivity(), DialogsActivity.class);
-                startActivity(intent);*/
-/*                    getActivity().runOnUiThread(new Runnable() {
-                        public void run() {
-                            RequestChatDialogs();
-
-                            StartListeningForPrivateChats();
-                            StartListeningForGroupChats();
-                        }
-                    });*/
-
-/*                // go to Dialogs screen
-                //
-                Intent intent = new Intent(SplashActivity.this, DialogsActivity.class);
-                startActivity(intent);
-                finish();*/
                 }
 
                 @Override
                 public void onError(List errors) {
                     Log.d("GVE", "chatService.login error: " + errors);
-                    //txtStatus.setText("chatService.login error");
-
-/*                AlertDialog.Builder dialog = new AlertDialog.Builder(SplashActivity.this);
-                dialog.setMessage("chat login errors: " + errors).create().show();*/
                 }
             });
-        }
-        else
-        {
-/*            getActivity().runOnUiThread(new Runnable() {
-                public void run() {
-                    RequestChatDialogs();
-                }
-            });*/
-
-            Log.d("GVE", "chatService.login was alrday logged in: ");
+        } else {
+            Log.d("GVE", "chatService.login was already logged in: ");
             AddConnectionListener();
             StartListeningForPrivateChats();
             StartListeningForGroupChats();
@@ -456,9 +350,7 @@ public class communication_frag extends Fragment {
         privateChatMessageListener = new QBMessageListener<QBPrivateChat>() {
             @Override
             public void processMessage(QBPrivateChat privateChat, final QBChatMessage chatMessage) {
-
                 Log.d("GVE", "---------RECEIVING: processMessage: " + chatMessage.getBody() + " from " + chatMessage.getSenderId());
-
                 getActivity().runOnUiThread(new Runnable() {
                     public void run() {
                         txtReceive.setText(chatMessage.getBody());
@@ -468,13 +360,11 @@ public class communication_frag extends Fragment {
 
             @Override
             public void processError(QBPrivateChat privateChat, QBChatException error, QBChatMessage originMessage) {
-
                 Log.d("GVE", "processMessage: " + error.getMessage());
             }
 
             @Override
             public void processMessageDelivered(QBPrivateChat privateChat, String messageID) {
-
                 Log.d("GVE", "processMessageDelivered: " + messageID);
             }
 
@@ -483,7 +373,6 @@ public class communication_frag extends Fragment {
                 Log.d("GVE", "processMessageRead: " + messageID);
             }
         };
-
 
         privateChatManagerListener = new QBPrivateChatManagerListener() {
             @Override
@@ -494,9 +383,7 @@ public class communication_frag extends Fragment {
             }
         };
 
-
         QBChatService.getInstance().getPrivateChatManager().addPrivateChatManagerListener(privateChatManagerListener);
-
         Integer opponentId = qbOtherUser.getId();
 
         try {
@@ -510,9 +397,7 @@ public class communication_frag extends Fragment {
             }
             privateChat.sendMessage(chatMessage);
         } catch (XMPPException e) {
-
         } catch (SmackException.NotConnectedException e) {
-
         }
     }
 
@@ -520,13 +405,11 @@ public class communication_frag extends Fragment {
         QBMessageListener<QBGroupChat> groupChatQBMessageListener = new QBMessageListener<QBGroupChat>() {
             @Override
             public void processMessage(final QBGroupChat groupChat, final QBChatMessage chatMessage) {
-
                 Log.d("GVE", "processMessage: " + chatMessage.getBody());
             }
 
             @Override
             public void processError(final QBGroupChat groupChat, QBChatException error, QBChatMessage originMessage) {
-
                 Log.d("GVE", "processError: " + error.getMessage());
             }
 
@@ -603,14 +486,11 @@ public class communication_frag extends Fragment {
 
             Log.d("GVE", "NotifyOthers: " + userID);
             QBChatMessage chatMessage = createChatNotificationForGroupChatCreation(dialog);
-
             //long time = DateUtils.getCurrentTime();
             String time = "NOWWWWW";
             chatMessage.setProperty("date_sent", time + "");
             chatMessage.setBody(txtSend.getText() + " (a message from: " + qbThisUser.getLogin() + ")");
-
             Log.d("GVE", "------------SENDING: processMessage: " + chatMessage.getBody() + " from " + qbThisUser.getLogin() + " to " + userID);
-
             QBPrivateChat chat = QBChatService.getInstance().getPrivateChatManager().getChat(userID);
             if (chat == null) {
                 Log.d("GVE", "chat == null: " + userID);
@@ -635,11 +515,9 @@ public class communication_frag extends Fragment {
 
         QBChatMessage chatMessage = new QBChatMessage();
         chatMessage.setBody("optional text");
-
         // Add notification_type=1 to extra params when you created a group chat
         //
         chatMessage.setProperty("notification_type", "1");
-
         chatMessage.setProperty("_id", dialogId);
         if (!TextUtils.isEmpty(roomJid)) {
             chatMessage.setProperty("room_jid", roomJid);
@@ -652,31 +530,6 @@ public class communication_frag extends Fragment {
 
         return chatMessage;
     }
-
-/*    private void SendChatMessage() {
-
-        Log.d("GVE", "SendChatMessage");
-        QBChatMessage chatMessage = new QBChatMessage();
-
-        String time = "NOWWWWWWW";
-        chatMessage.setProperty("date_sent", time + "");
-        chatMessage.setBody("Hi there!");
-
-        //Toast.makeText(getActivity().getApplicationContext(), "OTHER: " + qbOtherUser.getId(), Toast.LENGTH_SHORT).show();
-
-        QBPrivateChat chat = QBChatService.getInstance().getPrivateChatManager().getChat(qbOtherUser.getId());
-        if (chat == null) {
-            chat = chatService.getPrivateChatManager().createChat(qbOtherUser.getId(), null);
-        }
-
-        try {
-            chat.sendMessage(chatMessage);
-            Log.d("GVE", "chat.sendMessage");
-        } catch (Exception e) {
-            // error
-            Log.d("GVE", "error chat.sendMessage");
-        }
-    }*/
 
     private void AddConnectionListener() {
         ConnectionListener connectionListener = new ConnectionListener() {

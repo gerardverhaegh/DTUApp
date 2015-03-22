@@ -86,6 +86,9 @@ public class main_act extends FragmentActivity {
             current_frag = new map_frag();
             SetFragment();
         } else if (current_frag instanceof map_frag) {
+            current_frag = new letter_frag();
+            SetFragment();
+        } else if (current_frag instanceof letter_frag) {
             current_frag = new finished_game_frag();
             SetFragment();
         }
@@ -118,6 +121,13 @@ public class main_act extends FragmentActivity {
         }
 
         if (current_frag instanceof map_frag) {
+            if (answer == "done") {
+                current_frag = new letter_frag();
+                SetFragment();
+            }
+        }
+
+        if (current_frag instanceof letter_frag) {
             if (answer == "done") {
                 current_frag = new finished_game_frag();
                 SetFragment();

@@ -46,6 +46,5 @@
         <activity android:name=".main_act"/>
         <activity android:name=".preferences_act"/>
         <activity android:name=".listofusers_act"/>
-        <activity android:name=".DialogsActivity"/>
     </application>
 </manifest>
