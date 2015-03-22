@@ -456,7 +456,10 @@ public class communication_frag extends Fragment {
 
     private void NewGroupDialog() {
         ArrayList<Integer> occupantIdsList = new ArrayList<Integer>();
-        occupantIdsList.add(qbOtherUser.getId());
+
+        for (int i = 0; i < qbOtherUsers.size(); i++) {
+            occupantIdsList.add(qbOtherUsers.get(i).getId());
+        }
 
         QBDialog dialog = new QBDialog();
         dialog.setName("GVE's first chat");
