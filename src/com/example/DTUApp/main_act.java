@@ -75,27 +75,34 @@ public class main_act extends FragmentActivity {
 
         if (current_frag instanceof start_frag) {
             current_frag = new question_evaluation_frag();
-            SetFragment();
         } else if (current_frag instanceof question_evaluation_frag) {
             current_frag = new evaluation_frag();
-            SetFragment();
         } else if (current_frag instanceof evaluation_frag) {
             current_frag = new find_location1_frag();
-            SetFragment();
         } else if (current_frag instanceof find_location1_frag) {
             current_frag = new map_frag();
-            SetFragment();
         } else if (current_frag instanceof map_frag) {
             current_frag = new letter_frag();
-            SetFragment();
         } else if (current_frag instanceof letter_frag) {
             current_frag = new finished_game_frag();
-            SetFragment();
         }
+        SetFragment();
     }
 
     private void GetPreviousFragment() {
-        current_frag = new start_frag();
+        if (current_frag instanceof question_evaluation_frag) {
+            current_frag = new start_frag();
+        } else if (current_frag instanceof evaluation_frag) {
+            current_frag = new question_evaluation_frag();
+        } else if (current_frag instanceof find_location1_frag) {
+            current_frag = new evaluation_frag();
+        } else if (current_frag instanceof map_frag) {
+            current_frag = new find_location1_frag();
+        } else if (current_frag instanceof letter_frag) {
+            current_frag = new map_frag();
+        } else if (current_frag instanceof finished_game_frag) {
+            current_frag = new letter_frag();
+        }
         SetFragment();
     }
 
