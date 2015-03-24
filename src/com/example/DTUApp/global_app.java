@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 /**
  * Created by gve on 18-03-2015.
@@ -26,6 +27,7 @@ public class global_app extends Application /*implements SharedPreferences*/ {
         super.onCreate();
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         _instance = this;
+        Log.d("GVE", "---------global_app onCreate-----------");
     }
 
     @Override

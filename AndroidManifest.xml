@@ -46,5 +46,6 @@
         <activity android:name=".main_act"/>
         <activity android:name=".preferences_act"/>
         <activity android:name=".listofusers_act"/>
+        <receiver android:name=".alarm_act" />
     </application>
 </manifest>
