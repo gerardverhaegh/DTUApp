@@ -12,10 +12,18 @@
         android:scaleType="fitXY"/>-->
 
     <TextView
-        android:id="@+id/tv"
+        android:id="@+id/tv1"
+        android:text="You got this letter:"
+        android:textSize="40dp"
+        android:gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tv2"
         android:text="A"
         android:textSize="300dp"
         android:gravity="center"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"/>
+        android:layout_height="wrap_content"/>
 </LinearLayout>

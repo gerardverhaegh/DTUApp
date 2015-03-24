@@ -29,12 +29,12 @@ public class letter_frag extends Fragment {
 
         final DecelerateInterpolator sDecelerator = new DecelerateInterpolator();
         final OvershootInterpolator sOvershooter = new OvershootInterpolator(10f);
-        TextView tv = (TextView) v.findViewById(R.id.tv);
+        TextView tv2 = (TextView) v.findViewById(R.id.tv2);
 
-        tv.setText("A");
-        tv.animate().rotationX(360).alpha(10).setDuration(5000);
+        tv2.setText("A");
+        tv2.animate().setInterpolator(sDecelerator).rotationX(360).alpha(10).setDuration(5000);
 
-        tv.setOnClickListener(new View.OnClickListener() {
+/*        tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 TextView tv = (TextView) v.findViewById(R.id.tv);
@@ -62,7 +62,7 @@ public class letter_frag extends Fragment {
                         break;
                 }
             }
-        });
+        });*/
 
         return v;
     }
