@@ -5,16 +5,16 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-<!--    <ImageView
-        android:id="@+id/iv"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:scaleType="fitXY"/>-->
+    <!--    <ImageView
+            android:id="@+id/iv"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="fitXY"/>-->
 
     <TextView
         android:id="@+id/tv1"
         android:text="You got this letter:"
-        android:textSize="40dp"
+        android:textSize="30dp"
         android:gravity="center"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
@@ -22,8 +22,23 @@
     <TextView
         android:id="@+id/tv2"
         android:text="A"
-        android:textSize="300dp"
+        android:textSize="200dp"
         android:gravity="center"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/LinearLayout"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="bottom">
+
+        <Button
+            android:id="@+id/btnShare"
+            android:text="Share with the others ..."
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"/>
+    </LinearLayout>
 </LinearLayout>
