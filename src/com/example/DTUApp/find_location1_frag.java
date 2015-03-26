@@ -26,4 +26,9 @@ public class find_location1_frag extends Fragment {
 
         return v;
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
 }

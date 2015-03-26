@@ -43,4 +43,4 @@ Temporary Items
 .apdisk
 
 # gerard added: ignore these directories:
-out
+out/

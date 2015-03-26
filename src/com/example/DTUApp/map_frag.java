@@ -58,7 +58,7 @@ public class map_frag extends Fragment implements LocationListener {
         View v = inflater.inflate(R.layout.map_frag,
                 container, false);
 
-        setRetainInstance(true);
+        //setRetainInstance(true);
 
         // create map
         googleMap = ((SupportMapFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.map_fragment)).getMap();

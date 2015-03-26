@@ -59,6 +59,11 @@ public class start_frag extends Fragment {
         return v;
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
+
     private void SetAlarm() {
         AlarmManager alarmMgr = (AlarmManager)getActivity().getSystemService(getActivity().ALARM_SERVICE);
         Intent intent = new Intent(getActivity(), alarm_act.class);

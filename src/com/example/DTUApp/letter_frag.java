@@ -91,4 +91,11 @@ public class letter_frag extends Fragment {
         });*/
         return v;
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+        tv2 = null;
+    }
 }

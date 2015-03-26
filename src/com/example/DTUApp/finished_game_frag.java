@@ -45,5 +45,7 @@ public class finished_game_frag extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+
+        iv = null;
     }
 }
