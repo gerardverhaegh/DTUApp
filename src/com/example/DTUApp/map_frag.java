@@ -174,12 +174,27 @@ public class map_frag extends Fragment implements LocationListener {
         LocationManager locationManager = (LocationManager) getActivity().getSystemService(getActivity().LOCATION_SERVICE);
         Criteria criteria = new Criteria();
         criteria.setAccuracy(Criteria.ACCURACY_FINE);
-        String provider = locationManager.getBestProvider(criteria, true);
 
-        Location location = locationManager.getLastKnownLocation(provider);
+        Location location = null;
+        String provider = null;
+
+        if (global_app.GetPref().getBoolean(constants.USEGPS, true))
+        {
+            provider = LocationManager.GPS_PROVIDER;
+        }
+        else
+        {
+            provider = LocationManager.NETWORK_PROVIDER;
+        }
+
+        Log.d("GVE", "Using GPS for last known location");
+        location = locationManager.getLastKnownLocation(provider);
+
         if (location != null) {
+            bFirstTime = true;
             onLocationChanged(location);
         }
+
         locationManager.requestLocationUpdates(provider, constants.LOCATION_MIN_TIME, 0, this);
     }
 

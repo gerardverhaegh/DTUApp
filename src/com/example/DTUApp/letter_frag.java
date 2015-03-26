@@ -18,6 +18,7 @@ import android.widget.TextView;
 public class letter_frag extends Fragment {
 
     private int cnt = 0;
+    private TextView tv2 = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -25,16 +26,31 @@ public class letter_frag extends Fragment {
         /**
          * Inflate the layout for this fragment
          */
-        View v = inflater.inflate(R.layout.letter_frag, container, false);
+        final View v = inflater.inflate(R.layout.letter_frag, container, false);
 
         final DecelerateInterpolator sDecelerator = new DecelerateInterpolator();
         final OvershootInterpolator sOvershooter = new OvershootInterpolator(10f);
-        TextView tv2 = (TextView) v.findViewById(R.id.tv2);
-
-        tv2.setText("A");
+        tv2 = (TextView) v.findViewById(R.id.tv2);
         tv2.animate().setInterpolator(sDecelerator).rotationX(360).alpha(10).setDuration(5000);
 
-/*        tv.setOnClickListener(new View.OnClickListener() {
+/*
+                tv2.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+                    public void onLayoutChange(View v, int left, int top, int right, int bottom,
+                                               int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                        final int width = right - left;
+/*                System.out.println("The width is == " + width);
+
+                Log.d("GVE", "-----width=" + width);
+                Log.d("GVE", "-----width=" + tv2.getMeasuredWidth());
+                tv2.setText("A");
+                Log.d("GVE", "-----width=" + tv2.getMeasuredWidth());
+                Log.d("GVE", "-----size=" + tv2.getTextSize());
+        tv2.setTextSize(width);
+    };
+});
+
+
+        tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 TextView tv = (TextView) v.findViewById(R.id.tv);
@@ -64,6 +80,15 @@ public class letter_frag extends Fragment {
             }
         });*/
 
+/*        v.post(new Runnable() {
+            int s = 6;
+            @Override
+            public void run() {
+                tv2.setTextSize(s);
+                s++;
+                v.postDelayed(this, 10);
+            }
+        });*/
         return v;
     }
 }

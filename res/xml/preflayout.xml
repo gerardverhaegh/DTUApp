@@ -21,6 +21,14 @@
         android:layout_gravity="center_horizontal"/>
 
     <CheckBoxPreference
+        android:key="UseGPS"
+        android:title="Use GPS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.07"
+        android:layout_gravity="center_horizontal"/>
+
+    <CheckBoxPreference
         android:key="SingleUser"
         android:title="Single User Play"
         android:layout_width="wrap_content"

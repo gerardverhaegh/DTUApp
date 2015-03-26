@@ -22,11 +22,12 @@
     <TextView
         android:id="@+id/tv2"
         android:text="A"
-        android:textSize="400dp"
+        android:textSize="250dp"
         android:gravity="center"
+        android:textAlignment="center"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"        />
+        android:layout_weight="1"/>
 
     <LinearLayout
         android:id="@+id/LinearLayout"

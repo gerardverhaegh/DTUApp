@@ -15,6 +15,7 @@ public class constants {
     public static final String PASSWORD = "Password";
     public static final String USERNAMES = "Usernames";
     public static final String INDEX = "Index";
+    public static final String USEGPS = "UseGPS";
     public static final int LIST_INDEX = 0;
 
     public static final int THIS_USER = 0;
