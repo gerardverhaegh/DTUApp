@@ -50,6 +50,7 @@ public class communication_frag extends Fragment {
     TextView txtStatus = null;
     TextView txtReceive = null;
     EditText txtSend = null;
+    TextView txtLogin = null;
     QBChatService chatService = null;
     QBUser qbThisUser = null;
     QBUser qbOtherUser = null;
@@ -66,12 +67,18 @@ public class communication_frag extends Fragment {
          */
         View v = inflater.inflate(R.layout.communication_frag, container, false);
 
+        // keep QB data in memory
+        setRetainInstance(true);
+
 /*        ImageView iv = (ImageView) v.findViewById(R.id.iv);
         iv.setImageResource(R.raw.communication);*/
 
         txtStatus = (TextView) v.findViewById(R.id.txtStatus);
         txtReceive = (TextView) v.findViewById(R.id.txtReceive);
         txtSend = (EditText) v.findViewById(R.id.txtSend);
+        txtLogin = (TextView) v.findViewById(R.id.txtLogin);
+
+        txtLogin.setText(global_app.GetPref().getString(constants.USERNAME, "NO STRING FOUND"));
 
         Button btnLogin = (Button) v.findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -81,19 +88,28 @@ public class communication_frag extends Fragment {
             }
         });
 
-        Button btnLogout = (Button) v.findViewById(R.id.btnLogout);
+/*        Button btnLogout = (Button) v.findViewById(R.id.btnLogout);
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 StopSession();
             }
-        });
+        });*/
 
         Button btnSignUp = (Button) v.findViewById(R.id.btnSignUp);
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SignUp();
+            }
+        });
+
+
+        Button btnShowAllUsers = (Button) v.findViewById(R.id.btnShowAllUsers);
+        btnShowAllUsers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShowAllUsers();
             }
         });
 
@@ -105,7 +121,7 @@ public class communication_frag extends Fragment {
             }
         });*/
 
-        Button btnGetOtherUser = (Button) v.findViewById(R.id.btnGetOtherUser);
+/*        Button btnGetOtherUser = (Button) v.findViewById(R.id.btnGetOtherUser);
         btnGetOtherUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -127,7 +143,7 @@ public class communication_frag extends Fragment {
             public void onClick(View v) {
                 LoginChat();
             }
-        });
+        });*/
 
         Button btnSendMessage = (Button) v.findViewById(R.id.btnSendMessage);
         btnSendMessage.setOnClickListener(new View.OnClickListener() {
@@ -165,7 +181,10 @@ public class communication_frag extends Fragment {
         QBAuth.createSession(qbThisUser, new QBEntityCallbackImpl<QBSession>() {
             @Override
             public void onSuccess(QBSession qbSession, Bundle bundle) {
+
                 txtStatus.setText("createSession success");
+                GetAllUsers(txtLogin.getText().toString());
+                LoginChat();
             }
 
             @Override
@@ -230,7 +249,35 @@ public class communication_frag extends Fragment {
         // not yet implemented
     }
 
-    private void PickFromAllUsers(final int Function) {
+
+    private void GetAllUsers(final String UserName) {
+        QBUsers.getUsers(null, new QBEntityCallbackImpl<ArrayList<QBUser>>() {
+            @Override
+            public void onSuccess(ArrayList<QBUser> qbUsers, Bundle bundle) {
+                qbOtherUsers = qbUsers;
+
+                for (int i = 0; i < qbUsers.size(); i++) {
+                    Log.d("GVE", "all users: " + qbOtherUsers.get(i).getLogin());
+
+                    if (i == 0) {
+                        qbOtherUser = qbOtherUsers.get(i);
+                        Log.d("GVE", "qbOtherUser: " + qbOtherUser.getLogin());
+                    }
+                    else if (UserName == qbOtherUsers.get(i).getLogin()) {
+                        qbThisUser = qbOtherUsers.get(i);
+                        Log.d("GVE", "qbThisUser: " + qbThisUser.getLogin());
+                    }
+                }
+            }
+
+            @Override
+            public void onError(List<String> errors) {
+                Log.d("GVE", "errors: " + errors.toString());
+            }
+        })    ;
+}
+
+    private void ShowAllUsers() {
         QBUsers.getUsers(null, new QBEntityCallbackImpl<ArrayList<QBUser>>() {
             @Override
             public void onSuccess(ArrayList<QBUser> qbUsers, Bundle bundle) {
@@ -240,9 +287,10 @@ public class communication_frag extends Fragment {
                 for (int i = 0; i < qbUsers.size(); i++) {
                     s.add(qbOtherUsers.get(i).getLogin());
                 }
+
                 Intent i = new Intent(getActivity(), listofusers_act.class);
                 i.putStringArrayListExtra(constants.USERNAMES, s);
-                startActivityForResult(i, Function);
+                startActivity(i);
             }
 
             @Override
@@ -252,7 +300,7 @@ public class communication_frag extends Fragment {
         });
     }
 
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+/*    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == constants.OTHER_USER) {
             if (resultCode == constants.LIST_INDEX) {
                 int index = data.getIntExtra(constants.INDEX, -1);
@@ -261,7 +309,7 @@ public class communication_frag extends Fragment {
             }
         }
 
-        if (requestCode  == constants.THIS_USER) {
+        if (requestCode == constants.THIS_USER) {
             if (resultCode == constants.LIST_INDEX) {
                 int index = data.getIntExtra(constants.INDEX, -1);
                 qbThisUser = qbOtherUsers.get(index);
@@ -269,7 +317,7 @@ public class communication_frag extends Fragment {
                 //Toast.makeText(getActivity().getApplicationContext(), "This User: " + qbThisUser.getLogin() + " " + qbThisUser.getPassword(), Toast.LENGTH_SHORT).show();
             }
         }
-    }
+    }*/
 
     private void LoginChat() {
         // Initialise Chat service
@@ -577,6 +625,9 @@ public class communication_frag extends Fragment {
     }
 
     private void ChatLogout() {
+        if (chatService == null) {
+            return;
+        }
         boolean isLoggedIn = chatService.isLoggedIn();
         if (!isLoggedIn) {
             return;

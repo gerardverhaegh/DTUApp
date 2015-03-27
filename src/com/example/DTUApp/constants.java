@@ -24,4 +24,7 @@ public class constants {
     public static int LOCATION_MIN_TIME = 1000;
     public static int LOCATION_PER_PAGE = 100;
     public static int PLAY_SERVICE_REQUEST_CODE = 10;
+
+
+    public static final int NOTIFY_USER_EXIST = 0;
 }
