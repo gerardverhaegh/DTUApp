@@ -42,7 +42,7 @@ public class global_app extends Application /*implements SharedPreferences*/ {
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         if (preferences.getString(constants.USERNAME, "NO STRING") == "NO STRING")
         {
-            preferences.edit().putString(constants.USERNAME, getGoogleUsername()).commit();
+            preferences.edit().putString(constants.USERNAME, getGoogleUsername()).putString(constants.PASSWORD, "longpassword123").commit();
         }
 
         //comm = new communication();

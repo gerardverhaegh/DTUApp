@@ -2,8 +2,6 @@ package com.example.DTUApp;
 
 //import android.app.Fragment;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -51,7 +49,7 @@ public class communication_frag extends Fragment {
     TextView txtReceive = null;
     EditText txtSend = null;
     TextView txtLogin = null;
-    QBChatService chatService = null;
+    QBChatService mChatService = null;
     QBUser qbThisUser = null;
     QBUser qbOtherUser = null;
     ArrayList<QBUser> qbOtherUsers = null;
@@ -80,13 +78,13 @@ public class communication_frag extends Fragment {
 
         txtLogin.setText(global_app.GetPref().getString(constants.USERNAME, "NO STRING FOUND"));
 
-        Button btnLogin = (Button) v.findViewById(R.id.btnLogin);
+/*        Button btnLogin = (Button) v.findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CreateSession();
             }
-        });
+        });*/
 
 /*        Button btnLogout = (Button) v.findViewById(R.id.btnLogout);
         btnLogout.setOnClickListener(new View.OnClickListener() {
@@ -96,13 +94,13 @@ public class communication_frag extends Fragment {
             }
         });*/
 
-        Button btnSignUp = (Button) v.findViewById(R.id.btnSignUp);
+/*        Button btnSignUp = (Button) v.findViewById(R.id.btnSignUp);
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SignUp();
             }
-        });
+        });*/
 
 
         Button btnShowAllUsers = (Button) v.findViewById(R.id.btnShowAllUsers);
@@ -153,6 +151,10 @@ public class communication_frag extends Fragment {
             }
         });
 
+        if (!IsLoggedIn()) {
+            CreateSession();
+        }
+
         return v;
     }
 
@@ -163,17 +165,22 @@ public class communication_frag extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ChatLogout();
+
+        // do not log out
+
+/*        ChatLogout();
         qbThisUser = null;
         qbOtherUser = null;
         qbOtherUsers = null;
         chatService = null;
         privateChatManagerListener = null;
         privateChatMessageListener = null;
-        groupChatManager = null;
+        groupChatManager = null;*/
     }
 
     private void CreateSession() {
+        Log.d("GVE", "----CreateSession");
+
         // String appId, String authKey, String authSecret
         QBSettings.getInstance().fastConfigInit(constants.APP_ID, constants.AUTH_KEY, constants.AUTH_SECRET);
 
@@ -196,8 +203,14 @@ public class communication_frag extends Fragment {
     }
 
     private void SignUp() {
+        String username = global_app.GetPref().getString(constants.USERNAME, "NO USERNAME");
+        String password = global_app.GetPref().getString(constants.PASSWORD, "NO PASSWORD");
+        SignUpInQB(username, password);
+
+        /*
         LayoutInflater li = LayoutInflater.from(getActivity());
         View prompt = li.inflate(R.layout.login_dialog, null);
+
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
         alertDialogBuilder.setView(prompt);
         final EditText user = (EditText) prompt.findViewById(R.id.userNameEditText);
@@ -213,6 +226,8 @@ public class communication_frag extends Fragment {
                         String password = pass.getText().toString();
                         String username = user.getText().toString();
                         SignUpInQB(username, password);
+
+                        Log.d("GVE", "----SignUpInQB: " + username);
                     }
                 });
 
@@ -224,6 +239,7 @@ public class communication_frag extends Fragment {
             }
         });
         alertDialogBuilder.show();
+*/
     }
 
     private void SignUpInQB(final String username, final String password) {
@@ -255,18 +271,24 @@ public class communication_frag extends Fragment {
             @Override
             public void onSuccess(ArrayList<QBUser> qbUsers, Bundle bundle) {
                 qbOtherUsers = qbUsers;
+                boolean bUserExist = false;
 
                 for (int i = 0; i < qbUsers.size(); i++) {
-                    Log.d("GVE", "all users: " + qbOtherUsers.get(i).getLogin());
+                    Log.d("GVE", "user: " + qbOtherUsers.get(i).getLogin());
 
                     if (i == 0) {
                         qbOtherUser = qbOtherUsers.get(i);
                         Log.d("GVE", "qbOtherUser: " + qbOtherUser.getLogin());
-                    }
-                    else if (UserName == qbOtherUsers.get(i).getLogin()) {
+                    } else if (UserName == qbOtherUsers.get(i).getLogin()) {
                         qbThisUser = qbOtherUsers.get(i);
                         Log.d("GVE", "qbThisUser: " + qbThisUser.getLogin());
+                        bUserExist = true;
                     }
+                }
+
+                if (!bUserExist)
+                {
+                    SignUp();
                 }
             }
 
@@ -274,8 +296,8 @@ public class communication_frag extends Fragment {
             public void onError(List<String> errors) {
                 Log.d("GVE", "errors: " + errors.toString());
             }
-        })    ;
-}
+        });
+    }
 
     private void ShowAllUsers() {
         QBUsers.getUsers(null, new QBEntityCallbackImpl<ArrayList<QBUser>>() {
@@ -323,7 +345,7 @@ public class communication_frag extends Fragment {
         // Initialise Chat service
         if (!QBChatService.isInitialized()) {
             QBChatService.init(getActivity().getApplicationContext());
-            chatService = QBChatService.getInstance();
+            mChatService = QBChatService.getInstance();
         }
 
         QBAuth.createSession(qbThisUser, new QBEntityCallbackImpl<QBSession>() {
@@ -345,15 +367,15 @@ public class communication_frag extends Fragment {
 
     private void loginToChat(final QBUser user) {
 
-        boolean isLoggedIn = chatService.isLoggedIn();
+        boolean isLoggedIn = mChatService.isLoggedIn();
         if (!isLoggedIn) {
-            chatService.login(user, new QBEntityCallbackImpl() {
+            mChatService.login(user, new QBEntityCallbackImpl() {
                 @Override
                 public void onSuccess() {
                     Log.d("GVE", "chatService.login success");
 
                     try {
-                        chatService.startAutoSendPresence(60);
+                        mChatService.startAutoSendPresence(60);
                     } catch (SmackException.NotLoggedInException e) {
                         e.printStackTrace();
                     }
@@ -436,8 +458,8 @@ public class communication_frag extends Fragment {
 
         try {
             QBChatMessage chatMessage = new QBChatMessage();
-            chatMessage.setBody("Hi there!");
-            chatMessage.setProperty("save_to_history", "1"); // Save a message to history
+            chatMessage.setBody("Welcome!");
+            //chatMessage.setProperty("save_to_history", "1"); // Save a message to history
 
             QBPrivateChat privateChat = QBChatService.getInstance().getPrivateChatManager().getChat(opponentId);
             if (privateChat == null) {
@@ -545,7 +567,7 @@ public class communication_frag extends Fragment {
             QBPrivateChat chat = QBChatService.getInstance().getPrivateChatManager().getChat(userID);
             if (chat == null) {
                 Log.d("GVE", "chat == null: " + userID);
-                chat = chatService.getPrivateChatManager().createChat(userID, null);
+                chat = mChatService.getPrivateChatManager().createChat(userID, null);
             }
 
             try {
@@ -624,20 +646,33 @@ public class communication_frag extends Fragment {
         QBChatService.getInstance().addConnectionListener(connectionListener);
     }
 
-    private void ChatLogout() {
-        if (chatService == null) {
-            return;
+    private boolean IsLoggedIn() {
+        boolean bLoggedIn = false;
+
+        if (mChatService == null) {
+            bLoggedIn = false;
         }
-        boolean isLoggedIn = chatService.isLoggedIn();
-        if (!isLoggedIn) {
+        else
+        {
+            bLoggedIn =  mChatService.isLoggedIn();
+        }
+
+        Log.d("GVE", "IsLoggedIn: " + bLoggedIn);
+        return bLoggedIn;
+    }
+
+    private void ChatLogout() {
+        Log.d("GVE", "-----ChatLogout");
+
+        if (!IsLoggedIn()) {
             return;
         }
 
-        chatService.logout(new QBEntityCallbackImpl() {
+        mChatService.logout(new QBEntityCallbackImpl() {
             @Override
             public void onSuccess() {
                 // success
-                chatService.destroy();
+                mChatService.destroy();
             }
 
             @Override

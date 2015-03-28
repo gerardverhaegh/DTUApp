@@ -18,7 +18,7 @@
 
         <TextView
             android:id="@+id/tvMessage"
-            android:text="Play with the ones you love most and improve your well being over he next 12 weeks."
+            android:text="Play with the ones you love most and improve your well being over the next 12 weeks."
             android:gravity="center"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"/>
