@@ -45,17 +45,17 @@ import java.util.List;
  */
 public class communication_frag extends Fragment {
 
-    TextView txtStatus = null;
-    TextView txtReceive = null;
-    EditText txtSend = null;
-    TextView txtLogin = null;
-    QBChatService mChatService = null;
-    QBUser qbThisUser = null;
-    QBUser qbOtherUser = null;
-    ArrayList<QBUser> qbOtherUsers = null;
-    QBPrivateChatManagerListener privateChatManagerListener = null;
-    QBMessageListener<QBPrivateChat> privateChatMessageListener = null;
-    QBGroupChatManager groupChatManager = null;
+    private TextView txtStatus = null;
+    private TextView txtReceive = null;
+    private EditText txtSend = null;
+    private TextView txtLogin = null;
+    private QBChatService mChatService = null;
+    private QBUser qbThisUser = null;
+    private QBUser qbOtherUser = null;
+    private ArrayList<QBUser> qbOtherUsers = null;
+    private QBPrivateChatManagerListener privateChatManagerListener = null;
+    private QBMessageListener<QBPrivateChat> privateChatMessageListener = null;
+    private QBGroupChatManager groupChatManager = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -153,6 +153,9 @@ public class communication_frag extends Fragment {
 
         if (!IsLoggedIn()) {
             CreateSession();
+        } else {
+            GetAllUsers(txtLogin.getText().toString(), true);
+
         }
 
         return v;
@@ -190,13 +193,13 @@ public class communication_frag extends Fragment {
             public void onSuccess(QBSession qbSession, Bundle bundle) {
 
                 txtStatus.setText("createSession success");
-                GetAllUsers(txtLogin.getText().toString());
+                GetAllUsers(txtLogin.getText().toString(), false);
                 LoginChat();
             }
 
             @Override
             public void onError(List<String> errors) {
-                Toast.makeText(getActivity().getApplicationContext(), errors.toString(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity().getApplicationContext(), errors.toString(), Toast.LENGTH_SHORT).show();
                 txtStatus.setText("createSession error");
             }
         });
@@ -256,7 +259,7 @@ public class communication_frag extends Fragment {
 
             @Override
             public void onError(List<String> errors) {
-                txtStatus.setText("signUpSignInTask error");
+                txtStatus.setText("signUpSignInTask error" + errors);
             }
         });
     }
@@ -266,7 +269,7 @@ public class communication_frag extends Fragment {
     }
 
 
-    private void GetAllUsers(final String UserName) {
+    private void GetAllUsers(final String UserName, final boolean bReinit) {
         QBUsers.getUsers(null, new QBEntityCallbackImpl<ArrayList<QBUser>>() {
             @Override
             public void onSuccess(ArrayList<QBUser> qbUsers, Bundle bundle) {
@@ -286,10 +289,17 @@ public class communication_frag extends Fragment {
                     }
                 }
 
-                if (!bUserExist)
-                {
+                if (!bUserExist) {
                     SignUp();
                 }
+
+                if (bReinit)
+                {
+                    AddConnectionListener();
+                    StartListeningForPrivateChats();
+                    StartListeningForGroupChats();
+                }
+
             }
 
             @Override
@@ -366,7 +376,6 @@ public class communication_frag extends Fragment {
     }
 
     private void loginToChat(final QBUser user) {
-
         boolean isLoggedIn = mChatService.isLoggedIn();
         if (!isLoggedIn) {
             mChatService.login(user, new QBEntityCallbackImpl() {
@@ -547,8 +556,7 @@ public class communication_frag extends Fragment {
 
             @Override
             public void onError(List<String> errors) {
-                Log.d("GVE", "createDialog onSuccess: " + errors);
-
+                Log.d("GVE", "createDialog onError: " + errors);
             }
         });
     }
@@ -562,6 +570,7 @@ public class communication_frag extends Fragment {
             //long time = DateUtils.getCurrentTime();
             String time = "NOWWWWW";
             chatMessage.setProperty("date_sent", time + "");
+            Log.d("GVE", "-------------qbThisUser.getLogin(): " + qbThisUser.getLogin());
             chatMessage.setBody(txtSend.getText() + " (a message from: " + qbThisUser.getLogin() + ")");
             Log.d("GVE", "------------SENDING: processMessage: " + chatMessage.getBody() + " from " + qbThisUser.getLogin() + " to " + userID);
             QBPrivateChat chat = QBChatService.getInstance().getPrivateChatManager().getChat(userID);
@@ -650,11 +659,18 @@ public class communication_frag extends Fragment {
         boolean bLoggedIn = false;
 
         if (mChatService == null) {
-            bLoggedIn = false;
+            try {
+                mChatService = QBChatService.getInstance();
+            } catch (IllegalStateException e) {
+                mChatService = null;
+            }
         }
-        else
-        {
-            bLoggedIn =  mChatService.isLoggedIn();
+
+        if (mChatService == null) {
+
+            bLoggedIn = false;
+        } else {
+            bLoggedIn = mChatService.isLoggedIn();
         }
 
         Log.d("GVE", "IsLoggedIn: " + bLoggedIn);
