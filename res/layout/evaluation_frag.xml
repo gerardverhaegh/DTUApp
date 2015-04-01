@@ -9,8 +9,7 @@
         android:id="@+id/iv"
         android:src="@raw/evaluation"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:scaleType="fitXY"/>
+        android:layout_height="fill_parent"/>
 
     <TextView
         android:id="@+id/tv"
