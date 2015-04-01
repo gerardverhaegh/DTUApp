@@ -103,13 +103,13 @@ public class communication_frag extends Fragment {
         });*/
 
 
-        Button btnShowAllUsers = (Button) v.findViewById(R.id.btnShowAllUsers);
+/*        Button btnShowAllUsers = (Button) v.findViewById(R.id.btnShowAllUsers);
         btnShowAllUsers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ShowAllUsers();
             }
-        });
+        });*/
 
 /*        Button btnSignOut = (Button) v.findViewById(R.id.btnSignOut);
         btnSignOut.setOnClickListener(new View.OnClickListener() {
@@ -320,7 +320,7 @@ public class communication_frag extends Fragment {
                     s.add(qbOtherUsers.get(i).getLogin());
                 }
 
-                Intent i = new Intent(getActivity(), listofusers_act.class);
+                Intent i = new Intent(getActivity(), listofusers_frag.class);
                 i.putStringArrayListExtra(constants.USERNAMES, s);
                 startActivity(i);
             }

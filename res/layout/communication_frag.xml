@@ -74,7 +74,7 @@
             android:layout_weight="1"/>
     </LinearLayout>-->
 
-    <LinearLayout
+<!--    <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -88,7 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
 
-<!--        <Button
+        <Button
             android:id="@+id/btnGetThisUser"
             android:text="Get this user"
             android:layout_width="fill_parent"
@@ -100,8 +100,8 @@
             android:text="Get other user"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>-->
-    </LinearLayout>
+            android:layout_weight="1"/>
+    </LinearLayout>-->
 
     <LinearLayout
         android:orientation="horizontal"
