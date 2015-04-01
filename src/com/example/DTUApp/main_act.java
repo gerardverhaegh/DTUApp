@@ -47,14 +47,14 @@ public class main_act extends FragmentActivity {
             }
         });
 
-        TabWidget btn_speak = (TabWidget) findViewById(R.id.btn_speak);
+/*        TabWidget btn_speak = (TabWidget) findViewById(R.id.btn_speak);
         btn_speak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 current_frag = new communication_frag();
                 SetFragment();
             }
-        });
+        });*/
 
         TabWidget btn_preferences = (TabWidget) findViewById(R.id.btn_preferences);
         btn_preferences.setOnClickListener(new View.OnClickListener() {
