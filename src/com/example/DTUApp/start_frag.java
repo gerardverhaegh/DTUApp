@@ -27,6 +27,11 @@ import java.util.Calendar;
 public class start_frag extends Fragment {
     EditText mtxtDate = null;
     EditText mtxtTime = null;
+    int m_year;
+    int m_month;
+    int m_dayOfMonth;
+    int m_hourOfDay;
+    int m_minute;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -39,13 +44,13 @@ public class start_frag extends Fragment {
         ImageView iv = (ImageView)v.findViewById(R.id.iv);
         iv.setImageResource(R.raw.start);
 
-/*        Button btnSetAlarm = (Button) v.findViewById(R.id.btnSetAlarm);
+        Button btnSetAlarm = (Button) v.findViewById(R.id.btnSetAlarm);
         btnSetAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SetAlarm();
             }
-        });*/
+        });
 
         mtxtDate = (EditText) v.findViewById(R.id.txtDate);
         mtxtDate.setInputType(0);
@@ -66,6 +71,10 @@ public class start_frag extends Fragment {
                 showTimePicker(getActivity());
             }
         });
+
+        Calendar c = Calendar.getInstance();
+        DisplayDate(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
+        DisplayTime(c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE));
 
         return v;
     }
@@ -94,10 +103,8 @@ public class start_frag extends Fragment {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month,
                                             int dayOfMonth) {
+                DisplayDate(year, month, dayOfMonth);
                 popupWindow.dismiss();
-                Log.d("date selected", "date selected " + year + " " + month + " " + dayOfMonth);
-                mtxtDate.setText(new StringBuilder().append(pad(year))
-                        .append(":").append(pad(month)).append(":").append(dayOfMonth));
             }
         });
 
@@ -126,12 +133,9 @@ public class start_frag extends Fragment {
         tp.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+                DisplayTime(hourOfDay, minute);
                 popupWindow.dismiss();
-                Log.d("time selected", "time selected " + hourOfDay + " " + minute);
-                mtxtTime.setText(new StringBuilder().append(pad(hourOfDay))
-                        .append(":").append(pad(minute)));
             }
-
         });
 
         popupWindow.showAtLocation(layout, Gravity.TOP,5,170);
@@ -144,6 +148,27 @@ public class start_frag extends Fragment {
             return "0" + String.valueOf(c);
     }
 
+    private void DisplayDate(int year, int month, int dayOfMonth)
+    {
+        m_year = year;
+        m_month = month;
+        m_dayOfMonth = dayOfMonth;
+
+        Log.d("date selected", "date selected " + m_year + " " + m_month + " " + m_dayOfMonth);
+        mtxtDate.setText(new StringBuilder().append(pad(m_dayOfMonth))
+                .append("-").append(pad(m_month)).append("-").append(pad(m_year)));
+    }
+
+    private void DisplayTime(int hourOfDay, int minute)
+    {
+        m_hourOfDay = hourOfDay;
+        m_minute = minute;
+
+        Log.d("time selected", "time selected " + m_hourOfDay + " " + m_minute);
+        mtxtTime.setText(new StringBuilder().append(pad(m_hourOfDay))
+                .append(":").append(pad(m_minute)));
+    }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
@@ -154,8 +179,12 @@ public class start_frag extends Fragment {
         Intent intent = new Intent(getActivity(), alarm_act.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, intent, 0);
         Calendar time = Calendar.getInstance();
+        time.set(Calendar.YEAR, m_year);
+        time.set(Calendar.MONTH, m_month);
+        time.set(Calendar.DAY_OF_MONTH, m_dayOfMonth);
+        time.set(Calendar.HOUR_OF_DAY, m_hourOfDay);
+        time.set(Calendar.MINUTE, m_minute);
         time.setTimeInMillis(System.currentTimeMillis());
-        time.add(Calendar.SECOND, 10);
         alarmMgr.set(AlarmManager.RTC_WAKEUP, time.getTimeInMillis(), pendingIntent);
     }
 }

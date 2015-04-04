@@ -72,7 +72,6 @@ public class main_act extends FragmentActivity {
     }
 
     private void GetNextFragment() {
-
         if (current_frag instanceof start_frag) {
             current_frag = new communication_frag();
         } else if (current_frag instanceof communication_frag) {
