@@ -25,6 +25,8 @@ import java.util.Calendar;
  * Created by Gerard Verhaegh on 3/14/2015.
  */
 public class start_frag extends Fragment {
+    EditText mtxtDate = null;
+    EditText mtxtTime = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -37,44 +39,38 @@ public class start_frag extends Fragment {
         ImageView iv = (ImageView)v.findViewById(R.id.iv);
         iv.setImageResource(R.raw.start);
 
-        Button btnSetAlarm = (Button) v.findViewById(R.id.btnSetAlarm);
+/*        Button btnSetAlarm = (Button) v.findViewById(R.id.btnSetAlarm);
         btnSetAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SetAlarm();
             }
-        });
+        });*/
 
-        EditText txtDate = (EditText) v.findViewById(R.id.txtDate);
-        txtDate.setOnClickListener(new View.OnClickListener() {
+        mtxtDate = (EditText) v.findViewById(R.id.txtDate);
+        mtxtDate.setInputType(0);
+        mtxtDate.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
+                showDatePicker(getActivity());
+            }
+        });
 
-                showPopup(getActivity());
+        mtxtTime = (EditText) v.findViewById(R.id.txtTime);
+        mtxtTime.setInputType(0);
+        mtxtTime.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                showTimePicker(getActivity());
             }
         });
 
         return v;
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-    }
-
-    private void SetAlarm() {
-        AlarmManager alarmMgr = (AlarmManager)getActivity().getSystemService(getActivity().ALARM_SERVICE);
-        Intent intent = new Intent(getActivity(), alarm_act.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, intent, 0);
-        Calendar time = Calendar.getInstance();
-        time.setTimeInMillis(System.currentTimeMillis());
-        time.add(Calendar.SECOND, 10);
-        alarmMgr.set(AlarmManager.RTC_WAKEUP, time.getTimeInMillis(), pendingIntent);
-    }
-
-    private void showPopup(Activity context) {
+    private void showDatePicker(Activity context) {
 
         // Inflate the popup_layout.xml
         LayoutInflater layoutInflater = (LayoutInflater)getActivity().getBaseContext()
@@ -91,19 +87,75 @@ public class start_frag extends Fragment {
         popupWindow.setBackgroundDrawable(new BitmapDrawable());
 
         CalendarView cv = (CalendarView) layout.findViewById(R.id.calendarView);
-        cv.setBackgroundColor(Color.BLUE);
+        cv.setBackgroundColor(Color.GREEN);
 
         cv.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month,
                                             int dayOfMonth) {
-                // TODO Auto-generated method stub
                 popupWindow.dismiss();
                 Log.d("date selected", "date selected " + year + " " + month + " " + dayOfMonth);
-
+                mtxtDate.setText(new StringBuilder().append(pad(year))
+                        .append(":").append(pad(month)).append(":").append(dayOfMonth));
             }
         });
+
         popupWindow.showAtLocation(layout, Gravity.TOP,5,170);
+    }
+
+    private void showTimePicker(Activity context) {
+
+        // Inflate the popup_layout.xml
+        LayoutInflater layoutInflater = (LayoutInflater)getActivity().getBaseContext()
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View layout = layoutInflater.inflate(R.layout.timepicker, null,false);
+        // Creating the PopupWindow
+        final PopupWindow popupWindow = new PopupWindow(
+                layout,400,400);
+
+        popupWindow.setContentView(layout);
+        popupWindow.setHeight(500);
+        popupWindow.setOutsideTouchable(false);
+        // Clear the default translucent background
+        popupWindow.setBackgroundDrawable(new BitmapDrawable());
+
+        TimePicker tp = (TimePicker) layout.findViewById(R.id.timeView);
+        tp.setBackgroundColor(Color.GREEN);
+
+        tp.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
+            @Override
+            public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+                popupWindow.dismiss();
+                Log.d("time selected", "time selected " + hourOfDay + " " + minute);
+                mtxtTime.setText(new StringBuilder().append(pad(hourOfDay))
+                        .append(":").append(pad(minute)));
+            }
+
+        });
+
+        popupWindow.showAtLocation(layout, Gravity.TOP,5,170);
+    }
+
+    private static String pad(int c) {
+        if (c >= 10)
+            return String.valueOf(c);
+        else
+            return "0" + String.valueOf(c);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
+
+    private void SetAlarm() {
+        AlarmManager alarmMgr = (AlarmManager)getActivity().getSystemService(getActivity().ALARM_SERVICE);
+        Intent intent = new Intent(getActivity(), alarm_act.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, intent, 0);
+        Calendar time = Calendar.getInstance();
+        time.setTimeInMillis(System.currentTimeMillis());
+        time.add(Calendar.SECOND, 10);
+        alarmMgr.set(AlarmManager.RTC_WAKEUP, time.getTimeInMillis(), pendingIntent);
     }
 }

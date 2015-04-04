@@ -5,10 +5,11 @@
               android:layout_height="match_parent"
               android:orientation="vertical" >
 
-    <CalendarView
-        android:id="@+id/calendarView"
+    <TimePicker
+        android:id="@+id/timeView"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:clickable="true"
         android:showWeekNumber="false" />
+
 </LinearLayout>
