@@ -68,6 +68,8 @@ public class map_frag extends Fragment implements LocationListener {
 
         mtv = (TextView) v.findViewById(R.id.txtStatus);
 
+        mRadiusInKM = global_app.GetPref().getInt(constants.KM_TO_WALK, 3);
+
         //resources = getResources();
         initGooglePlayStatus();
         initLocationRequestBuilder();
@@ -231,10 +233,10 @@ public class map_frag extends Fragment implements LocationListener {
 
         if (dWalkedDistanceKM < 1.0) {
             // in meters
-            mtv.setText(String.format("Gået afstand: %3.0f (m)", 1000 * dWalkedDistanceKM));
+            mtv.setText(String.format("Gået afstand: %3.0f m\nDu skal gå minimum %3.0f m", 1000 * dWalkedDistanceKM, 1000*mRadiusInKM));
         } else {
             // in km
-            mtv.setText(String.format("Gået afstand: %2.1f (km)", dWalkedDistanceKM));
+            mtv.setText(String.format("Gået afstand: %2.1f km\nDu skal gå minimum %3.0f km", dWalkedDistanceKM, mRadiusInKM));
         }
 
         MarkerOptions markerOptions = new MarkerOptions().position(latLng).icon(

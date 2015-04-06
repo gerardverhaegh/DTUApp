@@ -147,5 +147,12 @@ public class main_act extends FragmentActivity {
                 SetFragment();
             }
         }
+
+        if (current_frag instanceof find_location1_frag) {
+            if (answer == "start") {
+                current_frag = new map_frag();
+                SetFragment();
+            }
+        }
     }
 }

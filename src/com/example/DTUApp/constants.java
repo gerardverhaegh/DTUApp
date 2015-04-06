@@ -30,7 +30,8 @@ public class constants {
     public static final int NOTIFY_USER_EXIST = 0;
 
     // evaluation fragment
-    public static final String HEALTH_VALUE = "HEALTH_VALUE";
+    public static final String RADIO_HEALTH_VALUE = "RADIO_HEALTH_VALUE";
+    public static final String RADIO_KM_TO_WALK = "RADIO_KM_TO_WALK";
     public static final String KM_TO_WALK = "KM_TO_WALK";
 
 }
