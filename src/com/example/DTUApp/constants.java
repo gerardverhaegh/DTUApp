@@ -34,4 +34,6 @@ public class constants {
     public static final String RADIO_KM_TO_WALK = "RADIO_KM_TO_WALK";
     public static final String KM_TO_WALK = "KM_TO_WALK";
 
+    // last fragment
+    public static final String LAST_FRAGMENT = "LAST_FRAGMENT";
 }

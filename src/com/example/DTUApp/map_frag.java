@@ -65,9 +65,7 @@ public class map_frag extends Fragment implements LocationListener {
 
         // create map
         googleMap = ((SupportMapFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.map_fragment)).getMap();
-
         mtv = (TextView) v.findViewById(R.id.txtStatus);
-
         mRadiusInKM = global_app.GetPref().getInt(constants.KM_TO_WALK, 3);
 
         //resources = getResources();
@@ -183,7 +181,7 @@ public class map_frag extends Fragment implements LocationListener {
         Location location = null;
         String provider = null;
 
-        if (global_app.GetPref().getBoolean(constants.USEGPS, true))
+        if (global_app.GetPref().getBoolean(constants.USEGPS, false))
         {
             provider = LocationManager.GPS_PROVIDER;
         }
