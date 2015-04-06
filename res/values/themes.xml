@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="MyTheme">
-        <item name="android:textColorPrimary">#00FF00</item>
+        <item name="android:textColorPrimary">#FFFFFF</item>
         <item name="android:colorBackground">#FFFFFF</item>
         <item name="android:colorForeground">#00FF00</item>
     </style>
