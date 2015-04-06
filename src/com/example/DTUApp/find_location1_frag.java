@@ -32,7 +32,7 @@ public class find_location1_frag extends Fragment {
         RadioButton radioAvg = (RadioButton)v.findViewById(R.id.radioAvg);
         RadioButton radioLeast = (RadioButton)v.findViewById(R.id.radioLeast);
 
-        switch (global_app.GetPref().getInt(constants.KM_TO_WALK, 0))
+        switch (global_app.GetPref().getInt(constants.RADIO_KM_TO_WALK, R.id.radioMost))
         {
             case R.id.radioMost:
                 radioMost.setChecked(true);

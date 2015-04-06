@@ -33,7 +33,7 @@ public class evaluation_frag extends Fragment {
         RadioButton radVeryGood = (RadioButton)v.findViewById(R.id.radioVeryGood);
         RadioButton radGood = (RadioButton)v.findViewById(R.id.radioGood);
 
-        switch (global_app.GetPref().getInt(constants.RADIO_HEALTH_VALUE, 0))
+        switch (global_app.GetPref().getInt(constants.RADIO_HEALTH_VALUE, R.id.radioExcellent))
         {
             case R.id.radioExcellent:
                 radExcellent.setChecked(true);
