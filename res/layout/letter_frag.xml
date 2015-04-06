@@ -13,7 +13,7 @@
 
     <TextView
         android:id="@+id/tv1"
-        android:text="You got this letter:"
+        android:text="Du er fremme!"
         android:textSize="30dp"
         android:gravity="center"
         android:layout_width="fill_parent"
@@ -38,7 +38,7 @@
 
         <Button
             android:id="@+id/btnShare"
-            android:text="Share with the others ..."
+            android:text="Godt gået! Tag bogstavet med til aftenens dyst kl. XXX"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center"/>

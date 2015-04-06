@@ -5,6 +5,7 @@ package com.example.DTUApp;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Random;
+
 /**
  * Created by Gerard Verhaegh on 3/14/2015.
  */
@@ -20,6 +23,7 @@ public class letter_frag extends Fragment {
 
     private int cnt = 0;
     private TextView tv2 = null;
+    String randomLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZÆÅØ";
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -41,6 +45,9 @@ public class letter_frag extends Fragment {
         final DecelerateInterpolator sDecelerator = new DecelerateInterpolator();
         final OvershootInterpolator sOvershooter = new OvershootInterpolator(10f);
         tv2 = (TextView) v.findViewById(R.id.tv2);
+        Random rnd = new Random();
+        char s = randomLetters.charAt(rnd.nextInt(randomLetters.length()));
+        tv2.setText(String.valueOf(s));
         tv2.animate().setInterpolator(sDecelerator).rotationX(360).alpha(10).setDuration(5000);
 
 

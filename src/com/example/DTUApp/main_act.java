@@ -239,7 +239,7 @@ public class main_act extends FragmentActivity {
             t += "*";
         }
 
-        for (int i = m_current_id + 1; i < 10; i++)
+        for (int i = m_current_id + 1; i < 9; i++)
         {
             t += "-";
         }
