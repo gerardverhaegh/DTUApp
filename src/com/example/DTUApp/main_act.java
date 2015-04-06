@@ -66,7 +66,7 @@ public class main_act extends FragmentActivity {
         });
 
         if (savedInstanceState == null) {
-            current_frag = new start_frag();
+            current_frag = new communication_frag();
             SetFragment();
         }
     }

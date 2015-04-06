@@ -53,7 +53,25 @@ public class listofusers_frag extends Fragment implements AdapterView.OnItemClic
                     Log.d("GVE", "User: " + mUsers);
                 }
 
-                lv.setAdapter(new ArrayAdapter(getActivity().getApplicationContext(), R.layout.listofusers_frag, R.id.listelement_description, mUsers));
+                lv.setAdapter(new ArrayAdapter(getActivity().getApplicationContext(), R.layout.listofusers_frag, R.id.listelement_description, mUsers){
+                    @Override
+                    public View getView(int position, View cachedView, ViewGroup parent) {
+                        View view = super.getView(position, cachedView, parent);
+
+                        TextView le_description = (TextView) view.findViewById(R.id.listelement_description);
+                        TextView le_text = (TextView) view.findViewById(R.id.listelement_text);
+                        //ImageView listeelem_billede = (ImageView) view.findViewById(R.id.listeelem_billede);
+                        //listeelem_billede.setImageResource(android.R.drawable.sym_action_call);
+                        if (position == 0) {
+                            le_description.setText("Jeres FeelGood hold er sat! \n" +
+                                    "Mød dine medspillere:\n");
+                            le_text.setText("");
+                        } else {
+                            le_description.setText("** " + le_description.getText() + " **");
+                        }
+                        return view;
+                    }
+                });
             }
 
             @Override
