@@ -72,11 +72,11 @@ public class main_act extends FragmentActivity {
     }
 
     private void GetNextFragment() {
-        if (current_frag instanceof start_frag) {
-            current_frag = new communication_frag();
-        } else if (current_frag instanceof communication_frag) {
+        if (current_frag instanceof communication_frag) {
             current_frag = new listofusers_frag();
         } else if (current_frag instanceof listofusers_frag) {
+            current_frag = new start_frag();
+        } else if (current_frag instanceof start_frag) {
             current_frag = new question_evaluation_frag();
         } else if (current_frag instanceof question_evaluation_frag) {
             current_frag = new evaluation_frag();
@@ -93,12 +93,12 @@ public class main_act extends FragmentActivity {
     }
 
     private void GetPreviousFragment() {
-        if (current_frag instanceof communication_frag) {
-            current_frag = new start_frag();
-        } else if (current_frag instanceof listofusers_frag) {
+        if (current_frag instanceof listofusers_frag) {
             current_frag = new communication_frag();
-        } else if (current_frag instanceof question_evaluation_frag) {
+        } else if (current_frag instanceof start_frag) {
             current_frag = new listofusers_frag();
+        } else if (current_frag instanceof question_evaluation_frag) {
+            current_frag = new start_frag();
         } else if (current_frag instanceof evaluation_frag) {
             current_frag = new question_evaluation_frag();
         } else if (current_frag instanceof find_location1_frag) {

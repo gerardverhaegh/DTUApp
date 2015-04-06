@@ -33,7 +33,7 @@
 
             <TextView
                 android:id="@+id/tvStartDate"
-                android:text="Choose a alarm date:"
+                android:text="Choose a start date:"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
@@ -53,7 +53,7 @@
 
             <TextView
                 android:id="@+id/tvStartTime"
-                android:text="Choose a alarm time:"
+                android:text="Choose a start time:"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
@@ -73,13 +73,13 @@
 
             <Button
                 android:id="@+id/btnSetAlarm"
-                android:text="Start alarm"
+                android:text="Start game at the set date and time"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
         </LinearLayout>
 
-        <LinearLayout
+<!--        <LinearLayout
             android:id="@+id/LinearLayout5"
             android:orientation="horizontal"
             android:layout_width="fill_parent"
@@ -91,6 +91,6 @@
                 android:gravity="left"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"/>
-        </LinearLayout>
+        </LinearLayout>-->
     </LinearLayout>
 </LinearLayout>

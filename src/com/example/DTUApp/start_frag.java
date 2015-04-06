@@ -25,13 +25,14 @@ import java.util.Calendar;
  * Created by Gerard Verhaegh on 3/14/2015.
  */
 public class start_frag extends Fragment {
-    EditText mtxtDate = null;
-    EditText mtxtTime = null;
-    int m_year;
-    int m_month;
-    int m_dayOfMonth;
-    int m_hourOfDay;
-    int m_minute;
+    private EditText mtxtDate = null;
+    private EditText mtxtTime = null;
+    private int m_year;
+    private int m_month;
+    private int m_dayOfMonth;
+    private int m_hourOfDay;
+    private int m_minute;
+    private PopupWindow m_popupWindow = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -86,17 +87,18 @@ public class start_frag extends Fragment {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View layout = layoutInflater.inflate(R.layout.calender, null,false);
         // Creating the PopupWindow
-        final PopupWindow popupWindow = new PopupWindow(
+        DismissPopup();
+        m_popupWindow = new PopupWindow(
                 layout,400,400);
 
-        popupWindow.setContentView(layout);
-        popupWindow.setHeight(500);
-        popupWindow.setOutsideTouchable(false);
+        m_popupWindow.setContentView(layout);
+        m_popupWindow.setHeight(500);
+        m_popupWindow.setOutsideTouchable(false);
         // Clear the default translucent background
-        popupWindow.setBackgroundDrawable(new BitmapDrawable());
+        m_popupWindow.setBackgroundDrawable(new BitmapDrawable());
 
         CalendarView cv = (CalendarView) layout.findViewById(R.id.calendarView);
-        cv.setBackgroundColor(Color.GREEN);
+        cv.setBackgroundColor(Color.BLACK);
 
         cv.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
@@ -104,11 +106,11 @@ public class start_frag extends Fragment {
             public void onSelectedDayChange(CalendarView view, int year, int month,
                                             int dayOfMonth) {
                 DisplayDate(year, month, dayOfMonth);
-                popupWindow.dismiss();
+                DismissPopup();
             }
         });
 
-        popupWindow.showAtLocation(layout, Gravity.TOP,5,170);
+        m_popupWindow.showAtLocation(layout, Gravity.TOP,5,170);
     }
 
     private void showTimePicker(Activity context) {
@@ -118,27 +120,37 @@ public class start_frag extends Fragment {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View layout = layoutInflater.inflate(R.layout.timepicker, null,false);
         // Creating the PopupWindow
-        final PopupWindow popupWindow = new PopupWindow(
+        DismissPopup();
+        m_popupWindow = new PopupWindow(
                 layout,400,400);
 
-        popupWindow.setContentView(layout);
-        popupWindow.setHeight(500);
-        popupWindow.setOutsideTouchable(false);
+        m_popupWindow.setContentView(layout);
+        m_popupWindow.setHeight(500);
+        m_popupWindow.setOutsideTouchable(false);
         // Clear the default translucent background
-        popupWindow.setBackgroundDrawable(new BitmapDrawable());
+        m_popupWindow.setBackgroundDrawable(new BitmapDrawable());
 
         TimePicker tp = (TimePicker) layout.findViewById(R.id.timeView);
-        tp.setBackgroundColor(Color.GREEN);
+        tp.setBackgroundColor(Color.BLACK);
 
         tp.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
                 DisplayTime(hourOfDay, minute);
-                popupWindow.dismiss();
+                DismissPopup();
             }
         });
 
-        popupWindow.showAtLocation(layout, Gravity.TOP,5,170);
+        m_popupWindow.showAtLocation(layout, Gravity.TOP,5,170);
+    }
+
+    private void DismissPopup()
+    {
+        if (m_popupWindow != null)
+        {
+            m_popupWindow.dismiss();
+            m_popupWindow = null;
+        }
     }
 
     private static String pad(int c) {
@@ -151,7 +163,7 @@ public class start_frag extends Fragment {
     private void DisplayDate(int year, int month, int dayOfMonth)
     {
         m_year = year;
-        m_month = month;
+        m_month = month + 1; // months run from 0-11
         m_dayOfMonth = dayOfMonth;
 
         Log.d("date selected", "date selected " + m_year + " " + m_month + " " + m_dayOfMonth);
@@ -172,6 +184,7 @@ public class start_frag extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        DismissPopup();
     }
 
     private void SetAlarm() {
@@ -180,11 +193,15 @@ public class start_frag extends Fragment {
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, intent, 0);
         Calendar time = Calendar.getInstance();
         time.set(Calendar.YEAR, m_year);
-        time.set(Calendar.MONTH, m_month);
+        time.set(Calendar.MONTH, m_month - 1);
         time.set(Calendar.DAY_OF_MONTH, m_dayOfMonth);
         time.set(Calendar.HOUR_OF_DAY, m_hourOfDay);
         time.set(Calendar.MINUTE, m_minute);
-        time.setTimeInMillis(System.currentTimeMillis());
+        time.set(Calendar.SECOND, 0);
+        Log.d("GVE", "time.getTimeInMillis(): " + time.getTimeInMillis());
+        Log.d("GVE", "System.currentTimeMillis(): " + System.currentTimeMillis());
         alarmMgr.set(AlarmManager.RTC_WAKEUP, time.getTimeInMillis(), pendingIntent);
+
+        getActivity().finish();
     }
 }
