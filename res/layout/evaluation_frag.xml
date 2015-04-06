@@ -9,11 +9,43 @@
         android:id="@+id/iv"
         android:src="@raw/evaluation"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"/>
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/tv"
-        android:text="Lots of questions here"
+        android:text="In general would you say your health is:"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"/>
+        android:layout_height="wrap_content"/>
+
+    <RadioGroup
+        android:id="@+id/radioHealth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/radioExcellent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Excellent"/>
+
+        <RadioButton
+            android:id="@+id/radioVeryGood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Very good" />
+
+        <RadioButton
+            android:id="@+id/radioGood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Good"/>
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tv2"
+        android:text="More questions here:"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
 </LinearLayout>
