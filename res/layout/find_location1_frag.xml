@@ -11,7 +11,7 @@
 
     <TextView
         android:id="@+id/tv"
-        android:text="Du må finde dit bogstav inden kl. XXX i aften. Der har I til kl. XXX til at løse et ord.\n\nDu får brug for ca. 30 min.\n"
+        android:text="Du må finde dit bogstav inden kl. XXX i aften. Der har I til kl. XXX til at løse et ord.\nDu får brug for ca. 30 min.\n"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
 

@@ -12,6 +12,7 @@ import android.widget.TextView;
 import java.util.List;
 import java.util.Vector;
 
+
 //import android.app.Fragment;
 //import android.app.FragmentManager;
 
@@ -56,7 +57,8 @@ public class main_act extends FragmentActivity {
 
             m_tv = (TextView) findViewById(R.id.tv);
 
-            if (savedInstanceState == null) {
+            //if (savedInstanceState == null)
+            {
                 initialisePaging();
             }
         }
@@ -72,6 +74,26 @@ public class main_act extends FragmentActivity {
         ViewPager pager = (ViewPager) super.findViewById(R.id.viewpager);
         pager.setAdapter(this.mPagerAdapter);
         addView(new start_frag());
+
+/*        TitlePageIndicator indicator = (TitlePageIndicator)findViewById(R.id.indicator);
+        indicator.setViewPager(pager);
+        indicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageSelected(int position) {
+                TestFragmentPage current = (TestFragmentPage)adapter.getItem(position);
+                current.onPageSelected();
+
+                // Store the position of current page
+                PrefUtils.setInt(MainActivity.this, R.string.pref_last_tab, position);
+            }
+
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
+
+            @Override
+            public void onPageScrollStateChanged(int state) {}
+        });*/
+
     }
 
     public void addView(Fragment newPage) {
