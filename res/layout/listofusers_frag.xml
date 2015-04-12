@@ -4,39 +4,6 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-<!--    <TextView
-        android:id="@+id/tv"
-        android:text="Jeres FeelGood hold er sat!
-    Mød dine medspillere:"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"/>-->
-
-
-
-
-
-    <!--    <ListView
-            android:id="@+id/listView1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:id="@+id/listelement_text"
-                android:textSize="20sp"
-                android:text="Username:"
-                android:textColor="#ffffff"
-                android:textStyle="bold"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:id="@+id/listelement_description"
-                android:textSize="12sp"
-                android:text="Word:"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </ListView>-->
-
     <TableLayout
         android:layout_weight="1"
         android:layout_gravity="left|center_vertical"
@@ -48,14 +15,11 @@
             android:id="@+id/listelement_text"
             android:textSize="12sp"
             android:text="User:"
-            android:textColor="#ffffff"
-            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <TextView
             android:id="@+id/listelement_description"
             android:textSize="20sp"
-            android:text="Word:"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </TableLayout>

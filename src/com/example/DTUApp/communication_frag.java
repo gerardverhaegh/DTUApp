@@ -293,8 +293,7 @@ public class communication_frag extends Fragment {
                     SignUp();
                 }
 
-                if (bReinit)
-                {
+                if (bReinit) {
                     AddConnectionListener();
                     StartListeningForPrivateChats();
                     StartListeningForGroupChats();
@@ -469,7 +468,7 @@ public class communication_frag extends Fragment {
             QBChatMessage chatMessage = new QBChatMessage();
             chatMessage.setBody("Welcome!");
 
-            communication_viewpager_act act = (communication_viewpager_act)getActivity();
+            communication_viewpager_act act = (communication_viewpager_act) getActivity();
             act.setResult("ok");
 
             //chatMessage.setProperty("save_to_history", "1"); // Save a message to history
@@ -574,9 +573,13 @@ public class communication_frag extends Fragment {
             //long time = DateUtils.getCurrentTime();
             String time = "NOWWWWW";
             chatMessage.setProperty("date_sent", time + "");
-            Log.d("GVE", "-------------qbThisUser.getLogin(): " + qbThisUser.getLogin());
-            chatMessage.setBody(txtSend.getText() + " (a message from: " + qbThisUser.getLogin() + ")");
-            Log.d("GVE", "------------SENDING: processMessage: " + chatMessage.getBody() + " from " + qbThisUser.getLogin() + " to " + userID);
+            if (qbThisUser != null) {
+                Log.d("GVE", "-------------qbThisUser.getLogin(): " + qbThisUser.getLogin());
+                chatMessage.setBody(txtSend.getText() + " (a message from: " + qbThisUser.getLogin() + ")");
+                Log.d("GVE", "------------SENDING: processMessage: " + chatMessage.getBody() + " from " + qbThisUser.getLogin() + " to " + userID);
+            } else {
+                Log.d("GVE", "-------------qbThisUser == null ");
+            }
             QBPrivateChat chat = QBChatService.getInstance().getPrivateChatManager().getChat(userID);
             if (chat == null) {
                 Log.d("GVE", "chat == null: " + userID);
