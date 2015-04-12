@@ -38,22 +38,6 @@ public class main_act extends FragmentActivity {
 
             setContentView(R.layout.main_act);
 
-    /*        TabWidget btn_backward = (TabWidget) findViewById(R.id.btn_backward);
-            btn_backward.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    GetPreviousFragment();
-                }
-            });
-
-            TabWidget btn_forward = (TabWidget) findViewById(R.id.btn_forward);
-            btn_forward.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    GetNextFragment();
-                }
-            });*/
-
             TabWidget btn_speak = (TabWidget) findViewById(R.id.btn_speak);
             btn_speak.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -73,16 +57,9 @@ public class main_act extends FragmentActivity {
 
             m_tv = (TextView) findViewById(R.id.tv);
 
-    /*        if (savedInstanceState == null) {
-                current_frag = GetLastFragment();
-                if (current_frag == null) {
-                    current_frag = new communication_frag();
-                }
-
-                SetFragment();
-            }*/
-
-            initialisePaging();
+            if (savedInstanceState == null) {
+                initialisePaging();
+            }
         }
     }
 
@@ -130,13 +107,13 @@ public class main_act extends FragmentActivity {
 
         if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof find_location1_frag) {
             if (answer == "start") {
-                addView(new letter_frag());
+                addView(new map_frag());
             }
         }
 
         if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof map_frag) {
             if (answer == "done") {
-                addView(new map_frag());
+                addView(new letter_frag());
             }
         }
 
