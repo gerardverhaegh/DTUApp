@@ -13,10 +13,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.*;
 import android.widget.*;
 
 import java.util.Calendar;
@@ -33,6 +30,7 @@ public class start_frag extends Fragment {
     private int m_hourOfDay;
     private int m_minute;
     private PopupWindow m_popupWindow = null;
+    private View mv = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -42,6 +40,7 @@ public class start_frag extends Fragment {
          */
         View v = inflater.inflate(R.layout.start_frag, container, false);
 
+        mv = v;
         ImageView iv = (ImageView)v.findViewById(R.id.iv);
         iv.setImageResource(R.raw.start);
 
@@ -54,24 +53,46 @@ public class start_frag extends Fragment {
         });
 
         mtxtDate = (EditText) v.findViewById(R.id.txtDate);
-        mtxtDate.setInputType(0);
-        mtxtDate.setOnClickListener(new View.OnClickListener() {
+        //mtxtDate.setInputType(0);
+/*        mtxtDate.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 showDatePicker(getActivity());
             }
+        });*/
+
+        mtxtDate.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(MotionEvent.ACTION_UP == event.getAction()) {
+                    showDatePicker(getActivity());
+                }
+                return true; // return is important...
+            }
         });
 
         mtxtTime = (EditText) v.findViewById(R.id.txtTime);
-        mtxtTime.setInputType(0);
-        mtxtTime.setOnClickListener(new View.OnClickListener() {
+        //mtxtTime.setInputType(0);
+/*        mtxtTime.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 showTimePicker(getActivity());
             }
+        });*/
+
+        mtxtTime.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(MotionEvent.ACTION_UP == event.getAction()) {
+                    showTimePicker(getActivity());
+                }
+                return true; // return is important...
+            }
         });
+
+        mtxtDate.clearFocus();
 
         Calendar c = Calendar.getInstance();
         DisplayDate(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
@@ -91,11 +112,12 @@ public class start_frag extends Fragment {
         View layout = layoutInflater.inflate(R.layout.calender, null,false);
         // Creating the PopupWindow
         DismissPopup();
+
         m_popupWindow = new PopupWindow(
-                layout,400,400);
+                layout,mv.getWidth(), mv.getHeight());
 
         m_popupWindow.setContentView(layout);
-        m_popupWindow.setHeight(500);
+        m_popupWindow.setHeight(mv.getHeight() + 100);
         m_popupWindow.setOutsideTouchable(false);
         // Clear the default translucent background
         m_popupWindow.setBackgroundDrawable(new BitmapDrawable());
@@ -103,17 +125,32 @@ public class start_frag extends Fragment {
         CalendarView cv = (CalendarView) layout.findViewById(R.id.calendarView);
         cv.setBackgroundColor(Color.BLACK);
 
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, m_year);
+        calendar.set(Calendar.MONTH, m_month - 1);
+        calendar.set(Calendar.DAY_OF_MONTH, m_dayOfMonth);
+
+        long milliTime = calendar.getTimeInMillis();
+        cv.setDate (milliTime, true, true);
+
         cv.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month,
                                             int dayOfMonth) {
                 DisplayDate(year, month, dayOfMonth);
-                DismissPopup();
             }
         });
 
-        m_popupWindow.showAtLocation(layout, Gravity.TOP,5,170);
+        m_popupWindow.showAtLocation(layout, Gravity.NO_GRAVITY,0,0);
+
+        Button bntOK = (Button)layout.findViewById(R.id.btnOK1);
+        bntOK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DismissPopup();
+            }
+        });
     }
 
     private void showTimePicker(Activity context) {
@@ -124,27 +161,38 @@ public class start_frag extends Fragment {
         View layout = layoutInflater.inflate(R.layout.timepicker, null,false);
         // Creating the PopupWindow
         DismissPopup();
+
         m_popupWindow = new PopupWindow(
-                layout,400,400);
+                layout,mv.getWidth(), mv.getHeight());
 
         m_popupWindow.setContentView(layout);
-        m_popupWindow.setHeight(500);
+        m_popupWindow.setHeight(mv.getHeight() + 100);
         m_popupWindow.setOutsideTouchable(false);
         // Clear the default translucent background
         m_popupWindow.setBackgroundDrawable(new BitmapDrawable());
 
         TimePicker tp = (TimePicker) layout.findViewById(R.id.timeView);
         tp.setBackgroundColor(Color.BLACK);
+        tp.setIs24HourView(true);
+        tp.setCurrentHour(m_hourOfDay);
+        tp.setCurrentMinute(m_minute);
 
         tp.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
                 DisplayTime(hourOfDay, minute);
-                DismissPopup();
             }
         });
 
-        m_popupWindow.showAtLocation(layout, Gravity.TOP,5,170);
+        m_popupWindow.showAtLocation(layout, Gravity.NO_GRAVITY,0,0);
+
+        Button bntOK = (Button)layout.findViewById(R.id.btnOK2);
+        bntOK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DismissPopup();
+            }
+        });
     }
 
     private void DismissPopup()

@@ -42,7 +42,13 @@
                 android:id="@+id/txtDate"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:clickable="false"
+                android:inputType="none"
+                android:editable="false"
+                android:focusableInTouchMode="false"
+                android:focusable="false"
+                android:windowSoftInputMode="stateHidden"/>
         </LinearLayout>
 
         <LinearLayout
@@ -62,7 +68,13 @@
                 android:id="@+id/txtTime"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:clickable="false"
+                android:inputType="none"
+                android:editable="false"
+                android:focusableInTouchMode="false"
+                android:focusable="false"
+                android:windowSoftInputMode="stateHidden"/>
         </LinearLayout>
 
         <LinearLayout

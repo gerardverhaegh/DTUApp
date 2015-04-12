@@ -42,7 +42,8 @@ public class main_act extends FragmentActivity {
             btn_speak.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ShowCommunication();
+                    Intent i = new Intent(getApplicationContext(), communication_viewpager_act.class);
+                    startActivity(i);
                 }
             });
 
@@ -61,11 +62,6 @@ public class main_act extends FragmentActivity {
                 initialisePaging();
             }
         }
-    }
-
-    private void ShowCommunication() {
-        Intent i = new Intent(this, communication_viewpager_act.class);
-        startActivity(i);
     }
 
     /**

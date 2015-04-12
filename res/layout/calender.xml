@@ -9,6 +9,19 @@
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:clickable="true"
-        android:showWeekNumber="false" />
+        android:showWeekNumber="true"
+        android:clickable="false"
+        android:inputType="none"
+        android:editable="false"
+        android:focusableInTouchMode="false"
+        android:focusable="false"
+        android:windowSoftInputMode="stateHidden"/>
+
+    <Button
+        android:id="@+id/btnOK1"
+        android:text="OK"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"/>
 </LinearLayout>
