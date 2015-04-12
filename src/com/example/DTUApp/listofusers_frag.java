@@ -72,6 +72,9 @@ public class listofusers_frag extends Fragment implements AdapterView.OnItemClic
                         return view;
                     }
                 });
+
+                communication_viewpager_act act = (communication_viewpager_act)getActivity();
+                act.setResult("ok");
             }
 
             @Override

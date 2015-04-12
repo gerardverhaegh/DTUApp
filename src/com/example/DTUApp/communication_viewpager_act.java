@@ -36,10 +36,25 @@ public class communication_viewpager_act extends FragmentActivity {
     private void initialisePaging() {
         List<Fragment> fragments = new Vector<Fragment>();
         fragments.add(Fragment.instantiate(this, communication_frag.class.getName()));
-        fragments.add(Fragment.instantiate(this, listofusers_frag.class.getName()));
         mPagerAdapter = new pageradapter(super.getSupportFragmentManager(), fragments);
 
         ViewPager pager = (ViewPager) super.findViewById(R.id.viewpager);
         pager.setAdapter(this.mPagerAdapter);
+    }
+
+    public void addView(Fragment newPage) {
+        mPagerAdapter.addView(newPage, mPagerAdapter.getCount());
+/*        CharSequence title = mPagerAdapter.getPageTitle(mPagerAdapter.getCount());
+        Log.d("GVE", "title: " + title);*/
+
+        mPagerAdapter.notifyDataSetChanged();
+    }
+
+    public void setResult(String answer) {
+        if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof communication_frag) {
+            if (answer == "ok") {
+                addView(new listofusers_frag());
+            }
+        }
     }
 }
