@@ -77,6 +77,9 @@ public class start_frag extends Fragment {
         DisplayDate(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
         DisplayTime(c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE));
 
+        main_act activity = (main_act) getActivity();
+        activity.setResult("ok");
+
         return v;
     }
 

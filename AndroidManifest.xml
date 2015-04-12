@@ -26,7 +26,7 @@
 
     <application
         android:name=".global_app"
-        android:label="@string/app_name"
+        android:label="The Feel Good Game"
         android:icon="@drawable/ic_launcher"
         android:theme="@style/MyTheme">
 
@@ -39,7 +39,7 @@
 
         <activity
             android:name=".start_act"
-            android:label="@string/app_name">
+            android:label="Feel Good Game">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -47,6 +47,8 @@
         </activity>
         <activity android:name=".main_act"/>
         <activity android:name=".preferences_act"/>
+        <activity android:name=".communication_viewpager_act"/>
+        <activity android:name=".viewpagerfragment_act"/>
         <receiver android:name=".alarm_act" />
     </application>
 

@@ -468,6 +468,7 @@ public class communication_frag extends Fragment {
         try {
             QBChatMessage chatMessage = new QBChatMessage();
             chatMessage.setBody("Welcome!");
+
             //chatMessage.setProperty("save_to_history", "1"); // Save a message to history
 
             QBPrivateChat privateChat = QBChatService.getInstance().getPrivateChatManager().getChat(opponentId);
