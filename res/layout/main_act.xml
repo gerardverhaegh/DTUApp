@@ -8,6 +8,17 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <com.viewpagerindicator.TabPageIndicator
+            android:id="@+id/titles"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
         android:layout_height="fill_parent">
 
         <LinearLayout
@@ -19,9 +30,8 @@
             <android.support.v4.view.ViewPager
                 android:id="@+id/viewpager"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                />
-
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
         </LinearLayout>
 
         <LinearLayout
@@ -35,27 +45,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"/>
-
-            <!--        <TabWidget
-                        android:id="@+id/btn_backward"
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:background="@android:drawable/arrow_down_float"/>
-
-                    <TabWidget
-                        android:id="@+id/btn_forward"
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:background="@android:drawable/arrow_up_float"/>-->
-
-            <!--        <TabWidget
-                        android:id="@+id/btn_speak"
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:background="@android:drawable/ic_btn_speak_now"/>-->
 
             <TabWidget
                 android:id="@+id/btn_speak"
