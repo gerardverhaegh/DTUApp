@@ -4,7 +4,6 @@ package com.example.DTUApp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -43,7 +42,7 @@ import java.util.List;
 /**
  * Created by gve on 18-03-2015.
  */
-public class communication_frag extends Fragment {
+public class communication_frag extends base_frag {
 
     private TextView txtStatus = null;
     private TextView txtReceive = null;
@@ -64,6 +63,8 @@ public class communication_frag extends Fragment {
          * Inflate the layout for this fragment
          */
         View v = inflater.inflate(R.layout.communication_frag, container, false);
+
+        mTitle = "Communication";
 
         // keep QB data in memory
         setRetainInstance(true);

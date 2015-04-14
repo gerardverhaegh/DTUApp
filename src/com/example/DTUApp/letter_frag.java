@@ -4,8 +4,6 @@ package com.example.DTUApp;
 //import android.app.Fragment;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +17,7 @@ import java.util.Random;
 /**
  * Created by Gerard Verhaegh on 3/14/2015.
  */
-public class letter_frag extends Fragment {
+public class letter_frag extends base_frag {
 
     private int cnt = 0;
     private TextView tv2 = null;
@@ -32,6 +30,8 @@ public class letter_frag extends Fragment {
          * Inflate the layout for this fragment
          */
         final View v = inflater.inflate(R.layout.letter_frag, container, false);
+
+        mTitle = "Letter";
 
         Button btnShare = (Button) v.findViewById(R.id.btnShare);
         btnShare.setOnClickListener(new View.OnClickListener() {

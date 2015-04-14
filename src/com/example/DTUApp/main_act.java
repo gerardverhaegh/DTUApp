@@ -96,7 +96,7 @@ public class main_act extends FragmentActivity {
         mTitleIndicator.setViewPager(mPager);
         addView(new start_frag());
         final float density = getResources().getDisplayMetrics().density;
-        mTitleIndicator.setBackgroundColor(0x18FF0000);
+        mTitleIndicator.setBackgroundColor(0xFFFF0000);
         /*mTitleIndicator.setFooterColor(0xFFAA2222);
         mTitleIndicator.setFooterLineHeight(1 * density);
         mTitleIndicator.setFooterIndicatorHeight(3 * density);
@@ -213,9 +213,13 @@ public class main_act extends FragmentActivity {
         public CharSequence getPageTitle(int position) {
 
             Log.d("GVE", "getPageTitle " + position);
-            switch (position) {
-                default:
-                    return " aap" + position + " ";
+            if (fragments.get(position) instanceof base_frag)
+            {
+                return ((base_frag) fragments.get(position)).GetTitle();
+            }
+            else
+            {
+                return "no base_frag";
             }
         }
 

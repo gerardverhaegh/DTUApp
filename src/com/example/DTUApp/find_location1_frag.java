@@ -16,7 +16,7 @@ import android.widget.RadioGroup;
 /**
  * Created by gve on 18-03-2015.
  */
-public class find_location1_frag extends Fragment {
+public class find_location1_frag extends base_frag {
     /**
      * Inflate the layout for this fragment
      */
@@ -24,6 +24,8 @@ public class find_location1_frag extends Fragment {
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.find_location1_frag, container, false);
+
+        mTitle = "Location";
 
         ImageView iv = (ImageView) v.findViewById(R.id.iv);
         iv.setImageResource(R.raw.find_location1);

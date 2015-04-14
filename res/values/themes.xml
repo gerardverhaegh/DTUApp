@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="MyTheme" parent="android:Theme.Light">
+    <style name="MyTheme" parent="@style/Theme.PageIndicatorDefaults">
         <item name="android:textColor">#FF295055</item>
         <item name="android:textColorPrimary">#FF295055</item>
         <item name="android:textColorSecondary">#FF295055</item>

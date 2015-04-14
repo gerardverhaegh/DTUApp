@@ -16,7 +16,7 @@ import android.widget.RadioGroup;
 /**
  * Created by Gerard Verhaegh on 3/14/2015.
  */
-public class evaluation_frag extends Fragment {
+public class evaluation_frag extends base_frag {
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -25,6 +25,8 @@ public class evaluation_frag extends Fragment {
          * Inflate the layout for this fragment
          */
         View v = inflater.inflate(R.layout.evaluation_frag, container, false);
+
+        mTitle = "Evaluation";
 
         ImageView iv = (ImageView)v.findViewById(R.id.iv);
         iv.setImageResource(R.raw.evaluation);

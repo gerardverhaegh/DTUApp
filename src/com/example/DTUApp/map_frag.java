@@ -9,7 +9,6 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -33,7 +32,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class map_frag extends Fragment implements LocationListener {
+public class map_frag extends base_frag implements LocationListener {
 
     private Context context;
     //private Resources resources;
@@ -60,6 +59,8 @@ public class map_frag extends Fragment implements LocationListener {
 
         View v = inflater.inflate(R.layout.map_frag,
                 container, false);
+
+        mTitle = "Map";
 
         //setRetainInstance(true);
 

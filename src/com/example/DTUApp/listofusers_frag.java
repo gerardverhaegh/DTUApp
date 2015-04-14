@@ -2,7 +2,6 @@ package com.example.DTUApp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +17,7 @@ import java.util.List;
 /**
  * Created by Gerard Verhaegh on 3/21/2015.
  */
-public class listofusers_frag extends Fragment implements AdapterView.OnItemClickListener {
+public class listofusers_frag extends base_frag implements AdapterView.OnItemClickListener {
     private ArrayList<String> Users = null;
     private ListView lv = null;
     private ArrayList<QBUser> qbOtherUsers = null;
@@ -27,6 +26,9 @@ public class listofusers_frag extends Fragment implements AdapterView.OnItemClic
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        mTitle = "Users";
+
         lv = new ListView(getActivity());
         lv.setOnItemClickListener(this);
         GetAllUsers();

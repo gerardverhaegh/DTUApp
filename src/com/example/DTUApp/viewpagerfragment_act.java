@@ -26,7 +26,7 @@ public class viewpagerfragment_act extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.viewpager);
-        //initialsie the pager
+        // initialise the pager
         this.initialisePaging();
     }
 

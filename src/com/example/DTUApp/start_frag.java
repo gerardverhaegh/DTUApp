@@ -21,7 +21,7 @@ import java.util.Calendar;
 /**
  * Created by Gerard Verhaegh on 3/14/2015.
  */
-public class start_frag extends Fragment {
+public class start_frag extends base_frag {
     private EditText mtxtDate = null;
     private EditText mtxtTime = null;
     private int m_year;
@@ -38,6 +38,8 @@ public class start_frag extends Fragment {
         /**
          * Inflate the layout for this fragment
          */
+        mTitle = "Start";
+
         View v = inflater.inflate(R.layout.start_frag, container, false);
 
         mv = v;
