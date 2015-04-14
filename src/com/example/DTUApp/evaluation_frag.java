@@ -4,7 +4,6 @@ package com.example.DTUApp;
 //import android.app.Fragment;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,14 +18,19 @@ import android.widget.RadioGroup;
 public class evaluation_frag extends base_frag {
 
     @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        mTitle = "Evaluation";
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         /**
          * Inflate the layout for this fragment
          */
         View v = inflater.inflate(R.layout.evaluation_frag, container, false);
-
-        mTitle = "Evaluation";
 
         ImageView iv = (ImageView)v.findViewById(R.id.iv);
         iv.setImageResource(R.raw.evaluation);

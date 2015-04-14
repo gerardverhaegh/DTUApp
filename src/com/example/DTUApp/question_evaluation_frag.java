@@ -16,14 +16,19 @@ import android.widget.ImageView;
 public class question_evaluation_frag extends base_frag {
 
     @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        mTitle = "Question";
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         /**
          * Inflate the layout for this fragment
          */
         View v = inflater.inflate(R.layout.question_evaluation_frag, container, false);
-
-        mTitle = "Question Evaluation";
 
         ImageView iv = (ImageView) v.findViewById(R.id.iv);
         iv.setImageResource(R.raw.question_evaluation);

@@ -33,6 +33,13 @@ public class start_frag extends base_frag {
     private View mv = null;
 
     @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        mTitle = "Start";
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         /**

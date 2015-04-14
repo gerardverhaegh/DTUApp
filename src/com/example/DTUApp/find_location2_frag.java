@@ -13,9 +13,14 @@ import android.widget.ImageView;
  * Created by gve on 18-03-2015.
  */
 public class find_location2_frag extends base_frag {
-    /**
-     * Inflate the layout for this fragment
-     */
+
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        mTitle = "Location";
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {

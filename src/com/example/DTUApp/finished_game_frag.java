@@ -16,6 +16,13 @@ public class finished_game_frag extends base_frag {
     ImageView iv = null;
 
     @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        mTitle = "Finished";
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         /**

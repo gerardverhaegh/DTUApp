@@ -57,14 +57,19 @@ public class communication_frag extends base_frag {
     private QBGroupChatManager groupChatManager = null;
 
     @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        mTitle = "Communication";
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         /**
          * Inflate the layout for this fragment
          */
         View v = inflater.inflate(R.layout.communication_frag, container, false);
-
-        mTitle = "Communication";
 
         // keep QB data in memory
         setRetainInstance(true);

@@ -54,13 +54,18 @@ public class map_frag extends base_frag implements LocationListener {
     private float zoomLvl = 15;
 
     @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        mTitle = "Map";
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.map_frag,
                 container, false);
-
-        mTitle = "Map";
 
         //setRetainInstance(true);
 

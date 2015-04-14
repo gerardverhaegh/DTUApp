@@ -35,6 +35,7 @@ public class main_act extends FragmentActivity {
     private GoogleMusicAdapter mPagerAdapter = null;
     private TabPageIndicator mTitleIndicator = null;
     private ViewPager mPager = null;
+    private int cnt = 0;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -96,7 +97,7 @@ public class main_act extends FragmentActivity {
         mTitleIndicator.setViewPager(mPager);
         addView(new start_frag());
         final float density = getResources().getDisplayMetrics().density;
-        mTitleIndicator.setBackgroundColor(0xFFFF0000);
+        mTitleIndicator.setBackgroundColor(0x88008800);
         /*mTitleIndicator.setFooterColor(0xFFAA2222);
         mTitleIndicator.setFooterLineHeight(1 * density);
         mTitleIndicator.setFooterIndicatorHeight(3 * density);
@@ -129,10 +130,13 @@ public class main_act extends FragmentActivity {
     }
 
     public void addView(Fragment newPage) {
-        mPagerAdapter.addView(newPage, mPagerAdapter.getCount());
+
+        Log.d("GVE", "addView : " + cnt + "-" + ((base_frag)newPage).GetTitle());
+                mPagerAdapter.addView(newPage, mPagerAdapter.getCount());
 /*        CharSequence title = mPagerAdapter.getPageTitle(mPagerAdapter.getCount());
         Log.d("GVE", "title: " + title);*/
 
+        cnt++;
         mPagerAdapter.notifyDataSetChanged();
         mTitleIndicator.notifyDataSetChanged();
     }
@@ -215,7 +219,9 @@ public class main_act extends FragmentActivity {
             Log.d("GVE", "getPageTitle " + position);
             if (fragments.get(position) instanceof base_frag)
             {
-                return ((base_frag) fragments.get(position)).GetTitle();
+                String title = ((base_frag) fragments.get(position)).GetTitle();
+                Log.d("GVE", "title: " + title);
+                return title;
             }
             else
             {
