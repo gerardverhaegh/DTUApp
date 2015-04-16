@@ -2,7 +2,6 @@ package com.example.DTUApp;
 
 //import android.app.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -12,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.quickblox.auth.QBAuth;
 import com.quickblox.auth.model.QBSession;
 import com.quickblox.chat.QBChatService;
@@ -55,13 +53,6 @@ public class communication_frag extends base_frag {
     private QBPrivateChatManagerListener privateChatManagerListener = null;
     private QBMessageListener<QBPrivateChat> privateChatMessageListener = null;
     private QBGroupChatManager groupChatManager = null;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        mTitle = "Communication";
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -314,7 +305,7 @@ public class communication_frag extends base_frag {
         });
     }
 
-    private void ShowAllUsers() {
+/*    private void ShowAllUsers() {
         QBUsers.getUsers(null, new QBEntityCallbackImpl<ArrayList<QBUser>>() {
             @Override
             public void onSuccess(ArrayList<QBUser> qbUsers, Bundle bundle) {
@@ -335,7 +326,7 @@ public class communication_frag extends base_frag {
                 Toast.makeText(getActivity().getApplicationContext(), errors.toString(), Toast.LENGTH_SHORT).show();
             }
         });
-    }
+    }*/
 
 /*    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == constants.OTHER_USER) {
@@ -474,8 +465,14 @@ public class communication_frag extends base_frag {
             QBChatMessage chatMessage = new QBChatMessage();
             chatMessage.setBody("Welcome!");
 
-            communication_viewpager_act act = (communication_viewpager_act) getActivity();
-            act.setResult("ok");
+            getActivity().runOnUiThread(new Runnable() {
+                public void run() {
+                    if (getActivity() instanceof communication_viewpager_act) {
+                        communication_viewpager_act act = (communication_viewpager_act) getActivity();
+                        act.setResult("ok");
+                    }
+                }
+            });
 
             //chatMessage.setProperty("save_to_history", "1"); // Save a message to history
 

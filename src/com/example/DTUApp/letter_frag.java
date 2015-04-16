@@ -24,21 +24,12 @@ public class letter_frag extends base_frag {
     String randomLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZÆÅØ";
 
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        mTitle = "Letter";
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         /**
          * Inflate the layout for this fragment
          */
         final View v = inflater.inflate(R.layout.letter_frag, container, false);
-
-        mTitle = "Letter";
 
         Button btnShare = (Button) v.findViewById(R.id.btnShare);
         btnShare.setOnClickListener(new View.OnClickListener() {

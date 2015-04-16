@@ -19,13 +19,6 @@ import android.widget.RadioGroup;
 public class find_location1_frag extends base_frag {
 
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        mTitle = "Location";
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.find_location1_frag, container, false);

@@ -8,11 +8,12 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.view.View;
-import android.widget.TabWidget;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 import com.viewpagerindicator.TabPageIndicator;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -26,7 +27,6 @@ import java.util.Vector;
  * Created by Gerard Verhaegh on 3/14/2015.
  */
 public class main_act extends FragmentActivity {
-    private static final String[] CONTENT = new String[]{"Recent", "Artists", "Albums", "Songs", "Playlists", "Genres"};
 
     private Fragment current_frag = null;
     private int m_current_id = 0;
@@ -37,17 +37,19 @@ public class main_act extends FragmentActivity {
     private ViewPager mPager = null;
     private int cnt = 0;
 
+    private static List<Fragment> fragments = new ArrayList<Fragment>();
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (savedInstanceState == null) {
+        //if (savedInstanceState == null) {
 /*            requestWindowFeature(Window.FEATURE_NO_TITLE);
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
 
-            setContentView(R.layout.main_act);
+        setContentView(R.layout.main_act);
 
-            TabWidget btn_speak = (TabWidget) findViewById(R.id.btn_speak);
+/*            TabWidget btn_speak = (TabWidget) findViewById(R.id.btn_speak);
             btn_speak.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -63,14 +65,39 @@ public class main_act extends FragmentActivity {
                     Intent i = new Intent(getApplicationContext(), preferences_act.class);
                     startActivity(i);
                 }
-            });
+            });*/
 
-            m_tv = (TextView) findViewById(R.id.tv);
+        m_tv = (TextView) findViewById(R.id.tv);
 
-            //if (savedInstanceState == null)
-            {
-                initialisePaging();
-            }
+        initialisePaging();
+
+        if (savedInstanceState == null) {
+            fragments.clear();
+            addView(new start_frag());
+        }
+        //}
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu); // tilføj evt standardmenuer
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.settings:
+                Intent i1 = new Intent(getApplicationContext(), preferences_act.class);
+                startActivity(i1);
+                return true;
+            case R.id.communication:
+                Intent i2 = new Intent(getApplicationContext(), communication_viewpager_act.class);
+                startActivity(i2);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 
@@ -80,7 +107,7 @@ public class main_act extends FragmentActivity {
     private void initialisePaging() {
         List<Fragment> fragments = new Vector<Fragment>();
 
-        mPagerAdapter = new GoogleMusicAdapter(getSupportFragmentManager(), fragments);
+        mPagerAdapter = new GoogleMusicAdapter(getSupportFragmentManager());
         //mPagerAdapter = new pageradapter(super.getSupportFragmentManager(), fragments);
 
         mPager = (ViewPager) super.findViewById(R.id.viewpager);
@@ -95,9 +122,8 @@ public class main_act extends FragmentActivity {
         //Bind the title indicator to the adapter
         mTitleIndicator = (TabPageIndicator) findViewById(R.id.titles);
         mTitleIndicator.setViewPager(mPager);
-        addView(new start_frag());
         final float density = getResources().getDisplayMetrics().density;
-        mTitleIndicator.setBackgroundColor(0x88008800);
+        //mTitleIndicator.setBackgroundColor(0x007777FF);
         /*mTitleIndicator.setFooterColor(0xFFAA2222);
         mTitleIndicator.setFooterLineHeight(1 * density);
         mTitleIndicator.setFooterIndicatorHeight(3 * density);
@@ -131,13 +157,12 @@ public class main_act extends FragmentActivity {
 
     public void addView(Fragment newPage) {
 
-        Log.d("GVE", "addView : " + cnt + "-" + ((base_frag)newPage).GetTitle());
-                mPagerAdapter.addView(newPage, mPagerAdapter.getCount());
+        Log.d("GVE", "addView : " + cnt + "-" + ((base_frag) newPage).GetTitle());
+        mPagerAdapter.addView(newPage, mPagerAdapter.getCount());
 /*        CharSequence title = mPagerAdapter.getPageTitle(mPagerAdapter.getCount());
         Log.d("GVE", "title: " + title);*/
 
         cnt++;
-        mPagerAdapter.notifyDataSetChanged();
         mTitleIndicator.notifyDataSetChanged();
     }
 
@@ -198,13 +223,12 @@ public class main_act extends FragmentActivity {
         }
     }*/
 
+
     class GoogleMusicAdapter extends FragmentPagerAdapter {
 
-        private List<Fragment> fragments;
 
-        public GoogleMusicAdapter(FragmentManager fm, List<Fragment> fragments) {
+        public GoogleMusicAdapter(FragmentManager fm) {
             super(fm);
-            this.fragments = fragments;
         }
 
         @Override
@@ -217,14 +241,11 @@ public class main_act extends FragmentActivity {
         public CharSequence getPageTitle(int position) {
 
             Log.d("GVE", "getPageTitle " + position);
-            if (fragments.get(position) instanceof base_frag)
-            {
+            if (fragments.get(position) instanceof base_frag) {
                 String title = ((base_frag) fragments.get(position)).GetTitle();
                 Log.d("GVE", "title: " + title);
                 return title;
-            }
-            else
-            {
+            } else {
                 return "no base_frag";
             }
         }
@@ -237,10 +258,10 @@ public class main_act extends FragmentActivity {
 
         //@Override
         public void addView(Fragment v, int position) {
-            if (fragments != null) {
-                fragments.add(position, v);
-                Log.d("GVE", "add fragment " + position);
-            }
+
+            fragments.add(position, v);
+            Log.d("GVE", "add fragment " + position);
+            notifyDataSetChanged();
         }
     }
 }

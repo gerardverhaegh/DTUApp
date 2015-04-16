@@ -16,13 +16,6 @@ import android.widget.ImageView;
 public class question_evaluation_frag extends base_frag {
 
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        mTitle = "Question";
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         /**

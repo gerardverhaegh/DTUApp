@@ -18,13 +18,6 @@ import android.widget.RadioGroup;
 public class evaluation_frag extends base_frag {
 
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        mTitle = "Evaluation";
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         /**

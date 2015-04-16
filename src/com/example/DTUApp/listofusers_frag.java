@@ -25,13 +25,6 @@ public class listofusers_frag extends base_frag implements AdapterView.OnItemCli
     View v = null;
 
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        mTitle = "Users";
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         lv = new ListView(getActivity());
         lv.setOnItemClickListener(this);

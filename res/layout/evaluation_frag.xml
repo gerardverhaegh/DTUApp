@@ -8,8 +8,9 @@
     <ImageView
         android:id="@+id/iv"
         android:src="@raw/evaluation"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
 
     <TextView
         android:id="@+id/tv"
@@ -27,18 +28,21 @@
             android:id="@+id/radioExcellent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor = "#FF7777FF"
             android:text="Excellent"/>
 
         <RadioButton
             android:id="@+id/radioVeryGood"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor = "#FF7777FF"
             android:text="Very good" />
 
         <RadioButton
             android:id="@+id/radioGood"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor = "#FF7777FF"
             android:text="Good"/>
     </RadioGroup>
 

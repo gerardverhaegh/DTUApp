@@ -15,18 +15,9 @@ import android.widget.ImageView;
 public class find_location2_frag extends base_frag {
 
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        mTitle = "Location";
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.find_location2_frag, container, false);
-
-        mTitle = "Location";
 
         ImageView iv = (ImageView) v.findViewById(R.id.iv);
         iv.setImageResource(R.raw.find_location2);

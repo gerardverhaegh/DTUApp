@@ -33,19 +33,11 @@ public class start_frag extends base_frag {
     private View mv = null;
 
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        mTitle = "Start";
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         /**
          * Inflate the layout for this fragment
          */
-        mTitle = "Start";
 
         View v = inflater.inflate(R.layout.start_frag, container, false);
 
@@ -107,8 +99,11 @@ public class start_frag extends base_frag {
         DisplayDate(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
         DisplayTime(c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE));
 
-        main_act activity = (main_act) getActivity();
-        activity.setResult("ok");
+        if (getActivity() instanceof main_act)
+        {
+            main_act activity = (main_act)getActivity();
+            activity.setResult("ok");
+        }
 
         return v;
     }

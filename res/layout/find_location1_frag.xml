@@ -6,8 +6,9 @@
     <ImageView
         android:id="@+id/iv"
         android:src="@raw/find_location1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
 
     <TextView
         android:id="@+id/tv"
@@ -31,18 +32,21 @@
             android:id="@+id/radioMost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor = "#FF7777FF"
             android:text="5 km"/>
 
         <RadioButton
             android:id="@+id/radioAvg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor = "#FF7777FF"
             android:text="3 km" />
 
         <RadioButton
             android:id="@+id/radioLeast"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor = "#FF7777FF"
             android:text="1 km"/>
     </RadioGroup>
 
@@ -50,5 +54,6 @@
         android:id="@+id/btnStartJagt"
         android:text="Begyndt bogstav jagten"
         android:layout_width="fill_parent"
+        android:textColor = "#FF7777FF"
         android:layout_height="wrap_content"/>
 </LinearLayout>
