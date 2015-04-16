@@ -2,8 +2,8 @@
 <resources>
     <style name="MyTheme" parent="@style/Theme.PageIndicatorDefaults">
         <item name="android:textColor">#FF7777FF</item>
-<!--        <item name="android:textColorPrimary">#FF7777FF</item>
-        <item name="android:textColorSecondary">#FF295055</item>
+        <item name="android:textColorPrimary">#FF7777FF</item>
+<!--        <item name="android:textColorSecondary">#FF295055</item>
         <item name="android:textColorTertiary">#FF295055</item>
         <item name="android:textColorPrimaryInverse">#FF295055</item>
         <item name="android:textColorSecondaryInverse">#FF295055</item>
@@ -14,4 +14,12 @@
         <!--<item name="android:colorForeground">#FFFF0000</item>-->
         <item name="android:background">#FFFFFFFF</item>
     </style>
+
+
+<!--    <style name="MyDefaultTextAppearance" parent="@android:style/TextAppearance">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#333</item>
+        <item name="android:textStyle">bold</item>
+    </style>-->
+
 </resources>

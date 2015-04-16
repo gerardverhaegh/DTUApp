@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 import com.viewpagerindicator.TabPageIndicator;
@@ -76,11 +77,16 @@ public class main_act extends FragmentActivity {
             addView(new start_frag());
         }
         //}
+
+        //makeActionOverflowMenuShown();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu); // tilføj evt standardmenuer
-        getMenuInflater().inflate(R.menu.menu, menu);
+        super.onCreateOptionsMenu(menu);
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+
         return true;
     }
 
@@ -100,6 +106,20 @@ public class main_act extends FragmentActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+/*    private void makeActionOverflowMenuShown() {
+        //devices with hardware menu button (e.g. Samsung Note) don't show action overflow menu
+        try {
+            ViewConfiguration config = ViewConfiguration.get(this);
+            Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
+            if (menuKeyField != null) {
+                menuKeyField.setAccessible(true);
+                menuKeyField.setBoolean(config, false);
+            }
+        } catch (Exception e) {
+            Log.d("GVE", e.getLocalizedMessage());
+        }
+    }*/
 
     /**
      * Initialise the fragments to be paged

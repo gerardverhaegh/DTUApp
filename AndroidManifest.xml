@@ -46,7 +46,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".main_act"/>
+        <activity android:name=".main_act"
+                  android:uiOptions="splitActionBarWhenNarrow"/>
         <activity android:name=".preferences_act"/>
         <activity android:name=".communication_viewpager_act"/>
         <activity android:name=".viewpagerfragment_act"/>
