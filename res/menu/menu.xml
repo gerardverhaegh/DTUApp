@@ -3,10 +3,10 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/communication"
-        android:showAsAction="always"
+        android:showAsAction="ifRoom"
         android:title="Communication"/>
     <item
         android:id="@+id/settings"
-        android:showAsAction="always"
+        android:showAsAction="ifRoom"
         android:title="Settings"/>
 </menu>
