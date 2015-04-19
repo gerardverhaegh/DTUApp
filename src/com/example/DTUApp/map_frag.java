@@ -43,19 +43,21 @@ public class map_frag extends base_frag implements LocationListener {
     private DialogInterface.OnClickListener checkInPositiveButton;
     private DialogInterface.OnClickListener checkInNegativeButton;
 
-    private boolean bFirstTime = true;
+    private static boolean bFirstTime = true;
     private Circle mCircle = null;
     private Marker mMarker = null;
-    private double dWalkedDistanceKM = 0;
-    private Location mLocationStart = null;
+    private static double dWalkedDistanceKM = 0;
+    private static Location mLocationStart = null;
     private double mRadiusInKM = 2.0;
     private TextView mtv = null;
-    private boolean m_bKeepGoing = false;
-    private float zoomLvl = 15;
+    private static boolean m_bKeepGoing = false;
+    private static float zoomLvl = 15;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        Log.d("GVE", "Create MAP fragment");
 
         View v = inflater.inflate(R.layout.map_frag,
                 container, false);
@@ -70,7 +72,6 @@ public class map_frag extends base_frag implements LocationListener {
         //resources = getResources();
         initGooglePlayStatus();
         initLocationRequestBuilder();
-        bFirstTime = true;
 
         return v;
     }
@@ -78,13 +79,13 @@ public class map_frag extends base_frag implements LocationListener {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        Log.d("GVE", "Destroy fragment");
+        Log.d("GVE", "Destroy MAP fragment");
         LocationManager locationManager = (LocationManager) getActivity().getSystemService(getActivity().LOCATION_SERVICE);
         locationManager.removeUpdates(this);
         locationManager = null;
         googleMap = null;
         //resources = null;
-        bFirstTime = true;
+        //bFirstTime = true;
 
         try {
             SupportMapFragment fragment = (SupportMapFragment) getActivity()
@@ -193,7 +194,7 @@ public class map_frag extends base_frag implements LocationListener {
         location = locationManager.getLastKnownLocation(provider);
 
         if (location != null) {
-            bFirstTime = true;
+            //bFirstTime = true;
             onLocationChanged(location);
         }
 
