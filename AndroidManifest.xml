@@ -46,11 +46,21 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".main_act"/>
-        <activity android:name=".preferences_act"/>
-        <activity android:name=".communication_viewpager_act"/>
-        <activity android:name=".viewpagerfragment_act"/>
-        <receiver android:name=".alarm_act" />
+        <activity android:name=".main_act"
+                  android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".preferences_act"
+                  android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".communication_viewpager_act"
+                  android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".viewpagerfragment_act"
+                  android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:screenOrientation="portrait"/>
+        <receiver android:name=".alarm_act"
+                  android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:screenOrientation="portrait" />
     </application>
 
 
