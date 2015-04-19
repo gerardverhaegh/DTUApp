@@ -1,6 +1,9 @@
 package com.example.DTUApp;
 
+import android.app.ActionBar;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -11,6 +14,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.TextView;
 import com.viewpagerindicator.TabPageIndicator;
 
@@ -45,10 +49,14 @@ public class main_act extends FragmentActivity {
         super.onCreate(savedInstanceState);
 
         //if (savedInstanceState == null) {
-/*            requestWindowFeature(Window.FEATURE_NO_TITLE);
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
+            //requestWindowFeature(Window.FEATURE_NO_TITLE);
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.main_act);
+
+        ActionBar bar = getActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFFFF")));
+        //bar.setBackgroundDrawable(getResources().getDrawable(R.drawable.settings_icon));
 
 /*            TabWidget btn_speak = (TabWidget) findViewById(R.id.btn_speak);
             btn_speak.setOnClickListener(new View.OnClickListener() {
