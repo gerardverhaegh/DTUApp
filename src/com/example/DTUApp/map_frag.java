@@ -52,6 +52,7 @@ public class map_frag extends base_frag implements LocationListener {
     private TextView mtv = null;
     private static boolean m_bKeepGoing = false;
     private static float zoomLvl = 15;
+    private LocationManager mLocationManager = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,16 +71,29 @@ public class map_frag extends base_frag implements LocationListener {
         initGooglePlayStatus();
         initLocationRequestBuilder();
 
+        global_app.getInstance().AddSubscriber(this);
         return v;
+    }
+
+    public void Notify() {
+        if (mLocationManager != null) {
+            mLocationManager.removeUpdates(this);
+            mLocationManager = null;
+        }
+        initLocationManager();
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         Log.d("GVE", "Destroy MAP fragment");
-        LocationManager locationManager = (LocationManager) getActivity().getSystemService(getActivity().LOCATION_SERVICE);
-        locationManager.removeUpdates(this);
-        locationManager = null;
+
+        global_app.getInstance().RemoveSubscriber(this);
+
+        if (mLocationManager != null) {
+            mLocationManager.removeUpdates(this);
+            mLocationManager = null;
+        }
         googleMap = null;
         //resources = null;
         //bFirstTime = true;
@@ -115,7 +129,6 @@ public class map_frag extends base_frag implements LocationListener {
     }
 
     private void initLocationRequestBuilder() {
-
         // Retrieve other users' locations from QuickBlox
         //
         QBLocationRequestBuilder getLocationsBuilder = new QBLocationRequestBuilder();
@@ -125,7 +138,6 @@ public class map_frag extends base_frag implements LocationListener {
         QBLocations.getLocations(getLocationsBuilder, new QBEntityCallbackImpl<ArrayList<QBLocation>>() {
             @Override
             public void onSuccess(ArrayList<QBLocation> qbLocations, Bundle bundle) {
-
                 // show all locations on the map
                 //
                 for (QBLocation location : qbLocations) {
@@ -153,16 +165,6 @@ public class map_frag extends base_frag implements LocationListener {
                 googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
                     @Override
                     public boolean onMarkerClick(Marker marker) {
-                        String message;
-                        if (marker.equals(mMarker)) {
-                            message = "it is me";
-                        } else {
-                            data data = storageMap.get(marker);
-/*                            message = resources.getString(R.string.dlg_user_login) + data.getUserName() +
-                                    resources.getString(R.string.dlg_status) + (data
-                                    .getUserStatus() != null ? data.getUserStatus() : resources.getString(R.string.empty));*/
-                        }
-                        //dialogutils.showLong(context, "message");
                         return false;
                     }
                 });
@@ -171,31 +173,34 @@ public class map_frag extends base_frag implements LocationListener {
     }
 
     private void initLocationManager() {
-        LocationManager locationManager = (LocationManager) getActivity().getSystemService(getActivity().LOCATION_SERVICE);
+        if (mLocationManager != null) {
+            mLocationManager.removeUpdates(this);
+            mLocationManager = null;
+        }
+        mLocationManager = (LocationManager) getActivity().getSystemService(getActivity().LOCATION_SERVICE);
         Criteria criteria = new Criteria();
         criteria.setAccuracy(Criteria.ACCURACY_FINE);
 
         Location location = null;
         String provider = null;
 
-        if (global_app.GetPref().getBoolean(constants.USEGPS, false))
-        {
+        if (global_app.GetPref().getBoolean(constants.USEGPS, false)) {
             provider = LocationManager.GPS_PROVIDER;
-        }
-        else
-        {
+            Log.d("GVE", "initLocationManager GPS_PROVIDER-----------------------------------------");
+        } else {
             provider = LocationManager.NETWORK_PROVIDER;
+            Log.d("GVE", "initLocationManager NETWORK_PROVIDER-------------------------------------");
         }
 
-        Log.d("GVE", "Using GPS for last known location");
+/*        Log.d("GVE", "Using GPS for last known location");
         location = locationManager.getLastKnownLocation(provider);
 
         if (location != null) {
             //bFirstTime = true;
             onLocationChanged(location);
-        }
+        }*/
 
-        locationManager.requestLocationUpdates(provider, constants.LOCATION_MIN_TIME, 0, this);
+        mLocationManager.requestLocationUpdates(provider, constants.LOCATION_MIN_TIME, 0, this);
     }
 
     @Override
@@ -228,7 +233,7 @@ public class map_frag extends base_frag implements LocationListener {
 
         if (dWalkedDistanceKM < 1.0) {
             // in meters
-            mtv.setText(String.format("Gået afstand: %3.0f m\nDu skal gå minimum %3.0f m", 1000 * dWalkedDistanceKM, 1000*mRadiusInKM));
+            mtv.setText(String.format("Gået afstand: %3.0f m\nDu skal gå minimum %3.0f m", 1000 * dWalkedDistanceKM, 1000 * mRadiusInKM));
         } else {
             // in km
             mtv.setText(String.format("Gået afstand: %2.1f km\nDu skal gå minimum %3.0f km", dWalkedDistanceKM, mRadiusInKM));

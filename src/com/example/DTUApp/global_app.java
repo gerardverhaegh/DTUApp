@@ -8,8 +8,7 @@ import android.content.res.Configuration;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by gve on 18-03-2015.
@@ -18,6 +17,8 @@ public class global_app extends Application /*implements SharedPreferences*/ {
     private static global_app _instance = null;
     private static SharedPreferences preferences = null;
     //private static communication comm = null;
+
+    private static Vector<base_frag> m_ListOfSubscribers = new Vector<base_frag>();
 
     public static global_app getInstance() {
         return _instance;
@@ -75,5 +76,23 @@ public class global_app extends Application /*implements SharedPreferences*/ {
                 return null;
         } else
             return null;
+    }
+
+    public static void AddSubscriber(base_frag bf) {
+        m_ListOfSubscribers.add(bf);
+    }
+
+    public static void RemoveSubscriber(base_frag bf) {
+        m_ListOfSubscribers.remove(bf);
+    }
+
+    private static void NotifySubscribers() {
+        for (int i = 0; i < m_ListOfSubscribers.size(); i++) {
+            m_ListOfSubscribers.get(i).Notify();
+        }
+    }
+
+    public static void Notify() {
+        NotifySubscribers();
     }
 }

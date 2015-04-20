@@ -39,4 +39,8 @@ public class base_frag extends Fragment {
             return "no title";
         }
     }
+
+    public void Notify() {
+        // nothing
+    }
 }

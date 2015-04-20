@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.*;
+import android.util.Log;
 import android.view.WindowManager;
 
 /**
@@ -46,6 +47,8 @@ public class preferences_act extends PreferenceActivity implements
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
                                           String key) {
         updatePrefSummary(findPreference(key));
+        Log.d("GVE", "onSharedPreferenceChanged-----------------------------------------");
+        global_app.Notify();
     }
 
     private void initSummary(Preference p) {
@@ -66,7 +69,7 @@ public class preferences_act extends PreferenceActivity implements
         }
         if (p instanceof EditTextPreference) {
             EditTextPreference editTextPref = (EditTextPreference) p;
-            if (false){//p.getTitle().toString().contains("assword")) {
+            if (false) {//p.getTitle().toString().contains("assword")) {
                 p.setSummary("******");
             } else {
                 p.setSummary(editTextPref.getText());
