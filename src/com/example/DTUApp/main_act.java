@@ -48,15 +48,11 @@ public class main_act extends FragmentActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //if (savedInstanceState == null) {
-            //requestWindowFeature(Window.FEATURE_NO_TITLE);
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.main_act);
-
         ActionBar bar = getActionBar();
         bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFFFF")));
-        //bar.setBackgroundDrawable(getResources().getDrawable(R.drawable.settings_icon));
 
 /*            TabWidget btn_speak = (TabWidget) findViewById(R.id.btn_speak);
             btn_speak.setOnClickListener(new View.OnClickListener() {
@@ -84,9 +80,6 @@ public class main_act extends FragmentActivity {
             fragments.clear();
             addView(new start_frag());
         }
-        //}
-
-        //makeActionOverflowMenuShown();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -100,7 +93,6 @@ public class main_act extends FragmentActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
         switch (item.getItemId()) {
             case R.id.settings:
                 Intent i1 = new Intent(getApplicationContext(), preferences_act.class);
@@ -115,20 +107,6 @@ public class main_act extends FragmentActivity {
         }
     }
 
-/*    private void makeActionOverflowMenuShown() {
-        //devices with hardware menu button (e.g. Samsung Note) don't show action overflow menu
-        try {
-            ViewConfiguration config = ViewConfiguration.get(this);
-            Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
-            if (menuKeyField != null) {
-                menuKeyField.setAccessible(true);
-                menuKeyField.setBoolean(config, false);
-            }
-        } catch (Exception e) {
-            Log.d("GVE", e.getLocalizedMessage());
-        }
-    }*/
-
     /**
      * Initialise the fragments to be paged
      */
@@ -140,37 +118,16 @@ public class main_act extends FragmentActivity {
 
         mPager = (ViewPager) super.findViewById(R.id.viewpager);
         mPager.setAdapter(mPagerAdapter);
-/*        addView(new find_location1_frag());
-        addView(new finished_game_frag());
-        addView(new letter_frag());
-        addView(new map_frag());
-        addView(new evaluation_frag());
-        addView(new question_evaluation_frag());*/
 
         //Bind the title indicator to the adapter
         mTitleIndicator = (TabPageIndicator) findViewById(R.id.titles);
         mTitleIndicator.setViewPager(mPager);
         final float density = getResources().getDisplayMetrics().density;
-        //mTitleIndicator.setBackgroundColor(0x007777FF);
-        /*mTitleIndicator.setFooterColor(0xFFAA2222);
-        mTitleIndicator.setFooterLineHeight(1 * density);
-        mTitleIndicator.setFooterIndicatorHeight(3 * density);
-        mTitleIndicator.setFooterIndicatorStyle(TabPageIndicator.);
-        mTitleIndicator.setTextColor(0xAA000000);
-        mTitleIndicator.setSelectedColor(0xFF000000);
-        mTitleIndicator.setSelectedBold(true);*/
-
 
         mTitleIndicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
                 Log.d("GVE", "page: " + position);
-
-/*                TestFragmentPage current = (TestFragmentPage)mPagerAdapter.getItem(position);
-                current.onPageSelected();*/
-
-                // Store the position of current page
-                //PrefUtils.setInt(MainActivity.this, R.string.pref_last_tab, position);
             }
 
             @Override
@@ -187,8 +144,6 @@ public class main_act extends FragmentActivity {
 
         Log.d("GVE", "addView : " + cnt + "-" + ((base_frag) newPage).GetTitle());
         mPagerAdapter.addView(newPage, mPagerAdapter.getCount());
-/*        CharSequence title = mPagerAdapter.getPageTitle(mPagerAdapter.getCount());
-        Log.d("GVE", "title: " + title);*/
 
         cnt++;
         mTitleIndicator.notifyDataSetChanged();
@@ -230,38 +185,13 @@ public class main_act extends FragmentActivity {
         }
     }
 
-/*    class GoogleMusicAdapter extends FragmentPagerAdapter {
-        public GoogleMusicAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return TestFragment2.newInstance(CONTENT[position % CONTENT.length]);
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return CONTENT[position % CONTENT.length].toUpperCase();
-        }
-
-        @Override
-        public int getCount() {
-            return CONTENT.length;
-        }
-    }*/
-
-
     class GoogleMusicAdapter extends FragmentPagerAdapter {
-
-
         public GoogleMusicAdapter(FragmentManager fm) {
             super(fm);
         }
 
         @Override
         public Fragment getItem(int position) {
-            //return TestFragment2.newInstance(CONTENT[position % CONTENT.length]);
             return fragments.get(position);
         }
 
@@ -283,8 +213,6 @@ public class main_act extends FragmentActivity {
             return fragments.size();
         }
 
-
-        //@Override
         public void addView(Fragment v, int position) {
 
             fragments.add(position, v);

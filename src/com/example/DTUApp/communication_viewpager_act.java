@@ -1,5 +1,8 @@
 package com.example.DTUApp;
 
+import android.app.ActionBar;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -7,6 +10,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.WindowManager;
 import com.viewpagerindicator.TabPageIndicator;
 
 import java.util.ArrayList;
@@ -28,15 +32,12 @@ public class communication_viewpager_act extends FragmentActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //if (savedInstanceState == null) {
-/*            requestWindowFeature(Window.FEATURE_NO_TITLE);
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
-
-            setContentView(R.layout.communication_viewpager);
-        //}
-
+/*            requestWindowFeature(Window.FEATURE_NO_TITLE);*/
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.communication_viewpager);
+        ActionBar bar = getActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFFFF")));
         initialisePaging();
-
         if (savedInstanceState == null) {
             fragments.clear();
             addView(new communication_frag());
@@ -54,37 +55,16 @@ public class communication_viewpager_act extends FragmentActivity {
 
         mPager = (ViewPager) super.findViewById(R.id.viewpager);
         mPager.setAdapter(mPagerAdapter);
-/*        addView(new find_location1_frag());
-        addView(new finished_game_frag());
-        addView(new letter_frag());
-        addView(new map_frag());
-        addView(new evaluation_frag());
-        addView(new question_evaluation_frag());*/
 
         //Bind the title indicator to the adapter
         mTitleIndicator = (TabPageIndicator) findViewById(R.id.titles);
         mTitleIndicator.setViewPager(mPager);
         final float density = getResources().getDisplayMetrics().density;
-        //mTitleIndicator.setBackgroundColor(0x007777FF);
-        /*mTitleIndicator.setFooterColor(0xFFAA2222);
-        mTitleIndicator.setFooterLineHeight(1 * density);
-        mTitleIndicator.setFooterIndicatorHeight(3 * density);
-        mTitleIndicator.setFooterIndicatorStyle(TabPageIndicator.);
-        mTitleIndicator.setTextColor(0xAA000000);
-        mTitleIndicator.setSelectedColor(0xFF000000);
-        mTitleIndicator.setSelectedBold(true);*/
-
 
         mTitleIndicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
                 Log.d("GVE", "page: " + position);
-
-/*                TestFragmentPage current = (TestFragmentPage)mPagerAdapter.getItem(position);
-                current.onPageSelected();*/
-
-                // Store the position of current page
-                //PrefUtils.setInt(MainActivity.this, R.string.pref_last_tab, position);
             }
 
             @Override
@@ -98,12 +78,7 @@ public class communication_viewpager_act extends FragmentActivity {
     }
 
     public void addView(Fragment newPage) {
-
-        //Log.d("GVE", "addView : " + cnt + "-" + ((base_frag) newPage).GetTitle());
         mPagerAdapter.addView(newPage, mPagerAdapter.getCount());
-/*        CharSequence title = mPagerAdapter.getPageTitle(mPagerAdapter.getCount());
-        Log.d("GVE", "title: " + title);*/
-
         mTitleIndicator.notifyDataSetChanged();
     }
 
@@ -117,21 +92,17 @@ public class communication_viewpager_act extends FragmentActivity {
     }
 
     class GoogleMusicAdapter extends FragmentPagerAdapter {
-
-
         public GoogleMusicAdapter(FragmentManager fm) {
             super(fm);
         }
 
         @Override
         public Fragment getItem(int position) {
-            //return TestFragment2.newInstance(CONTENT[position % CONTENT.length]);
             return fragments.get(position);
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
-
             Log.d("GVE", "getPageTitle " + position);
             if (fragments.get(position) instanceof base_frag) {
                 String title = ((base_frag) fragments.get(position)).GetTitle();
@@ -147,8 +118,6 @@ public class communication_viewpager_act extends FragmentActivity {
             return fragments.size();
         }
 
-
-        //@Override
         public void addView(Fragment v, int position) {
 
             fragments.add(position, v);

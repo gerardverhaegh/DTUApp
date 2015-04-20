@@ -25,15 +25,14 @@ public class evaluation_frag extends base_frag {
          */
         View v = inflater.inflate(R.layout.evaluation_frag, container, false);
 
-        ImageView iv = (ImageView)v.findViewById(R.id.iv);
+        ImageView iv = (ImageView) v.findViewById(R.id.iv);
         iv.setImageResource(R.raw.evaluation);
 
-        RadioButton radExcellent = (RadioButton)v.findViewById(R.id.radioExcellent);
-        RadioButton radVeryGood = (RadioButton)v.findViewById(R.id.radioVeryGood);
-        RadioButton radGood = (RadioButton)v.findViewById(R.id.radioGood);
+        RadioButton radExcellent = (RadioButton) v.findViewById(R.id.radioExcellent);
+        RadioButton radVeryGood = (RadioButton) v.findViewById(R.id.radioVeryGood);
+        RadioButton radGood = (RadioButton) v.findViewById(R.id.radioGood);
 
-        switch (global_app.GetPref().getInt(constants.RADIO_HEALTH_VALUE, R.id.radioExcellent))
-        {
+        switch (global_app.GetPref().getInt(constants.RADIO_HEALTH_VALUE, R.id.radioExcellent)) {
             case R.id.radioExcellent:
                 radExcellent.setChecked(true);
                 break;
@@ -46,8 +45,7 @@ public class evaluation_frag extends base_frag {
         }
 
         RadioGroup radioGroup = (RadioGroup) v.findViewById(R.id.radioHealth);
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-        {
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 // checkedId is the RadioButton selected

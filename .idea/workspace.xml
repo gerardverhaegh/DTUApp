@@ -73,6 +73,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="166c20fb-6cf2-46ac-b777-1bc437e4788b" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/android-support-v7-appcompat.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/android_support_v7_appcompat.xml" />
       <change type="DELETED" beforePath="C:\Users\Gerard Verhaegh\IdeaProjects\GerardApps\DTUApp\out\production\DTUApp\com\example\DTUApp\communication_frag$16$1.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\Gerard Verhaegh\IdeaProjects\GerardApps\DTUApp\out\production\DTUApp\com\example\DTUApp\communication_frag$16.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\Gerard Verhaegh\IdeaProjects\GerardApps\DTUApp\out\production\DTUApp\com\example\DTUApp\communication_frag$17.class" afterPath="" />
@@ -129,8 +131,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/letter_frag.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/letter_frag.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/main_act$1.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/main_act$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/main_act.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/main_act.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/map_frag$1.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/map_frag$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/map_frag$2.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/map_frag$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/map_frag$3.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/map_frag$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/map_frag$4.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/map_frag$4.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/map_frag$5$1.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/map_frag$5$1.class" />
@@ -142,10 +142,17 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/question_evaluation_frag.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/question_evaluation_frag.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/start_act.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/start_act.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/start_frag.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/start_frag.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DTUApp.iml" afterPath="$PROJECT_DIR$/DTUApp.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/DTUApp/alarm_act.java" afterPath="$PROJECT_DIR$/src/com/example/DTUApp/alarm_act.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/DTUApp/communication_frag.java" afterPath="$PROJECT_DIR$/src/com/example/DTUApp/communication_frag.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/DTUApp/communication_viewpager_act.java" afterPath="$PROJECT_DIR$/src/com/example/DTUApp/communication_viewpager_act.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/DTUApp/constants.java" afterPath="$PROJECT_DIR$/src/com/example/DTUApp/constants.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/DTUApp/evaluation_frag.java" afterPath="$PROJECT_DIR$/src/com/example/DTUApp/evaluation_frag.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/DTUApp/global_app.java" afterPath="$PROJECT_DIR$/src/com/example/DTUApp/global_app.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/DTUApp/letter_frag.java" afterPath="$PROJECT_DIR$/src/com/example/DTUApp/letter_frag.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/DTUApp/main_act.java" afterPath="$PROJECT_DIR$/src/com/example/DTUApp/main_act.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/DTUApp/start_act.java" afterPath="$PROJECT_DIR$/src/com/example/DTUApp/start_act.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/themes.xml" afterPath="$PROJECT_DIR$/res/values/themes.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/DTUApp/map_frag.java" afterPath="$PROJECT_DIR$/src/com/example/DTUApp/map_frag.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/DTUApp/preferences_act.java" afterPath="$PROJECT_DIR$/src/com/example/DTUApp/preferences_act.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DTUApp.iws" />
@@ -174,9 +181,11 @@
       <file leaf-file-name="main_act.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/main_act.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="430" max-vertical-offset="4709">
-              <caret line="52" column="39" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="650" max-vertical-offset="3757">
+              <caret line="54" column="84" selection-start-line="52" selection-start-column="42" selection-end-line="54" selection-end-column="84" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -184,87 +193,18 @@
       <file leaf-file-name="start_act.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/start_act.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
+            <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="799">
               <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="117" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="themes.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/values/themes.xml">
+      <file leaf-file-name="start_frag.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/start_frag.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
-              <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vpi__styles.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../ViewPagerIndicator/library/res/values/vpi__styles.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="159" max-vertical-offset="935">
-              <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main_act.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/main_act.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.6666665" vertical-offset="187" max-vertical-offset="1207">
-              <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="listofusers_frag.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/listofusers_frag.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="evaluation_frag.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/evaluation_frag.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1020">
-              <caret line="30" column="43" selection-start-line="29" selection-start-column="48" selection-end-line="30" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menu.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/menu/menu.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
-              <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.20528455" vertical-offset="392" max-vertical-offset="1241">
-              <caret line="29" column="43" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1751" max-vertical-offset="3791">
+              <caret line="107" column="17" selection-start-line="107" selection-start-column="17" selection-end-line="107" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -273,8 +213,68 @@
       <file leaf-file-name="map_frag.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/map_frag.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="5491">
-              <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="639" max-vertical-offset="5440">
+              <caret line="84" column="28" selection-start-line="82" selection-start-column="25" selection-end-line="84" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pageradapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/pageradapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="239" max-vertical-offset="748">
+              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="preferences_act.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/preferences_act.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1343">
+              <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="viewpagerfragment_act.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/viewpagerfragment_act.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.73477405" vertical-offset="0" max-vertical-offset="799">
+              <caret line="28" column="31" selection-start-line="27" selection-start-column="49" selection-end-line="28" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="communication_viewpager_act.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/communication_viewpager_act.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="188" max-vertical-offset="1887">
+              <caret line="35" column="117" selection-start-line="35" selection-start-column="117" selection-end-line="35" selection-end-column="117" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="question_evaluation_frag.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/question_evaluation_frag.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="782">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="listofusers_frag.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/listofusers_frag.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="902" max-vertical-offset="1411">
+              <caret line="61" column="49" selection-start-line="61" selection-start-column="49" selection-end-line="61" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -293,11 +293,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/example/DTUApp/login_frag.java" />
-        <option value="$PROJECT_DIR$/src/com/example/DTUApp/global_app.java" />
         <option value="$PROJECT_DIR$/res/layout/map_frag.xml" />
-        <option value="$PROJECT_DIR$/src/com/example/DTUApp/alarm_act.java" />
-        <option value="$PROJECT_DIR$/src/com/example/DTUApp/constants.java" />
         <option value="$PROJECT_DIR$/res/layout/letter_frag.xml" />
         <option value="$PROJECT_DIR$/res/layout/view_pager.xml" />
         <option value="$PROJECT_DIR$/src/com/example/DTUApp/ViewPagerFragmentActivity.java" />
@@ -315,11 +311,9 @@
         <option value="$PROJECT_DIR$/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/../ViewPagerIndicator/library/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/../ViewPagerIndicator/sample/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/src/com/example/DTUApp/evaluation_frag.java" />
         <option value="$PROJECT_DIR$/src/com/example/DTUApp/find_location1_frag.java" />
         <option value="$PROJECT_DIR$/src/com/example/DTUApp/find_location2_frag.java" />
         <option value="$PROJECT_DIR$/src/com/example/DTUApp/finished_game_frag.java" />
-        <option value="$PROJECT_DIR$/src/com/example/DTUApp/letter_frag.java" />
         <option value="$PROJECT_DIR$/src/com/example/DTUApp/listofusers_frag.java" />
         <option value="$PROJECT_DIR$/src/com/example/DTUApp/question_evaluation_frag.java" />
         <option value="$PROJECT_DIR$/src/com/example/DTUApp/base_frag.java" />
@@ -329,8 +323,6 @@
         <option value="$PROJECT_DIR$/src/com/example/DTUApp/GoogleMusicAdapter.java" />
         <option value="$PROJECT_DIR$/res/layout/communication_viewpager.xml" />
         <option value="$PROJECT_DIR$/src/com/example/DTUApp/start_frag.java" />
-        <option value="$PROJECT_DIR$/src/com/example/DTUApp/communication_viewpager_act.java" />
-        <option value="$PROJECT_DIR$/src/com/example/DTUApp/communication_frag.java" />
         <option value="$PROJECT_DIR$/res/layout/evaluation_frag.xml" />
         <option value="$PROJECT_DIR$/res/layout/find_location1_frag.xml" />
         <option value="$PROJECT_DIR$/res/layout/communication_frag.xml" />
@@ -338,12 +330,20 @@
         <option value="$PROJECT_DIR$/res/layout/start_frag.xml" />
         <option value="$PROJECT_DIR$/res/layout/main_act.xml" />
         <option value="$PROJECT_DIR$/res/menu/menu.xml" />
-        <option value="$PROJECT_DIR$/src/com/example/DTUApp/map_frag.java" />
         <option value="$PROJECT_DIR$/../ViewPagerIndicator/library/res/values/vpi__styles.xml" />
         <option value="$PROJECT_DIR$/src/com/example/DTUApp/start_act.java" />
         <option value="$PROJECT_DIR$/res/values/themes.xml" />
-        <option value="$PROJECT_DIR$/src/com/example/DTUApp/main_act.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/com/example/DTUApp/main_act.java" />
+        <option value="$PROJECT_DIR$/src/com/example/DTUApp/alarm_act.java" />
+        <option value="$PROJECT_DIR$/src/com/example/DTUApp/communication_frag.java" />
+        <option value="$PROJECT_DIR$/src/com/example/DTUApp/constants.java" />
+        <option value="$PROJECT_DIR$/src/com/example/DTUApp/evaluation_frag.java" />
+        <option value="$PROJECT_DIR$/src/com/example/DTUApp/global_app.java" />
+        <option value="$PROJECT_DIR$/src/com/example/DTUApp/letter_frag.java" />
+        <option value="$PROJECT_DIR$/src/com/example/DTUApp/map_frag.java" />
+        <option value="$PROJECT_DIR$/src/com/example/DTUApp/preferences_act.java" />
+        <option value="$PROJECT_DIR$/src/com/example/DTUApp/communication_viewpager_act.java" />
       </list>
     </option>
   </component>
@@ -379,7 +379,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -704,6 +703,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -720,10 +720,10 @@
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="FullScreen" value="false" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/android-support-v4.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/android-support-v7-appcompat.jar!/" />
     <property name="options.lastSelected" value="configurable.group.appearance" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -735,11 +735,11 @@
       <recent name="com.example.DTUApp" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Gerard Verhaegh\IdeaProjects\GerardApps\DTUApp\libs" />
       <recent name="C:\Users\Gerard Verhaegh\IdeaProjects\GerardApps\ViewPagerIndicator\sample\libs" />
       <recent name="C:\Users\Gerard Verhaegh\IdeaProjects\GerardApps\ViewPagerIndicator\library\libs" />
       <recent name="C:\Users\Gerard Verhaegh\IdeaProjects\GerardApps\DTUApp\res\layout" />
       <recent name="C:\Users\Gerard Verhaegh\IdeaProjects\GerardApps\DTUApp\src" />
-      <recent name="C:\Users\Gerard Verhaegh\IdeaProjects\GerardApps\DTUApp\xml" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Gerard Verhaegh\IdeaProjects\GerardApps\DTUApp\res\menu" />
@@ -1012,14 +1012,14 @@
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.42093542" sideWeight="0.17803837" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40200445" sideWeight="0.17803837" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294621" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27282852" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.42093542" sideWeight="0.82196164" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40200445" sideWeight="0.82196164" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35074627" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28730512" sideWeight="0.33901918" order="7" side_tool="true" content_ui="tabs" />
@@ -1094,81 +1094,14 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../ViewPagerIndicator/sample/src/com/viewpagerindicator/sample/TestFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="328" max-vertical-offset="1139">
-          <caret line="31" column="53" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/pageradapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="115" max-vertical-offset="748">
-          <caret line="22" column="68" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ViewPagerIndicator/sample/src/com/viewpagerindicator/sample/ListSamples.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="2108">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ViewPagerIndicator/sample/src/com/viewpagerindicator/sample/SampleTitlesWithListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/viewpagerfragment_act.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="259" max-vertical-offset="799">
-          <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ViewPagerIndicator/library/src/com/viewpagerindicator/TabPageIndicator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="402" max-vertical-offset="4216">
-          <caret line="84" column="70" selection-start-line="84" selection-start-column="70" selection-end-line="84" selection-end-column="70" />
-          <folding>
-            <element signature="e#0#9318#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#1995#2456#0" expanded="false" />
-            <element signature="e#2455#2456#0" expanded="false" />
-            <element signature="e#2767#2768#0" expanded="false" />
-            <element signature="e#2802#2803#0" expanded="false" />
-            <element signature="e#3203#3204#0" expanded="false" />
-            <element signature="e#3252#3253#0" expanded="false" />
-            <element signature="e#4557#4809#0" expanded="false" />
-            <element signature="e#4808#4809#0" expanded="false" />
-            <element signature="e#8546#8547#0" expanded="false" />
-            <element signature="e#8582#8583#0" expanded="false" />
-            <element signature="e#8699#8700#0" expanded="false" />
-            <element signature="e#8776#8777#0" expanded="false" />
-            <element signature="e#9271#9272#0" expanded="false" />
-            <element signature="e#9308#9309#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ViewPagerIndicator/sample/src/com/viewpagerindicator/sample/SampleTabsDefault.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="113" max-vertical-offset="782">
-          <caret line="23" column="77" selection-start-line="23" selection-start-column="77" selection-end-line="23" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../ViewPagerIndicator/sample/res/layout/simple_tabs.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.42544731" vertical-offset="177" max-vertical-offset="680">
           <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../ViewPagerIndicator/sample/AndroidManifest.xml">
@@ -1187,100 +1120,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/alarm_act.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68105066" vertical-offset="11" max-vertical-offset="544">
-          <caret line="25" column="29" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/find_location1_frag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1241">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/find_location2_frag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/finished_game_frag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
-          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/letter_frag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="1887">
-          <caret line="23" column="59" selection-start-line="23" selection-start-column="59" selection-end-line="23" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/question_evaluation_frag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/base_frag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="130" max-vertical-offset="765">
-          <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/map_frag.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.5884692" vertical-offset="296" max-vertical-offset="799">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/login_dialog.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/login_dialog.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.35188866" vertical-offset="177" max-vertical-offset="680">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/letter_frag.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/letter_frag.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.6083499" vertical-offset="306" max-vertical-offset="867">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/finished_game_frag.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/finished_game_frag.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3717694" vertical-offset="0" max-vertical-offset="503">
           <caret line="11" column="41" selection-start-line="8" selection-start-column="40" selection-end-line="11" selection-end-column="41" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/libs/android-support-v4.jar!/android/support/v4/app/FragmentManager.class">
@@ -1297,62 +1178,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/evaluation_frag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="986">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/communication_viewpager.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="748">
           <caret line="35" column="19" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
           <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ViewPagerIndicator/library/src/com/viewpagerindicator/CirclePageIndicator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="413" max-vertical-offset="8483">
-          <caret line="71" column="30" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ViewPagerIndicator/sample/src/com/viewpagerindicator/sample/BaseSampleActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="39" max-vertical-offset="833">
-          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/listofusers_frag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="531" max-vertical-offset="1411">
-          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/communication_viewpager_act.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1529" max-vertical-offset="2618">
-          <caret line="109" column="38" selection-start-line="109" selection-start-column="36" selection-end-line="109" selection-end-column="38" />
-          <folding>
-            <element signature="e#4333#4334#0" expanded="false" />
-            <element signature="e#4366#4367#0" expanded="false" />
-            <element signature="e#5061#5062#0" expanded="false" />
-            <element signature="e#5108#5109#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/communication_frag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6838" max-vertical-offset="10982">
-          <caret line="472" column="21" selection-start-line="472" selection-start-column="21" selection-end-line="472" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -1365,77 +1198,69 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/question_evaluation_frag.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.566667" vertical-offset="154" max-vertical-offset="748">
           <caret line="33" column="43" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/find_location1_frag.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/find_location1_frag.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-14.133333" vertical-offset="528" max-vertical-offset="1088">
           <caret line="56" column="39" selection-start-line="56" selection-start-column="39" selection-end-line="56" selection-end-column="39" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/find_location2_frag.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/find_location2_frag.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.6666665" vertical-offset="0" max-vertical-offset="289">
           <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/communication_frag.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/communication_frag.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.333333" vertical-offset="306" max-vertical-offset="1156">
           <caret line="38" column="43" selection-start-line="37" selection-start-column="48" selection-end-line="38" selection-end-column="43" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/start_frag.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/start_frag.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.766667" vertical-offset="562" max-vertical-offset="1972">
           <caret line="45" column="47" selection-start-line="45" selection-start-column="47" selection-end-line="45" selection-end-column="47" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/start_act.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/start_frag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="231" max-vertical-offset="3791">
-          <caret line="107" column="17" selection-start-line="107" selection-start-column="17" selection-end-line="107" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/start_act.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="575">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../ViewPagerIndicator/library/res/values/vpi__attrs.xml">
@@ -1454,25 +1279,25 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/listofusers_frag.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/evaluation_frag.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/evaluation_frag.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1020">
           <caret line="30" column="43" selection-start-line="29" selection-start-column="48" selection-end-line="30" selection-end-column="43" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://C:/Program Files (x86)/Android/android-sdk/platforms/android-16/data/res/values/themes.xml">
@@ -1483,31 +1308,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/menu/menu.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
           <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/main_act.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.6666665" vertical-offset="187" max-vertical-offset="1207">
-          <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/map_frag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="5491">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1520,10 +1326,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/start_act.java">
+    <entry file="file://$PROJECT_DIR$/../ViewPagerIndicator/library/src/com/viewpagerindicator/CirclePageIndicator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="117" />
+        <state vertical-scroll-proportion="1.0857664" vertical-offset="0" max-vertical-offset="8483">
+          <caret line="71" column="30" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../ViewPagerIndicator/sample/src/com/viewpagerindicator/sample/BaseSampleActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="39" max-vertical-offset="833">
+          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -1536,18 +1350,199 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/main_act.java">
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="430" max-vertical-offset="4709">
-          <caret line="52" column="39" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="348" max-vertical-offset="1241">
+          <caret line="29" column="43" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+    <entry file="file://$PROJECT_DIR$/res/layout/main_act.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20528455" vertical-offset="392" max-vertical-offset="1241">
-          <caret line="29" column="43" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="43" />
+        <state vertical-scroll-proportion="-5.6666665" vertical-offset="187" max-vertical-offset="1207">
+          <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libs/android-support-v7-appcompat.jar!/android/support/v7/app/ActionBarActivity.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19502868" vertical-offset="0" max-vertical-offset="3791">
+          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/alarm_act.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="510">
+          <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/base_frag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="256" max-vertical-offset="765">
+          <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/communication_frag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="8891" max-vertical-offset="9401">
+          <caret line="463" column="43" selection-start-line="463" selection-start-column="43" selection-end-line="463" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="714">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/data.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/evaluation_frag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="460" max-vertical-offset="969">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/find_location1_frag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="714" max-vertical-offset="1241">
+          <caret line="50" column="56" selection-start-line="49" selection-start-column="75" selection-end-line="50" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/find_location2_frag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/finished_game_frag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="154" max-vertical-offset="663">
+          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/global_app.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="613" max-vertical-offset="1122">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/letter_frag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="884">
+          <caret line="54" column="30" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/listofusers_frag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="902" max-vertical-offset="1411">
+          <caret line="61" column="49" selection-start-line="61" selection-start-column="49" selection-end-line="61" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/map_frag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="639" max-vertical-offset="5440">
+          <caret line="84" column="28" selection-start-line="82" selection-start-column="25" selection-end-line="84" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/pageradapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="239" max-vertical-offset="748">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/question_evaluation_frag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/start_act.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="117" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/start_frag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="231" max-vertical-offset="3791">
+          <caret line="107" column="17" selection-start-line="107" selection-start-column="17" selection-end-line="107" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/main_act.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="650" max-vertical-offset="3757">
+          <caret line="54" column="84" selection-start-line="52" selection-start-column="42" selection-end-line="54" selection-end-column="84" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/communication_viewpager_act.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="188" max-vertical-offset="1887">
+          <caret line="35" column="117" selection-start-line="35" selection-start-column="117" selection-end-line="35" selection-end-column="117" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/preferences_act.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1343">
+          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/viewpagerfragment_act.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.73477405" vertical-offset="0" max-vertical-offset="799">
+          <caret line="28" column="31" selection-start-line="27" selection-start-column="49" selection-end-line="28" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -1604,7 +1599,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>google-play-services_lib</last-edited>
+          <last-edited>library</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1616,7 +1611,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>google-play-services</last-edited>
+          <last-edited>android-support-v4</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

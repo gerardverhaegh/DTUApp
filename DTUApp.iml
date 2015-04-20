@@ -36,5 +36,15 @@
     <orderEntry type="library" name="gen1" level="project" />
     <orderEntry type="module" module-name="library" />
     <orderEntry type="module" module-name="sample" scope="PROVIDED" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/android-support-v7-appcompat.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="android-support-v7-appcompat" level="project" />
   </component>
 </module>

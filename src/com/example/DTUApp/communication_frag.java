@@ -65,9 +65,6 @@ public class communication_frag extends base_frag {
         // keep QB data in memory
         setRetainInstance(true);
 
-/*        ImageView iv = (ImageView) v.findViewById(R.id.iv);
-        iv.setImageResource(R.raw.communication);*/
-
         txtStatus = (TextView) v.findViewById(R.id.txtStatus);
         txtReceive = (TextView) v.findViewById(R.id.txtReceive);
         txtSend = (EditText) v.findViewById(R.id.txtSend);
@@ -98,7 +95,6 @@ public class communication_frag extends base_frag {
                 SignUp();
             }
         });*/
-
 
 /*        Button btnShowAllUsers = (Button) v.findViewById(R.id.btnShowAllUsers);
         btnShowAllUsers.setOnClickListener(new View.OnClickListener() {
@@ -167,7 +163,6 @@ public class communication_frag extends base_frag {
         super.onDestroyView();
 
         // do not log out
-
 /*        ChatLogout();
         qbThisUser = null;
         qbOtherUser = null;
@@ -180,7 +175,6 @@ public class communication_frag extends base_frag {
 
     private void CreateSession() {
         Log.d("GVE", "----CreateSession");
-
         // String appId, String authKey, String authSecret
         QBSettings.getInstance().fastConfigInit(constants.APP_ID, constants.AUTH_KEY, constants.AUTH_SECRET);
 
@@ -206,40 +200,6 @@ public class communication_frag extends base_frag {
         String username = global_app.GetPref().getString(constants.USERNAME, "NO USERNAME");
         String password = global_app.GetPref().getString(constants.PASSWORD, "NO PASSWORD");
         SignUpInQB(username, password);
-
-        /*
-        LayoutInflater li = LayoutInflater.from(getActivity());
-        View prompt = li.inflate(R.layout.login_dialog, null);
-
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
-        alertDialogBuilder.setView(prompt);
-        final EditText user = (EditText) prompt.findViewById(R.id.userNameEditText);
-
-        user.setText(global_app.GetPref().getString(constants.USERNAME, "Gerard"));
-        final EditText pass = (EditText) prompt.findViewById(R.id.passwordEditText);
-        pass.setText(global_app.GetPref().getString(constants.PASSWORD, "longpassword123"));
-
-        alertDialogBuilder.setCancelable(false)
-                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int id) {
-                        String password = pass.getText().toString();
-                        String username = user.getText().toString();
-                        SignUpInQB(username, password);
-
-                        Log.d("GVE", "----SignUpInQB: " + username);
-                    }
-                });
-
-        alertDialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int id) {
-                dialog.cancel();
-
-            }
-        });
-        alertDialogBuilder.show();
-*/
     }
 
     private void SignUpInQB(final String username, final String password) {
@@ -264,7 +224,6 @@ public class communication_frag extends base_frag {
     private void SignOut() {
         // not yet implemented
     }
-
 
     private void GetAllUsers(final String UserName, final boolean bReinit) {
         QBUsers.getUsers(null, new QBEntityCallbackImpl<ArrayList<QBUser>>() {
@@ -304,48 +263,6 @@ public class communication_frag extends base_frag {
             }
         });
     }
-
-/*    private void ShowAllUsers() {
-        QBUsers.getUsers(null, new QBEntityCallbackImpl<ArrayList<QBUser>>() {
-            @Override
-            public void onSuccess(ArrayList<QBUser> qbUsers, Bundle bundle) {
-                qbOtherUsers = qbUsers;
-                ArrayList<String> s = new ArrayList<String>();
-
-                for (int i = 0; i < qbUsers.size(); i++) {
-                    s.add(qbOtherUsers.get(i).getLogin());
-                }
-
-                Intent i = new Intent(getActivity(), listofusers_frag.class);
-                i.putStringArrayListExtra(constants.USERNAMES, s);
-                startActivity(i);
-            }
-
-            @Override
-            public void onError(List<String> errors) {
-                Toast.makeText(getActivity().getApplicationContext(), errors.toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }*/
-
-/*    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == constants.OTHER_USER) {
-            if (resultCode == constants.LIST_INDEX) {
-                int index = data.getIntExtra(constants.INDEX, -1);
-                qbOtherUser = qbOtherUsers.get(index);
-                //Toast.makeText(getActivity().getApplicationContext(), "Other User: " + qbOtherUser.getLogin() + " " + qbOtherUser.getPassword(), Toast.LENGTH_SHORT).show();
-            }
-        }
-
-        if (requestCode == constants.THIS_USER) {
-            if (resultCode == constants.LIST_INDEX) {
-                int index = data.getIntExtra(constants.INDEX, -1);
-                qbThisUser = qbOtherUsers.get(index);
-                qbThisUser.setPassword(global_app.GetPref().getString(constants.PASSWORD, "No password found"));
-                //Toast.makeText(getActivity().getApplicationContext(), "This User: " + qbThisUser.getLogin() + " " + qbThisUser.getPassword(), Toast.LENGTH_SHORT).show();
-            }
-        }
-    }*/
 
     private void LoginChat() {
         // Initialise Chat service
@@ -474,8 +391,6 @@ public class communication_frag extends base_frag {
                 }
             });
 
-            //chatMessage.setProperty("save_to_history", "1"); // Save a message to history
-
             QBPrivateChat privateChat = QBChatService.getInstance().getPrivateChatManager().getChat(opponentId);
             if (privateChat == null) {
                 privateChat = QBChatService.getInstance().getPrivateChatManager().createChat(opponentId, privateChatMessageListener);
@@ -526,7 +441,6 @@ public class communication_frag extends base_frag {
 
             @Override
             public void onError(final List list) {
-
             }
         });*/
     }
@@ -548,7 +462,6 @@ public class communication_frag extends base_frag {
 
         QBDialog dialog = new QBDialog();
         dialog.setName("GVE's first chat");
-        //dialog.setPhoto("1786");
         dialog.setType(QBDialogType.GROUP);
         dialog.setOccupantsIds(occupantIdsList);
 

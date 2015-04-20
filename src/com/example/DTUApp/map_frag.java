@@ -62,14 +62,11 @@ public class map_frag extends base_frag implements LocationListener {
         View v = inflater.inflate(R.layout.map_frag,
                 container, false);
 
-        //setRetainInstance(true);
-
         // create map
         googleMap = ((SupportMapFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.map_fragment)).getMap();
         mtv = (TextView) v.findViewById(R.id.txtStatus);
         mRadiusInKM = global_app.GetPref().getInt(constants.KM_TO_WALK, 3);
 
-        //resources = getResources();
         initGooglePlayStatus();
         initLocationRequestBuilder();
 

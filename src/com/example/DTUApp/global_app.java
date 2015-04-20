@@ -23,29 +23,19 @@ public class global_app extends Application /*implements SharedPreferences*/ {
         return _instance;
     }
 
-    public static SharedPreferences GetPref()
-    {
+    public static SharedPreferences GetPref() {
         return preferences;
     }
-
-/*
-    public static communication GetComm()
-    {
-        return comm;
-    }
-*/
 
     @Override
     public void onCreate() {
         super.onCreate();
         _instance = this;
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        if (preferences.getString(constants.USERNAME, "NO STRING") == "NO STRING")
-        {
+        if (preferences.getString(constants.USERNAME, "NO STRING") == "NO STRING") {
             preferences.edit().putString(constants.USERNAME, getGoogleUsername()).putString(constants.PASSWORD, "longpassword123").commit();
         }
 
-        //comm = new communication();
         Log.d("GVE", "---------global_app onCreate-----------");
     }
 
