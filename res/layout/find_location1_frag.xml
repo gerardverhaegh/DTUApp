@@ -51,9 +51,10 @@
     </RadioGroup>
 
     <Button
+        style="@style/MyButtonStyle"
+        android:background="@drawable/button"
         android:id="@+id/btnStartJagt"
         android:text="Begyndt bogstav jagten"
         android:layout_width="fill_parent"
-        android:textColor = "#FF7777FF"
         android:layout_height="wrap_content"/>
 </LinearLayout>

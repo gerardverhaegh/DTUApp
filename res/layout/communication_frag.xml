@@ -32,11 +32,12 @@
                     android:layout_weight="1"/>-->
 
         <Button
+            style="@style/MyButtonStyle"
+            android:background="@drawable/button"
             android:id="@+id/btnSendMessage"
             android:text="Send Message"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textColor = "#FF7777FF"
             android:layout_weight="1"/>
     </LinearLayout>
 
@@ -55,6 +56,7 @@
         android:layout_weight="3"/>
 
     <EditText
+        style="@style/MyEditStyle"
         android:id="@+id/txtSend"
         android:text="New message"
         android:layout_width="fill_parent"

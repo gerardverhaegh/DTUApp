@@ -39,11 +39,11 @@
                 android:layout_weight="1"/>
 
             <EditText
+                style="@style/MyEditStyle"
                 android:id="@+id/txtDate"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:textColor = "#FF7777FF"
                 android:clickable="false"
                 android:inputType="none"
                 android:editable="false"
@@ -66,11 +66,11 @@
                 android:layout_weight="1"/>
 
             <EditText
+                style="@style/MyEditStyle"
                 android:id="@+id/txtTime"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:textColor = "#FF7777FF"
                 android:clickable="false"
                 android:inputType="none"
                 android:editable="false"
@@ -86,11 +86,12 @@
             android:layout_height="wrap_content">
 
             <Button
+                style="@style/MyButtonStyle"
+                android:background="@drawable/button"
                 android:id="@+id/btnSetAlarm"
                 android:text="Start game at the set date and time"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:textColor = "#FF7777FF"
                 android:layout_weight="1"/>
         </LinearLayout>
 

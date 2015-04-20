@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MyButtonStyle" parent="@android:style/TextAppearance">
+        <item name="android:textColor">#FF7777FF</item>
+        <item name="android:background">#FFEEEEEE</item>
+    </style>
+
+    <style name="MyEditStyle" parent="@android:style/TextAppearance">
+        <item name="android:textColor">#FF7777FF</item>
+        <item name="android:background">#FFEEEEEE</item>
+    </style>
+
+    <style name="MyGeneralStyle" parent="@android:style/TextAppearance">
+        <item name="android:textColor">#FF7777FF</item>
+        <item name="android:background">#FFEEEEEE</item>
+    </style>
+</resources>

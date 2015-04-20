@@ -18,6 +18,8 @@
         android:windowSoftInputMode="stateHidden"/>
 
     <Button
+        style="@style/MyButtonStyle"
+        android:background="@drawable/button"
         android:id="@+id/btnOK2"
         android:text="OK"
         android:layout_width="fill_parent"

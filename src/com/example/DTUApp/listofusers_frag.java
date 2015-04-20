@@ -65,12 +65,12 @@ public class listofusers_frag extends base_frag implements AdapterView.OnItemCli
                             le_description.setText("Jeres FeelGood hold er sat! \n" +
                                     "Mød dine medspillere:\n");
 
-                            le_description.setTextColor(0xFF295055);
+                            //le_description.setTextColor(0xFF295055);
                             le_text.setText("");
-                            le_text.setTextColor(0xFF295055);
+                            //le_text.setTextColor(0xFF295055);
                         } else {
                             le_description.setText("** " + le_description.getText() + " **");
-                            le_description.setTextColor(0xFF295055);
+                            //le_description.setTextColor(0xFF295055);
                         }
                         return view;
                     }

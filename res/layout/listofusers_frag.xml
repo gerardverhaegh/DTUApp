@@ -5,6 +5,7 @@
               android:layout_height="match_parent">
 
     <TableLayout
+        style="@style/MyGeneralStyle"
         android:layout_weight="1"
         android:layout_gravity="left|center_vertical"
         android:layout_marginLeft="5dip"
@@ -12,12 +13,14 @@
         android:layout_height="wrap_content">
 
         <TextView
+            style="@style/MyGeneralStyle"
             android:id="@+id/listelement_text"
             android:textSize="12sp"
             android:text="User:"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <TextView
+            style="@style/MyGeneralStyle"
             android:id="@+id/listelement_description"
             android:textSize="20sp"
             android:layout_width="match_parent"

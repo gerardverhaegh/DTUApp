@@ -6,6 +6,7 @@
               android:orientation="vertical" >
 
     <CalendarView
+        style="@style/MyGeneralStyle"
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="400dp"
@@ -18,6 +19,8 @@
         android:windowSoftInputMode="stateHidden"/>
 
     <Button
+        style="@style/MyButtonStyle"
+        android:background="@drawable/button"
         android:id="@+id/btnOK1"
         android:text="OK"
         android:layout_width="fill_parent"
