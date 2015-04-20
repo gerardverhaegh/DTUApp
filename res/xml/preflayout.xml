@@ -29,8 +29,8 @@
         android:layout_gravity="center_horizontal"/>
 
     <CheckBoxPreference
-        android:key="SingleUser"
-        android:title="Single User Play"
+        android:key="UseLastKnownLocation"
+        android:title="Use Last Known Location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="0.07"

@@ -17,6 +17,7 @@ public class constants {
     public static final String USERNAMES = "Usernames";
     public static final String INDEX = "Index";
     public static final String USEGPS = "UseGPS";
+    public static final String USELASTKNOWNLOCATION = "UseLastKnownLocation";
     public static final int LIST_INDEX = 0;
 
     // map fragment (gps)

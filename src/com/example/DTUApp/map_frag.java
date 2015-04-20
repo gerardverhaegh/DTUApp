@@ -53,6 +53,7 @@ public class map_frag extends base_frag implements LocationListener {
     private static boolean m_bKeepGoing = false;
     private static float zoomLvl = 15;
     private LocationManager mLocationManager = null;
+    private static LatLng mStartPos = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -192,13 +193,14 @@ public class map_frag extends base_frag implements LocationListener {
             Log.d("GVE", "initLocationManager NETWORK_PROVIDER-------------------------------------");
         }
 
-/*        Log.d("GVE", "Using GPS for last known location");
-        location = locationManager.getLastKnownLocation(provider);
+        if (global_app.GetPref().getBoolean(constants.USELASTKNOWNLOCATION, false)){
+            location = mLocationManager.getLastKnownLocation(provider);
+            Log.d("GVE", "Using last known location-------------------------------------");
 
-        if (location != null) {
-            //bFirstTime = true;
-            onLocationChanged(location);
-        }*/
+            if (location != null) {
+                onLocationChanged(location);
+            }
+        }
 
         mLocationManager.requestLocationUpdates(provider, constants.LOCATION_MIN_TIME, 0, this);
     }
@@ -212,11 +214,11 @@ public class map_frag extends base_frag implements LocationListener {
 
         if (bFirstTime) {
             mLocationStart = new Location(location);
+            mStartPos = latLng;
             googleMap.setMyLocationEnabled(true);
             googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
             if (mCircle == null || mMarker == null) {
-                drawMarkerWithCircle(latLng);
             } else {
                 //updateMarkerWithCircle(latLng);
             }
@@ -241,6 +243,12 @@ public class map_frag extends base_frag implements LocationListener {
 
         MarkerOptions markerOptions = new MarkerOptions().position(latLng).icon(
                 BitmapDescriptorFactory.fromResource(android.R.drawable.presence_online));
+        googleMap.clear();
+
+        // always redraw this one (circle + blue marker)
+        drawMarkerWithCircle(mStartPos);
+
+        // and a new green marker, get rid of the old ones
         mMarker = googleMap.addMarker(markerOptions);
 
         Log.d("GVE", "Walked: " + dWalkedDistanceKM + ", needed: " + mRadiusInKM);
