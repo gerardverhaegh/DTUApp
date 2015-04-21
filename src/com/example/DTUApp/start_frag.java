@@ -124,10 +124,10 @@ public class start_frag extends base_frag {
         m_popupWindow.setHeight(mv.getHeight() + 100);
         m_popupWindow.setOutsideTouchable(false);
         // Clear the default translucent background
-        m_popupWindow.setBackgroundDrawable(new BitmapDrawable());
+        //m_popupWindow.setBackgroundDrawable(new BitmapDrawable());
 
         CalendarView cv = (CalendarView) layout.findViewById(R.id.calendarView);
-        cv.setBackgroundColor(Color.BLACK);
+        //cv.setBackgroundColor(Color.BLACK);
 
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.YEAR, m_year);
@@ -176,7 +176,7 @@ public class start_frag extends base_frag {
         m_popupWindow.setBackgroundDrawable(new BitmapDrawable());
 
         TimePicker tp = (TimePicker) layout.findViewById(R.id.timeView);
-        tp.setBackgroundColor(Color.BLACK);
+        //tp.setBackgroundColor(Color.BLACK);
         tp.setIs24HourView(true);
         tp.setCurrentHour(m_hourOfDay);
         tp.setCurrentMinute(m_minute);

@@ -26,14 +26,13 @@
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="10">
+        android:layout_weight="1">
 
         <TextView
             android:id="@+id/txtStatus"
             android:text="Status"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"/>
+            android:layout_height="fill_parent"/>
     </LinearLayout>
 
     <LinearLayout
@@ -50,8 +49,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="10">
+        android:layout_height="wrap_content">
 
         <Button
             style="@style/MyButtonStyle"
@@ -72,8 +70,7 @@
             style="@style/MyEditStyle"
             android:id="@+id/txtSend"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            />
+            android:layout_height="47dp"
+            android:text="Message"/>
     </LinearLayout>
-
 </LinearLayout>

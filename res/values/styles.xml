@@ -7,11 +7,11 @@
 
     <style name="MyEditStyle" parent="@android:style/TextAppearance">
         <item name="android:textColor">#FF7777FF</item>
-        <item name="android:background">#FFEEEEEE</item>
+        <item name="android:background">#FFFFFFFF</item>
     </style>
 
     <style name="MyGeneralStyle" parent="@android:style/TextAppearance">
         <item name="android:textColor">#FF7777FF</item>
-        <item name="android:background">#FFEEEEEE</item>
+        <item name="android:background">#FFFFFFFF</item>
     </style>
 </resources>
