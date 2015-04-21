@@ -7,29 +7,51 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txt"
+            android:text="User Name: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/txtLogin"
-            android:text="User Name"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"/>
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_weight="10">
 
-        <!--        <Button
-                    android:id="@+id/btnLoginChat"
-                    android:text="Login Chat"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"/>-->
+        <TextView
+            android:id="@+id/txtStatus"
+            android:text="Status"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/txtReceive"
+            android:text=""
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="10">
 
         <Button
             style="@style/MyButtonStyle"
@@ -37,29 +59,21 @@
             android:id="@+id/btnSendMessage"
             android:text="Send Message"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_height="fill_parent"/>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/txtStatus"
-        android:text="Status"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="3"/>
+        android:layout_gravity="bottom">
 
-    <TextView
-        android:id="@+id/txtReceive"
-        android:text=""
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="3"/>
+        <EditText
+            style="@style/MyEditStyle"
+            android:id="@+id/txtSend"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            />
+    </LinearLayout>
 
-    <EditText
-        style="@style/MyEditStyle"
-        android:id="@+id/txtSend"
-        android:text="New message"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="3"/>
 </LinearLayout>

@@ -254,7 +254,6 @@ public class communication_frag extends base_frag {
                     StartListeningForPrivateChats();
                     StartListeningForGroupChats();
                 }
-
             }
 
             @Override
@@ -345,7 +344,7 @@ public class communication_frag extends base_frag {
                 Log.d("GVE", "---------RECEIVING: processMessage: " + chatMessage.getBody() + " from " + chatMessage.getSenderId());
                 getActivity().runOnUiThread(new Runnable() {
                     public void run() {
-                        txtReceive.setText(chatMessage.getBody());
+                        txtReceive.setText(chatMessage.getBody()+"\r\n"+txtReceive.getText());
                     }
                 });
             }
@@ -491,7 +490,7 @@ public class communication_frag extends base_frag {
             chatMessage.setProperty("date_sent", time + "");
             if (qbThisUser != null) {
                 Log.d("GVE", "-------------qbThisUser.getLogin(): " + qbThisUser.getLogin());
-                chatMessage.setBody(txtSend.getText() + " (a message from: " + qbThisUser.getLogin() + ")");
+                chatMessage.setBody(qbThisUser.getLogin() + ": " + txtSend.getText());
                 Log.d("GVE", "------------SENDING: processMessage: " + chatMessage.getBody() + " from " + qbThisUser.getLogin() + " to " + userID);
             } else {
                 Log.d("GVE", "-------------qbThisUser == null ");
