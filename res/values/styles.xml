@@ -13,5 +13,12 @@
     <style name="MyGeneralStyle" parent="@android:style/TextAppearance">
         <item name="android:textColor">#FF7777FF</item>
         <item name="android:background">#FFFFFFFF</item>
+        <item name="android:layout_margin">5dip</item>
+    </style>
+
+    <style name="MyTextViewStyle" parent="@android:style/TextAppearance">
+        <item name="android:textColor">#FF7777FF</item>
+        <item name="android:background">#FFFFFFFF</item>
+        <item name="android:layout_margin">5dip</item>
     </style>
 </resources>

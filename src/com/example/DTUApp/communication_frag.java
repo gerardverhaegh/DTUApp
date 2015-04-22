@@ -34,7 +34,9 @@ import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smackx.muc.DiscussionHistory;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -490,7 +492,7 @@ public class communication_frag extends base_frag {
             chatMessage.setProperty("date_sent", time + "");
             if (qbThisUser != null) {
                 Log.d("GVE", "-------------qbThisUser.getLogin(): " + qbThisUser.getLogin());
-                chatMessage.setBody(qbThisUser.getLogin() + ": " + txtSend.getText());
+                chatMessage.setBody(getCurrentTimeStamp() + "  "+qbThisUser.getLogin() + ": " + txtSend.getText());// + " (" + qbOtherUser.getLogin() + ")");
                 Log.d("GVE", "------------SENDING: processMessage: " + chatMessage.getBody() + " from " + qbThisUser.getLogin() + " to " + userID);
             } else {
                 Log.d("GVE", "-------------qbThisUser == null ");
@@ -507,6 +509,20 @@ public class communication_frag extends base_frag {
             } catch (Exception e) {
                 // error
             }
+        }
+    }
+
+    public static String getCurrentTimeStamp(){
+        try {
+
+            SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
+            String currentTimeStamp = dateFormat.format(new Date()); // Find todays date
+
+            return currentTimeStamp;
+        } catch (Exception e) {
+            e.printStackTrace();
+
+            return null;
         }
     }
 

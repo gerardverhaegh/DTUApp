@@ -54,6 +54,7 @@ public class map_frag extends base_frag implements LocationListener {
     private static float zoomLvl = 15;
     private LocationManager mLocationManager = null;
     private static LatLng mStartPos = null;
+    private boolean mIsPopupShowing = false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -261,23 +262,31 @@ public class map_frag extends base_frag implements LocationListener {
     }
 
     private void PopupDialog() {
-        new AlertDialog.Builder(this.getActivity())
-                .setTitle("Super!")
-                .setMessage("Du har gået den krævede afstand.\nVil du til det næste skærm?")
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        m_bKeepGoing = false;
-                        main_act activity = (main_act) getActivity();
-                        activity.setResult("done");
-                    }
-                })
-                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        m_bKeepGoing = true;
-                    }
-                })
-                        //.setIcon(android.R.drawable.ic_dialog_alert)
-                .show();
+        if (!mIsPopupShowing)
+        {
+            mIsPopupShowing = true;
+            new AlertDialog.Builder(this.getActivity())
+                    .setTitle("Super!")
+                    .setMessage("Du har gået den krævede afstand.\nVil du til det næste skærm?")
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            m_bKeepGoing = false;
+                            main_act activity = (main_act) getActivity();
+                            activity.setResult("done");
+                            mIsPopupShowing = false;
+                        }
+                    })
+                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            m_bKeepGoing = true;
+                            mIsPopupShowing = false;
+                        }
+                    })
+                            //.setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+            {}
+            ;
+        }
     }
 
     private double calc_distance_km(Location loc1, Location loc2) {
