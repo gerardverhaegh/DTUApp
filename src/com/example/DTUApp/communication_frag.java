@@ -516,7 +516,7 @@ public class communication_frag extends base_frag {
         try {
 
             SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
-            String currentTimeStamp = dateFormat.format(new Date()); // Find todays date
+            String currentTimeStamp = dateFormat.format(new Date()); // Find today's date
 
             return currentTimeStamp;
         } catch (Exception e) {

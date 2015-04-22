@@ -236,21 +236,24 @@ public class map_frag extends base_frag implements LocationListener {
 
         if (dWalkedDistanceKM < 1.0) {
             // in meters
-            mtv.setText(String.format("Gået afstand: %3.0f m\nDu skal gå minimum %3.0f m", 1000 * dWalkedDistanceKM, 1000 * mRadiusInKM));
+            mtv.setText(String.format("Gået afstand %1.0f m\nDu skal gå minimum %1.0f m", 1000 * dWalkedDistanceKM, 1000 * mRadiusInKM));
         } else {
             // in km
-            mtv.setText(String.format("Gået afstand: %2.1f km\nDu skal gå minimum %3.0f km", dWalkedDistanceKM, mRadiusInKM));
+            mtv.setText(String.format("Gået afstand %1.1f km\nDu skal gå minimum %1.0f km", dWalkedDistanceKM, mRadiusInKM));
         }
 
-        MarkerOptions markerOptions = new MarkerOptions().position(latLng).icon(
-                BitmapDescriptorFactory.fromResource(android.R.drawable.presence_online));
+        // clear
         googleMap.clear();
+
+        // start point in green
+        MarkerOptions markerOptions = new MarkerOptions().position(mStartPos).icon(
+                BitmapDescriptorFactory.fromResource(android.R.drawable.presence_online));
+        mMarker = googleMap.addMarker(markerOptions);
 
         // always redraw this one (circle + blue marker)
         drawMarkerWithCircle(mStartPos);
 
-        // and a new green marker, get rid of the old ones
-        mMarker = googleMap.addMarker(markerOptions);
+        // blue marker, marks current position
 
         Log.d("GVE", "Walked: " + dWalkedDistanceKM + ", needed: " + mRadiusInKM);
 

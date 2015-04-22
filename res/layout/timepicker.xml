@@ -21,9 +21,18 @@
     <Button
         style="@style/MyButtonStyle"
         android:background="@drawable/button"
+        android:id="@+id/btnCancel2"
+        android:text="Cancel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+
+    <Button
+        style="@style/MyButtonStyle"
+        android:background="@drawable/button"
         android:id="@+id/btnOK2"
         android:text="OK"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"/>
+        android:layout_weight="1"/>
 </LinearLayout>

@@ -29,6 +29,13 @@ public class start_frag extends base_frag {
     private int m_dayOfMonth;
     private int m_hourOfDay;
     private int m_minute;
+
+    private int m_yearTemp;
+    private int m_monthTemp;
+    private int m_dayOfMonthTemp;
+    private int m_hourOfDayTemp;
+    private int m_minuteTemp;
+
     private PopupWindow m_popupWindow = null;
     private View mv = null;
 
@@ -137,6 +144,9 @@ public class start_frag extends base_frag {
         long milliTime = calendar.getTimeInMillis();
         cv.setDate (milliTime, true, true);
 
+        m_yearTemp = m_year;
+        m_monthTemp = m_month;
+        m_dayOfMonthTemp = m_dayOfMonth;
         cv.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
             @Override
@@ -150,6 +160,17 @@ public class start_frag extends base_frag {
 
         Button bntOK = (Button)layout.findViewById(R.id.btnOK1);
         bntOK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                m_year = m_yearTemp;
+                m_month = m_monthTemp;
+                m_dayOfMonth = m_dayOfMonthTemp;
+                DismissPopup();
+            }
+        });
+
+        Button btnCancel1 = (Button)layout.findViewById(R.id.btnCancel1);
+        btnCancel1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DismissPopup();
@@ -181,6 +202,8 @@ public class start_frag extends base_frag {
         tp.setCurrentHour(m_hourOfDay);
         tp.setCurrentMinute(m_minute);
 
+        m_hourOfDayTemp = m_hourOfDay;
+        m_minuteTemp = m_minute;
         tp.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
@@ -192,6 +215,16 @@ public class start_frag extends base_frag {
 
         Button bntOK = (Button)layout.findViewById(R.id.btnOK2);
         bntOK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                m_hourOfDay = m_hourOfDayTemp;
+                m_minute = m_minuteTemp;
+                DismissPopup();
+            }
+        });
+
+        Button btnCancel2 = (Button)layout.findViewById(R.id.btnCancel2);
+        btnCancel2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DismissPopup();
@@ -217,23 +250,23 @@ public class start_frag extends base_frag {
 
     private void DisplayDate(int year, int month, int dayOfMonth)
     {
-        m_year = year;
-        m_month = month + 1; // months run from 0-11
-        m_dayOfMonth = dayOfMonth;
+        m_yearTemp = year;
+        m_monthTemp = month + 1; // months run from 0-11
+        m_dayOfMonthTemp = dayOfMonth;
 
-        Log.d("date selected", "date selected " + m_year + " " + m_month + " " + m_dayOfMonth);
-        mtxtDate.setText(new StringBuilder().append(pad(m_dayOfMonth))
-                .append("-").append(pad(m_month)).append("-").append(pad(m_year)));
+        Log.d("date selected", "date selected " + m_yearTemp + " " + m_monthTemp + " " + m_dayOfMonthTemp);
+        mtxtDate.setText(new StringBuilder().append(pad(m_dayOfMonthTemp))
+                .append("-").append(pad(m_monthTemp)).append("-").append(pad(m_yearTemp)));
     }
 
     private void DisplayTime(int hourOfDay, int minute)
     {
-        m_hourOfDay = hourOfDay;
-        m_minute = minute;
+        m_hourOfDayTemp = hourOfDay;
+        m_minuteTemp = minute;
 
-        Log.d("time selected", "time selected " + m_hourOfDay + " " + m_minute);
-        mtxtTime.setText(new StringBuilder().append(pad(m_hourOfDay))
-                .append(":").append(pad(m_minute)));
+        Log.d("time selected", "time selected " + m_hourOfDayTemp + " " + m_minuteTemp);
+        mtxtTime.setText(new StringBuilder().append(pad(m_hourOfDayTemp))
+                .append(":").append(pad(m_minuteTemp)));
     }
 
     @Override
