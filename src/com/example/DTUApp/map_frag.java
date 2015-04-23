@@ -60,6 +60,9 @@ public class map_frag extends base_frag implements LocationListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        //new GoogleApiClient().Builder
+        // fued location provider
+
         Log.d("GVE", "Create MAP fragment");
 
         View v = inflater.inflate(R.layout.map_frag,

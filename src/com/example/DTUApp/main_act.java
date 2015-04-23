@@ -52,6 +52,7 @@ public class main_act extends FragmentActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.main_act);
         ActionBar bar = getActionBar();
+        bar.setTitle("");
         bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFFFF")));
 
 /*            TabWidget btn_speak = (TabWidget) findViewById(R.id.btn_speak);

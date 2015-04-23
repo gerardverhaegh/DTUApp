@@ -7,8 +7,8 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="wrap_content"
+        android:layout_weight="0">
 
         <TextView
             style="@style/MyTextViewStyle"
@@ -16,7 +16,8 @@
             android:text="User Name: "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:lines="2"/>
 
         <TextView
             style="@style/MyTextViewStyle"
@@ -30,45 +31,72 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="1px"
-        android:background="#FF7777FF" />
+        android:background="#FF7777FF"/>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2">
+        android:layout_height="wrap_content"
+        android:layout_weight="0">
 
         <TextView
             style="@style/MyTextViewStyle"
             android:id="@+id/txtStatus"
             android:text="Status"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent" />
+            android:layout_height="fill_parent"
+            android:minLines="2"/>
     </LinearLayout>
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="1px"
-        android:background="#FF7777FF" />
+        android:background="#FF7777FF"/>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="10">
-        <TextView
-            style="@style/MyTextViewStyle"
-            android:id="@+id/txtReceive"
-            android:text=""
+
+        <ScrollView
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"/>
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/MyTextViewStyle"
+                android:id="@+id/txtReceive"
+                android:text=""
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"/>
+        </ScrollView>
+        >
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="#FF7777FF"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+
+        <EditText
+            style="@style/MyEditStyle"
+            android:id="@+id/txtSendMessage"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Message"/>
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="wrap_content"
+        android:layout_weight="0">
 
         <Button
             style="@style/MyButtonStyle"
@@ -76,21 +104,6 @@
             android:id="@+id/btnSendMessage"
             android:text="Send Message"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_gravity="bottom">
-
-        <EditText
-            style="@style/MyEditStyle"
-            android:id="@+id/txtSend"
-            android:layout_width="fill_parent"
-            android:layout_height="47dp"
-            android:text="Message"/>
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 </LinearLayout>

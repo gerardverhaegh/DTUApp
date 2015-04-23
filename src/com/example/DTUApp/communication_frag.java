@@ -46,7 +46,7 @@ public class communication_frag extends base_frag {
 
     private TextView txtStatus = null;
     private TextView txtReceive = null;
-    private EditText txtSend = null;
+    private EditText txtSendMessage = null;
     private TextView txtLogin = null;
     private QBChatService mChatService = null;
     private QBUser qbThisUser = null;
@@ -69,7 +69,7 @@ public class communication_frag extends base_frag {
 
         txtStatus = (TextView) v.findViewById(R.id.txtStatus);
         txtReceive = (TextView) v.findViewById(R.id.txtReceive);
-        txtSend = (EditText) v.findViewById(R.id.txtSend);
+        txtSendMessage = (EditText) v.findViewById(R.id.txtSendMessage);
         txtLogin = (TextView) v.findViewById(R.id.txtLogin);
 
         txtLogin.setText(global_app.GetPref().getString(constants.USERNAME, "NO STRING FOUND"));
@@ -205,7 +205,8 @@ public class communication_frag extends base_frag {
     }
 
     private void SignUpInQB(final String username, final String password) {
-        txtStatus.setText("SignUpInQB: " + username + " " + password);
+        Log.d("GVE", "SignUpInQB username: " + username + ", password: " + password);
+
         QBUser qbUser = new QBUser();
         qbUser.setLogin(username);
         qbUser.setPassword(password);
@@ -492,7 +493,7 @@ public class communication_frag extends base_frag {
             chatMessage.setProperty("date_sent", time + "");
             if (qbThisUser != null) {
                 Log.d("GVE", "-------------qbThisUser.getLogin(): " + qbThisUser.getLogin());
-                chatMessage.setBody(getCurrentTimeStamp() + "  "+qbThisUser.getLogin() + ": " + txtSend.getText());// + " (" + qbOtherUser.getLogin() + ")");
+                chatMessage.setBody(getCurrentTimeStamp() + "  "+qbThisUser.getLogin() + ": " + txtSendMessage.getText());// + " (" + qbOtherUser.getLogin() + ")");
                 Log.d("GVE", "------------SENDING: processMessage: " + chatMessage.getBody() + " from " + qbThisUser.getLogin() + " to " + userID);
             } else {
                 Log.d("GVE", "-------------qbThisUser == null ");
