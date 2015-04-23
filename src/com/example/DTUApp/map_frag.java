@@ -285,7 +285,6 @@ public class map_frag extends base_frag implements LocationListener {
                             mIsPopupShowing = false;
                         }
                     })
-                            //.setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
             {}
             ;

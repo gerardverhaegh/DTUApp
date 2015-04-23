@@ -24,17 +24,18 @@ import java.util.Calendar;
 public class start_frag extends base_frag {
     private EditText mtxtDate = null;
     private EditText mtxtTime = null;
+
     private int m_year;
     private int m_month;
     private int m_dayOfMonth;
     private int m_hourOfDay;
     private int m_minute;
 
-    private int m_yearTemp;
-    private int m_monthTemp;
-    private int m_dayOfMonthTemp;
-    private int m_hourOfDayTemp;
-    private int m_minuteTemp;
+    private int m_yearOld;
+    private int m_monthOld;
+    private int m_dayOfMonthOld;
+    private int m_hourOfDayOld;
+    private int m_minuteOld;
 
     private PopupWindow m_popupWindow = null;
     private View mv = null;
@@ -103,8 +104,15 @@ public class start_frag extends base_frag {
         mtxtDate.clearFocus();
 
         Calendar c = Calendar.getInstance();
-        DisplayDate(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
-        DisplayTime(c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE));
+
+        m_year = c.get(Calendar.YEAR);
+        m_month = c.get(Calendar.MONTH) + 1; // months run from 0-11
+        m_dayOfMonth = c.get(Calendar.DAY_OF_MONTH);
+        m_hourOfDay = c.get(Calendar.HOUR_OF_DAY);
+        m_minute = c.get(Calendar.MINUTE);
+
+        DisplayDate(m_year, m_month, m_dayOfMonth);
+        DisplayTime(m_hourOfDay, m_minute);
 
         if (getActivity() instanceof main_act)
         {
@@ -144,14 +152,17 @@ public class start_frag extends base_frag {
         long milliTime = calendar.getTimeInMillis();
         cv.setDate (milliTime, true, true);
 
-        m_yearTemp = m_year;
-        m_monthTemp = m_month;
-        m_dayOfMonthTemp = m_dayOfMonth;
+        m_yearOld = m_year;
+        m_monthOld = m_month;
+        m_dayOfMonthOld = m_dayOfMonth;
         cv.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month,
                                             int dayOfMonth) {
+                m_year = year;
+                m_month = month;
+                m_dayOfMonth = dayOfMonth;
                 DisplayDate(year, month, dayOfMonth);
             }
         });
@@ -162,9 +173,6 @@ public class start_frag extends base_frag {
         bntOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                m_year = m_yearTemp;
-                m_month = m_monthTemp;
-                m_dayOfMonth = m_dayOfMonthTemp;
                 DismissPopup();
             }
         });
@@ -173,6 +181,10 @@ public class start_frag extends base_frag {
         btnCancel1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                m_year = m_yearOld;
+                m_month = m_monthOld;
+                m_dayOfMonth = m_dayOfMonthOld;
+                DisplayDate(m_year, m_month, m_dayOfMonth);
                 DismissPopup();
             }
         });
@@ -202,11 +214,13 @@ public class start_frag extends base_frag {
         tp.setCurrentHour(m_hourOfDay);
         tp.setCurrentMinute(m_minute);
 
-        m_hourOfDayTemp = m_hourOfDay;
-        m_minuteTemp = m_minute;
+        m_hourOfDayOld = m_hourOfDay;
+        m_minuteOld = m_minute;
         tp.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+                m_hourOfDay = hourOfDay;
+                m_minute = minute;
                 DisplayTime(hourOfDay, minute);
             }
         });
@@ -217,8 +231,6 @@ public class start_frag extends base_frag {
         bntOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                m_hourOfDay = m_hourOfDayTemp;
-                m_minute = m_minuteTemp;
                 DismissPopup();
             }
         });
@@ -227,6 +239,9 @@ public class start_frag extends base_frag {
         btnCancel2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                m_hourOfDay = m_hourOfDayOld;
+                m_minute = m_minuteOld;
+                DisplayTime(m_hourOfDay, m_minute);
                 DismissPopup();
             }
         });
@@ -250,23 +265,16 @@ public class start_frag extends base_frag {
 
     private void DisplayDate(int year, int month, int dayOfMonth)
     {
-        m_yearTemp = year;
-        m_monthTemp = month + 1; // months run from 0-11
-        m_dayOfMonthTemp = dayOfMonth;
-
-        Log.d("date selected", "date selected " + m_yearTemp + " " + m_monthTemp + " " + m_dayOfMonthTemp);
-        mtxtDate.setText(new StringBuilder().append(pad(m_dayOfMonthTemp))
-                .append("-").append(pad(m_monthTemp)).append("-").append(pad(m_yearTemp)));
+        Log.d("date selected", "date selected " + m_year + " " + m_month + " " + m_dayOfMonth);
+        mtxtDate.setText(new StringBuilder().append(pad(m_dayOfMonth))
+                .append("-").append(pad(m_month)).append("-").append(pad(m_year)));
     }
 
     private void DisplayTime(int hourOfDay, int minute)
     {
-        m_hourOfDayTemp = hourOfDay;
-        m_minuteTemp = minute;
-
-        Log.d("time selected", "time selected " + m_hourOfDayTemp + " " + m_minuteTemp);
-        mtxtTime.setText(new StringBuilder().append(pad(m_hourOfDayTemp))
-                .append(":").append(pad(m_minuteTemp)));
+        Log.d("time selected", "time selected " + m_hourOfDay + " " + m_minute);
+        mtxtTime.setText(new StringBuilder().append(pad(m_hourOfDay))
+                .append(":").append(pad(m_minute)));
     }
 
     @Override
