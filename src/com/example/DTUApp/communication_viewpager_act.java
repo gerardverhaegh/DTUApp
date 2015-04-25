@@ -11,7 +11,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.WindowManager;
-import com.viewpagerindicator.TabPageIndicator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +24,7 @@ public class communication_viewpager_act extends FragmentActivity {
     private static List<Fragment> fragments = new ArrayList<Fragment>();
 
     private GoogleMusicAdapter mPagerAdapter = null;
-    private TabPageIndicator mTitleIndicator = null;
+    private PagerSlidingTabStrip mTitleIndicator = null;
     private ViewPager mPager = null;
 
     @Override
@@ -57,7 +56,7 @@ public class communication_viewpager_act extends FragmentActivity {
         mPager.setAdapter(mPagerAdapter);
 
         //Bind the title indicator to the adapter
-        mTitleIndicator = (TabPageIndicator) findViewById(R.id.titles);
+        mTitleIndicator = (PagerSlidingTabStrip) findViewById(R.id.titles);
         mTitleIndicator.setViewPager(mPager);
         final float density = getResources().getDisplayMetrics().density;
 

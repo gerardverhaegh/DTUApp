@@ -142,8 +142,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/question_evaluation_frag.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/question_evaluation_frag.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/start_act.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/start_act.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/start_frag.class" afterPath="$PROJECT_DIR$/out/production/DTUApp/com/example/DTUApp/start_frag.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DTUApp.iml" afterPath="$PROJECT_DIR$/DTUApp.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/communication_frag.xml" afterPath="$PROJECT_DIR$/res/layout/communication_frag.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/communication_viewpager.xml" afterPath="$PROJECT_DIR$/res/layout/communication_viewpager.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/DTUApp/communication_viewpager_act.java" afterPath="$PROJECT_DIR$/src/com/example/DTUApp/communication_viewpager_act.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/DTUApp/main_act.java" afterPath="$PROJECT_DIR$/src/com/example/DTUApp/main_act.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/main_act.xml" afterPath="$PROJECT_DIR$/res/layout/main_act.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DTUApp.iws" />
@@ -169,11 +171,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="communication_frag.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/res/layout/communication_frag.xml">
+      <file leaf-file-name="PagerSlidingTabStrip.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/PagerSlidingTabStrip.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47663552" vertical-offset="0" max-vertical-offset="3077">
-              <caret line="15" column="99" selection-start-line="15" selection-start-column="99" selection-end-line="15" selection-end-column="99" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="787" max-vertical-offset="8364">
+              <caret line="94" column="51" selection-start-line="94" selection-start-column="51" selection-end-line="94" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main_act.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/main_act.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.366667" vertical-offset="51" max-vertical-offset="867">
+              <caret line="16" column="14" selection-start-line="11" selection-start-column="0" selection-end-line="16" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -182,21 +194,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="start_act.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/start_act.java">
+      <file leaf-file-name="colors.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/values/colors.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="169" max-vertical-offset="799">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <file leaf-file-name="start_act.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/start_act.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="333" max-vertical-offset="1207">
-              <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -212,77 +224,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="themes.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/values/themes.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="578">
-              <caret line="2" column="59" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="68" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vpi__styles.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../ViewPagerIndicator/library/res/values/vpi__styles.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="935">
-              <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="communication_frag.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/communication_frag.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="4921" max-vertical-offset="9707">
-              <caret line="347" column="0" selection-start-line="347" selection-start-column="0" selection-end-line="347" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#5120#5267#0" expanded="false" />
-                <element signature="e#5266#5267#0" expanded="false" />
-                <element signature="e#5476#5477#0" expanded="false" />
-                <element signature="e#5504#5505#0" expanded="false" />
-                <element signature="e#9319#9320#0" expanded="false" />
-                <element signature="e#9395#9396#0" expanded="false" />
-                <element signature="e#10152#10153#0" expanded="false" />
-                <element signature="e#10246#10247#0" expanded="false" />
-                <element signature="e#11069#11070#0" expanded="false" />
-                <element signature="e#11159#11160#0" expanded="false" />
-                <element signature="e#11956#11957#0" expanded="false" />
-                <element signature="e#12039#12040#0" expanded="false" />
-                <element signature="e#13368#13688#0" expanded="false" />
-                <element signature="e#13687#13688#0" expanded="false" />
-                <element signature="e#14022#14356#0" expanded="false" />
-                <element signature="e#14355#14356#0" expanded="false" />
-                <element signature="e#16644#16754#0" expanded="false" />
-                <element signature="e#16753#16754#0" expanded="false" />
-                <element signature="e#16858#16867#0" expanded="false" />
-                <element signature="e#17637#17638#0" expanded="false" />
-                <element signature="e#17716#17717#0" expanded="false" />
-                <element signature="e#20892#20893#0" expanded="false" />
-                <element signature="e#20949#20950#0" expanded="false" />
-                <element signature="e#21039#21040#0" expanded="false" />
-                <element signature="e#21100#21101#0" expanded="false" />
-                <element signature="e#21168#21169#0" expanded="false" />
-                <element signature="e#21232#21233#0" expanded="false" />
-                <element signature="e#21541#21542#0" expanded="false" />
-                <element signature="e#21603#21604#0" expanded="false" />
-                <element signature="e#21677#21678#0" expanded="false" />
-                <element signature="e#21747#21748#0" expanded="false" />
-                <element signature="e#21828#21829#0" expanded="false" />
-                <element signature="e#21894#21895#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main_act.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main_act.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/main_act.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="362" max-vertical-offset="3434">
-              <caret line="52" column="24" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="24" />
+            <state vertical-scroll-proportion="-3.4690266" vertical-offset="2300" max-vertical-offset="3434">
+              <caret line="39" column="32" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="32" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="start_frag.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/start_frag.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="543" max-vertical-offset="4505">
+              <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+              <folding>
+                <element signature="e#1526#1670#0" expanded="true" />
+                <element signature="e#1669#1670#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -291,12 +251,25 @@
         <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/communication_viewpager_act.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="806" max-vertical-offset="1921">
-              <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+              <caret line="58" column="47" selection-start-line="58" selection-start-column="47" selection-end-line="58" selection-end-column="47" />
               <folding>
-                <element signature="e#3429#3430#0" expanded="true" />
-                <element signature="e#3483#3484#0" expanded="true" />
+                <element signature="e#3389#3390#0" expanded="true" />
+                <element signature="e#3443#3444#0" expanded="true" />
               </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="communication_viewpager.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/communication_viewpager.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.3" vertical-offset="113" max-vertical-offset="765">
+              <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
@@ -323,7 +296,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/example/DTUApp/TitlePageIndicator.java" />
         <option value="$PROJECT_DIR$/src/com/example/DTUApp/PageIndicator.java" />
         <option value="$PROJECT_DIR$/res/layout/viewpager.xml" />
         <option value="$PROJECT_DIR$/src/com/example/DTUApp/TestFragment.java" />
@@ -340,7 +312,6 @@
         <option value="$PROJECT_DIR$/res/layout/finished_game_frag.xml" />
         <option value="$PROJECT_DIR$/res/layout/menu.xml" />
         <option value="$PROJECT_DIR$/src/com/example/DTUApp/GoogleMusicAdapter.java" />
-        <option value="$PROJECT_DIR$/res/layout/communication_viewpager.xml" />
         <option value="$PROJECT_DIR$/res/layout/evaluation_frag.xml" />
         <option value="$PROJECT_DIR$/res/menu/menu.xml" />
         <option value="$PROJECT_DIR$/../ViewPagerIndicator/library/res/values/vpi__styles.xml" />
@@ -348,7 +319,6 @@
         <option value="$PROJECT_DIR$/src/com/example/DTUApp/alarm_act.java" />
         <option value="$PROJECT_DIR$/src/com/example/DTUApp/evaluation_frag.java" />
         <option value="$PROJECT_DIR$/src/com/example/DTUApp/letter_frag.java" />
-        <option value="$PROJECT_DIR$/src/com/example/DTUApp/communication_viewpager_act.java" />
         <option value="$PROJECT_DIR$/src/com/example/DTUApp/base_frag.java" />
         <option value="$PROJECT_DIR$/src/com/example/DTUApp/preferences_act.java" />
         <option value="$PROJECT_DIR$/src/com/example/DTUApp/global_app.java" />
@@ -366,14 +336,17 @@
         <option value="$PROJECT_DIR$/res/values/themes.xml" />
         <option value="$PROJECT_DIR$/src/com/example/DTUApp/start_frag.java" />
         <option value="$PROJECT_DIR$/src/com/example/DTUApp/map_frag.java" />
-        <option value="$PROJECT_DIR$/res/layout/main_act.xml" />
         <option value="$PROJECT_DIR$/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/src/com/example/DTUApp/communication_frag.java" />
         <option value="$PROJECT_DIR$/res/layout/listofusers_frag.xml" />
         <option value="$PROJECT_DIR$/src/com/example/DTUApp/listofusers_frag.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/src/com/example/DTUApp/main_act.java" />
         <option value="$PROJECT_DIR$/res/layout/communication_frag.xml" />
+        <option value="$PROJECT_DIR$/src/com/example/DTUApp/PagerSlidingTabStrip.java" />
+        <option value="$PROJECT_DIR$/res/layout/main_act.xml" />
+        <option value="$PROJECT_DIR$/src/com/example/DTUApp/main_act.java" />
+        <option value="$PROJECT_DIR$/res/layout/communication_viewpager.xml" />
+        <option value="$PROJECT_DIR$/src/com/example/DTUApp/communication_viewpager_act.java" />
       </list>
     </option>
   </component>
@@ -1160,20 +1133,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/data.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/evaluation_frag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="460" max-vertical-offset="969">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/find_location1_frag.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="714" max-vertical-offset="1241">
@@ -1238,17 +1197,6 @@
           <caret line="31" column="41" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="41" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/communication_viewpager.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.066668" vertical-offset="113" max-vertical-offset="748">
-          <caret line="35" column="19" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/evaluation_frag.xml">
@@ -1447,17 +1395,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/main_act.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.56666666" vertical-offset="0" max-vertical-offset="748">
-          <caret line="1" column="72" selection-start-line="1" selection-start-column="72" selection-end-line="1" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
@@ -1504,17 +1441,6 @@
       </provider>
       <provider editor-type-id="android-designer">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/start_frag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="4505">
-          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding>
-            <element signature="e#1526#1670#0" expanded="false" />
-            <element signature="e#1669#1670#0" expanded="false" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/listofusers_frag.java">
@@ -1595,11 +1521,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/communication_frag.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="3077">
+          <caret line="15" column="99" selection-start-line="15" selection-start-column="99" selection-end-line="15" selection-end-column="99" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/start_act.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="169" max-vertical-offset="799">
           <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="565">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/PagerSlidingTabStrip.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="787" max-vertical-offset="8364">
+          <caret line="94" column="51" selection-start-line="94" selection-start-column="51" selection-end-line="94" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/start_frag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="543" max-vertical-offset="4505">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding>
+            <element signature="e#1526#1670#0" expanded="true" />
+            <element signature="e#1669#1670#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1619,34 +1583,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/main_act.java">
+    <entry file="file://$PROJECT_DIR$/res/layout/main_act.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="362" max-vertical-offset="3434">
-          <caret line="52" column="24" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/communication_viewpager_act.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="806" max-vertical-offset="1921">
-          <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
-          <folding>
-            <element signature="e#3429#3430#0" expanded="true" />
-            <element signature="e#3483#3484#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/communication_frag.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47663552" vertical-offset="0" max-vertical-offset="3077">
-          <caret line="15" column="99" selection-start-line="15" selection-start-column="99" selection-end-line="15" selection-end-column="99" />
+        <state vertical-scroll-proportion="-7.366667" vertical-offset="51" max-vertical-offset="867">
+          <caret line="16" column="14" selection-start-line="11" selection-start-column="0" selection-end-line="16" selection-end-column="14" />
           <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/communication_viewpager.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.3" vertical-offset="113" max-vertical-offset="765">
+          <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/communication_viewpager_act.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="806" max-vertical-offset="1921">
+          <caret line="58" column="47" selection-start-line="58" selection-start-column="47" selection-end-line="58" selection-end-column="47" />
+          <folding>
+            <element signature="e#3389#3390#0" expanded="true" />
+            <element signature="e#3443#3444#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/DTUApp/main_act.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.4690266" vertical-offset="2300" max-vertical-offset="3434">
+          <caret line="39" column="32" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="32" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>

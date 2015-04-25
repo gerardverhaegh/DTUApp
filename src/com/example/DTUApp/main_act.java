@@ -16,7 +16,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.TextView;
-import com.viewpagerindicator.TabPageIndicator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +37,7 @@ public class main_act extends FragmentActivity {
     private TextView m_tv = null;
     //private pageradapter mPagerAdapter = null;
     private GoogleMusicAdapter mPagerAdapter = null;
-    private TabPageIndicator mTitleIndicator = null;
+    private PagerSlidingTabStrip mTitleIndicator = null;
     private ViewPager mPager = null;
     private int cnt = 0;
 
@@ -121,7 +120,7 @@ public class main_act extends FragmentActivity {
         mPager.setAdapter(mPagerAdapter);
 
         //Bind the title indicator to the adapter
-        mTitleIndicator = (TabPageIndicator) findViewById(R.id.titles);
+        mTitleIndicator = (PagerSlidingTabStrip) findViewById(R.id.titles);
         mTitleIndicator.setViewPager(mPager);
         final float density = getResources().getDisplayMetrics().density;
 
