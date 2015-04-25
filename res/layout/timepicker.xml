@@ -3,12 +3,13 @@
               android:id="@+id/layout"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:orientation="vertical" >
+              android:orientation="vertical">
 
     <TimePicker
         android:id="@+id/timeView"
+        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="180dp"
         android:clickable="false"
         android:inputType="none"
         android:editable="false"
@@ -17,19 +18,28 @@
         android:focusable="false"
         android:windowSoftInputMode="stateHidden"/>
 
-    <Button
-        style="@style/MyButtonStyle"
-        android:background="@drawable/button"
-        android:id="@+id/btnCancel2"
-        android:text="Cancel"
+    <LinearLayout
+        android:id="@+id/LinearLayout"
+        android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
 
-    <Button
-        style="@style/MyButtonStyle"
-        android:background="@drawable/button"
-        android:id="@+id/btnOK2"
-        android:text="OK"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
+        <Button
+            style="@style/MyButtonStyle"
+            android:background="@drawable/button"
+            android:id="@+id/btnCancel2"
+            android:text="Cancel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <Button
+            style="@style/MyButtonStyle"
+            android:background="@drawable/button"
+            android:id="@+id/btnOK2"
+            android:text="OK"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+    </LinearLayout>
 </LinearLayout>
