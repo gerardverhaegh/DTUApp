@@ -6,7 +6,6 @@
               android:orientation="vertical" >
 
     <TimePicker
-        style="@style/MyGeneralStyle"
         android:id="@+id/timeView"
         android:layout_width="match_parent"
         android:layout_height="400dp"
@@ -24,8 +23,7 @@
         android:id="@+id/btnCancel2"
         android:text="Cancel"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"/>
+        android:layout_height="wrap_content"/>
 
     <Button
         style="@style/MyButtonStyle"
@@ -33,6 +31,5 @@
         android:id="@+id/btnOK2"
         android:text="OK"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"/>
+        android:layout_height="wrap_content"/>
 </LinearLayout>

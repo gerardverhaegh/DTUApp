@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="MyTheme">
+    <style name="MyTheme" parent="android:Theme.Holo.Light">
 
         <item name="android:textColor">#FF7777FF</item>
         <item name="android:textColorPrimary">#FF7777FF</item>
@@ -12,7 +12,7 @@
         <item name="android:colorBackground">#FFFFFFFF</item>
         <item name="android:colorBackgroundCacheHint">#FFFFFFFF</item>
         <item name="android:colorActivatedHighlight">#FFFFFFFF</item>
-        <item name="android:textColorAlertDialogListItem">#FF7777FF</item>
+<!--        <item name="android:textColorAlertDialogListItem">#FF7777FF</item>-->
 
         <!--<item name="android:colorForeground">#FFFF0000</item>-->
         <item name="android:background">#FFFFFFFF</item>

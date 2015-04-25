@@ -12,6 +12,7 @@ import com.quickblox.users.QBUsers;
 import com.quickblox.users.model.QBUser;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -73,6 +74,8 @@ public class listofusers_frag extends base_frag implements AdapterView.OnItemCli
                     mUsers.add(qbOtherUsers.get(i).getLogin() + sOnLine);
                     Log.d("GVE", "User: " + mUsers);
                 }
+
+                Collections.sort(mUsers);
 
                 lv.setAdapter(new ArrayAdapter(getActivity().getApplicationContext(), R.layout.listofusers_frag, R.id.listelement_description, mUsers) {
                     @Override
