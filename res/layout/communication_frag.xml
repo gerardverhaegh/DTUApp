@@ -12,14 +12,20 @@
 
         <TextView
             style="@style/MyTextViewStyle"
-            android:id="@+id/txt"
-            android:text="User Name: "
+            android:id="@+id/txt2"
+            android:text="-User Name---------------------------------------------------------------"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:lines="1"
             android:maxLines="1"
             android:minLines="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0">
 
         <TextView
             style="@style/MyTextViewStyle"
@@ -27,16 +33,32 @@
             android:text=""
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
             android:lines="1"
             android:maxLines="1"
             android:minLines="1"/>
     </LinearLayout>
 
-    <TextView
+<!--    <TextView
         android:layout_width="fill_parent"
         android:layout_height="1px"
-        android:background="#FF7777FF"/>
+        android:background="#FF7777FF"/>-->
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0">
+
+        <TextView
+            style="@style/MyTextViewStyle"
+            android:id="@+id/txtStatus1"
+            android:text="-Status---------------------------------------------------------------"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:minLines="1"
+            android:maxLines="1"
+            android:lines="1"/>
+    </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -47,7 +69,7 @@
         <TextView
             style="@style/MyTextViewStyle"
             android:id="@+id/txtStatus"
-            android:text="Status"
+            android:text=""
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:minLines="2"
@@ -55,16 +77,33 @@
             android:lines="2"/>
     </LinearLayout>
 
-    <TextView
+<!--    <TextView
         android:layout_width="fill_parent"
         android:layout_height="1px"
-        android:background="#FF7777FF"/>
+        android:background="#FF7777FF"/>-->
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="10">
+        android:layout_weight="0">
+
+        <TextView
+            style="@style/MyTextViewStyle"
+            android:id="@+id/txtStatus2"
+            android:text="-Messages---------------------------------------------------------------"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:minLines="1"
+            android:maxLines="1"
+            android:lines="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
 
         <ScrollView
             android:layout_width="fill_parent"
@@ -80,23 +119,41 @@
         >
     </LinearLayout>
 
-    <TextView
+<!--    <TextView
         android:layout_width="fill_parent"
         android:layout_height="1px"
-        android:background="#FF7777FF"/>
+        android:background="#FF7777FF"/>-->
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom">
+        android:layout_weight="0">
+
+        <TextView
+            style="@style/MyTextViewStyle"
+            android:id="@+id/txtStatus3"
+            android:text="-Compose message---------------------------------------------------------------"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:minLines="1"
+            android:maxLines="1"
+            android:lines="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_weight="0">
 
         <EditText
             style="@style/MyEditStyle"
             android:id="@+id/txtSendMessage"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Message"
+            android:text=""
             android:minLines="2"
             android:maxLines="2"
             android:lines="2"/>
