@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="MyTheme" parent="@style/Theme.PageIndicatorDefaults">
+    <style name="MyTheme">
 
         <item name="android:textColor">#FF7777FF</item>
         <item name="android:textColorPrimary">#FF7777FF</item>
