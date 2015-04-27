@@ -15,7 +15,9 @@ public class base_frag extends Fragment {
 
     public String GetTitle() {
 
-        if (this instanceof communication_frag) {
+        if (this instanceof chat_frag) {
+            return "Chat";
+        } else if (this instanceof communication_frag) {
             return "Communication";
         } else if (this instanceof evaluation_frag) {
             return "Evaluation";
@@ -35,6 +37,8 @@ public class base_frag extends Fragment {
             return "Question";
         } else if (this instanceof start_frag) {
             return "Start";
+        } else if (this instanceof video_frag) {
+            return "Video";
         } else {
             return "no title";
         }

@@ -40,10 +40,10 @@
             android:minLines="1"/>
     </LinearLayout>
 
-<!--    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="1px"
-        android:background="#FF7777FF"/>-->
+    <!--    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="#FF7777FF"/>-->
 
     <LinearLayout
         android:orientation="horizontal"
@@ -66,23 +66,25 @@
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0">
+        android:layout_weight="1">
 
-        <TextView
-            style="@style/MyTextViewStyle"
-            android:id="@+id/txtStatus"
-            android:text=""
+        <ScrollView
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:minLines="2"
-            android:maxLines="2"
-            android:lines="2"/>
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/MyTextViewStyle"
+                android:id="@+id/txtStatus"
+                android:text=""
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"/>
+        </ScrollView>
     </LinearLayout>
 
-<!--    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="1px"
-        android:background="#FF7777FF"/>-->
+    <!--    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="#FF7777FF"/>-->
 
     <LinearLayout
         android:orientation="horizontal"
@@ -118,13 +120,12 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"/>
         </ScrollView>
-        >
     </LinearLayout>
 
-<!--    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="1px"
-        android:background="#FF7777FF"/>-->
+    <!--    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="#FF7777FF"/>-->
 
     <LinearLayout
         android:orientation="horizontal"

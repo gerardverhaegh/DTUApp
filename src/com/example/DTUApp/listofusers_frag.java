@@ -29,7 +29,11 @@ public class listofusers_frag extends base_frag implements AdapterView.OnItemCli
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         lv = new ListView(getActivity());
         lv.setOnItemClickListener(this);
-        GetAllUsers();
+
+        if (savedInstanceState == null) {
+            GetAllUsers();
+        }
+
         return lv;
     }
 
@@ -88,7 +92,7 @@ public class listofusers_frag extends base_frag implements AdapterView.OnItemCli
                         //listeelem_billede.setImageResource(android.R.drawable.sym_action_call);
                         if (position == 0) {
                             le_description.setText("Jeres FeelGood hold er sat! \n" +
-                                    "Mød dine medspillere:\n");
+                                    "Mød dine medspillere:\n" + "* " + le_description.getText());
 
                             //le_description.setTextColor(0xFF295055);
                             //le_text.setText("");

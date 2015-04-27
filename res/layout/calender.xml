@@ -17,7 +17,8 @@
         android:editable="false"
         android:focusableInTouchMode="false"
         android:focusable="false"
-        android:windowSoftInputMode="stateHidden"/>
+        android:windowSoftInputMode="stateHidden">
+    </CalendarView>
 
     <LinearLayout
         android:id="@+id/LinearLayout"

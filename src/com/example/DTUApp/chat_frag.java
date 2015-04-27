@@ -42,20 +42,20 @@ import java.util.List;
 /**
  * Created by gve on 18-03-2015.
  */
-public class communication_frag extends base_frag {
+public class chat_frag extends base_frag {
 
     private TextView txtStatus = null;
     private TextView txtReceive = null;
     private EditText txtSendMessage = null;
     private TextView txtLogin = null;
-    private QBUser qbMainUser = null;
+    private QBChatService mChatService = null;
     private QBUser qbThisUser = null;
+    private QBUser qbMainUser = null;
     private QBUser qbOtherUser = null;
     private ArrayList<QBUser> qbOtherUsers = null;
     private QBPrivateChatManagerListener privateChatManagerListener = null;
     private QBMessageListener<QBPrivateChat> privateChatMessageListener = null;
     private QBGroupChatManager groupChatManager = null;
-    private QBDialog qbGroupDialog = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -83,11 +83,9 @@ public class communication_frag extends base_frag {
             }
         });
 
-   /*     if (QBChatService.getInstance() != null && !QBChatService.getInstance().isLoggedIn()) {*/
+        if (savedInstanceState == null) {
             CreateSession();
-/*        } else {
-            GetAllUsers(txtLogin.getText().toString(), true);
-        }*/
+        }
 
         return v;
     }
@@ -185,26 +183,7 @@ public class communication_frag extends base_frag {
     }
 
     private void SignOut() {
-        QBUsers.signOut(new QBEntityCallbackImpl<QBUser>() {
-            @Override
-            public void onSuccess(QBUser qbUser, Bundle bundle) {
-                if (qbUser == qbThisUser) {
-                    qbThisUser = null;
-                }
-
-                if (qbUser == qbMainUser) {
-                    qbThisUser = null;
-                }
-
-                AddStatus("signOut success");
-            }
-
-            @Override
-            public void onError(List<String> errors) {
-                qbThisUser = null;
-                AddStatus("signOut error" + errors);
-            }
-        });
+        // not yet implemented
     }
 
     private void GetAllUsers(final String UserName, final boolean bReinit) {
@@ -239,6 +218,7 @@ public class communication_frag extends base_frag {
                     StartListeningForGroupChats();*/
                 }
 
+
                 StartChat();
             }
 
@@ -254,152 +234,81 @@ public class communication_frag extends base_frag {
         // Initialise Chat service
         if (!QBChatService.isInitialized()) {
             QBChatService.init(getActivity().getApplicationContext());
+            mChatService = QBChatService.getInstance();
         }
 
-        QBAuth.createSession(qbMainUser, new QBEntityCallbackImpl<QBSession>() {
+        QBAuth.createSession(qbThisUser, new QBEntityCallbackImpl<QBSession>() {
             @Override
             public void onSuccess(QBSession session, Bundle params) {
                 // success, login to chat
-                AddStatus("CreateSession Chat success: " + session.getUserId());
-                qbMainUser.setId(session.getUserId());
-                LoginToChat(qbMainUser);
-            }
+                qbThisUser.setId(session.getUserId());
+                AddStatus("createSession success: " + session.getUserId());
 
-            @Override
-            public void onSuccess() {
-                // success, login to chat
-                AddStatus("CreateSession Chat success: ");
+                LoginToChat(qbThisUser);
             }
 
             @Override
             public void onError(List<String> errors) {
-                AddStatus("CreateSession Chat error: " + errors.toString());
+                txtStatus.setText("createSession error: " + errors.toString());
             }
         });
     }
 
     private void LoginToChat(final QBUser user) {
-        if (!QBChatService.getInstance().isLoggedIn()) {
-            AddStatus("Login to chatService");
-            QBChatService.getInstance().login(user, new QBEntityCallbackImpl() {
+        boolean isLoggedIn = mChatService.isLoggedIn();
+        if (!isLoggedIn) {
+            mChatService.login(user, new QBEntityCallbackImpl() {
                 @Override
                 public void onSuccess() {
-                    AddStatus("ChatService Login success");
+                    Log.d("GVE", "chatService.login success");
 
                     try {
-                        //mChatService.startAutoSendPresence(60);
-                        QBChatService.getInstance().startAutoSendPresence(60);
+                        mChatService.startAutoSendPresence(60);
                     } catch (SmackException.NotLoggedInException e) {
                         e.printStackTrace();
                     }
 
+                    getActivity().runOnUiThread(new Runnable() {
+                        public void run() {
+                            if (getActivity() instanceof communication_viewpager_act) {
+                                communication_viewpager_act act = (communication_viewpager_act) getActivity();
+                                act.setResult("ok");
+                            }
+                        }
+                    });
+
                     AddConnectionListener();
-                    //GetChatDialogs();
-                 /*   StartListeningForPrivateChats();*/
-                  /*  StartListeningForGroupChats();*/
+                    StartListeningForPrivateChats();
+                    StartListeningForGroupChats();
                 }
 
                 @Override
                 public void onError(List errors) {
-                    AddStatus("ChatService Login error: " + errors);
+                    Log.d("GVE", "chatService.login error: " + errors);
                 }
             });
         } else {
-            AddStatus("Already logged in to chatService");
+            Log.d("GVE", "chatService.login was already logged in: ");
             AddConnectionListener();
             StartListeningForPrivateChats();
             StartListeningForGroupChats();
         }
     }
 
-    private void AddConnectionListener() {
-        AddStatus("AddConnectionListener: initialised");
-
-        ConnectionListener connectionListener = new ConnectionListener() {
-            @Override
-            public void connected(XMPPConnection connection) {
-                AddStatus("AddConnectionListener: connected");
-            }
-
-            @Override
-            public void authenticated(XMPPConnection connection) {
-                AddStatus("AddConnectionListener: authenticated");
-            }
-
-            @Override
-            public void connectionClosed() {
-                AddStatus("AddConnectionListener: connectionClosed");
-            }
-
-            @Override
-            public void connectionClosedOnError(Exception e) {
-                // connection closed on error. It will be established soon
-                AddStatus("AddConnectionListener: connectionClosedOnError");
-            }
-
-            @Override
-            public void reconnectingIn(int seconds) {
-                AddStatus("AddConnectionListener: reconnectingIn");
-            }
-
-            @Override
-            public void reconnectionSuccessful() {
-                AddStatus("AddConnectionListener: reconnectionSuccessful");
-            }
-
-            @Override
-            public void reconnectionFailed(Exception e) {
-                AddStatus("AddConnectionListener: reconnectionFailed");
-            }
-        };
-
-        QBChatService.getInstance().addConnectionListener(connectionListener);
-    }
-
-    private void GetChatDialogs() {
+    private void RequestChatDialogs() {
         QBRequestGetBuilder requestBuilder = new QBRequestGetBuilder();
         requestBuilder.setPagesLimit(100);
 
         QBChatService.getChatDialogs(null, requestBuilder, new QBEntityCallbackImpl<ArrayList<QBDialog>>() {
             @Override
             public void onSuccess(ArrayList<QBDialog> dialogs, Bundle args) {
-                AddStatus("getChatDialogs onSuccess: ");
+                Log.d("GVE", "getChatDialogs onSuccess: ");
                 NewGroupDialog();
             }
 
             @Override
             public void onError(List<String> errors) {
-                AddStatus("getChatDialogs error: " + errors);
-            }
-        });
-    }
-
-    private void NewGroupDialog() {
-        ArrayList<Integer> occupantIdsList = new ArrayList<Integer>();
-
-        for (int i = 0; i < qbOtherUsers.size(); i++) {
-            occupantIdsList.add(qbOtherUsers.get(i).getId());
-        }
-
-        if (qbGroupDialog == null) {
-            qbGroupDialog = new QBDialog();
-        }
-
-        qbGroupDialog.setName(qbThisUser.getLogin() + " initiated chat");
-        qbGroupDialog.setType(QBDialogType.GROUP);
-        qbGroupDialog.setOccupantsIds(occupantIdsList);
-
-        QBGroupChatManager groupChatManager = QBChatService.getInstance().getGroupChatManager();
-        groupChatManager.createDialog(qbGroupDialog, new QBEntityCallbackImpl<QBDialog>() {
-            @Override
-            public void onSuccess(QBDialog dialog, Bundle args) {
-                AddStatus("createDialog onSuccess: ");
-                NotifyOthers(dialog);
-            }
-
-            @Override
-            public void onError(List<String> errors) {
-                AddStatus("createDialog onError: " + errors);
+                Log.d("GVE", "getChatDialogs onSuccess: " + errors);
             }
         });
     }
@@ -408,28 +317,27 @@ public class communication_frag extends base_frag {
         privateChatMessageListener = new QBMessageListener<QBPrivateChat>() {
             @Override
             public void processMessage(QBPrivateChat privateChat, final QBChatMessage chatMessage) {
-                Log.d("GVE", "StartListeningForPrivateChats: processMessage: " + chatMessage.getBody() + " from " + chatMessage.getSenderId());
+                Log.d("GVE", "---------RECEIVING: processMessage: " + chatMessage.getBody() + " from " + chatMessage.getSenderId());
                 getActivity().runOnUiThread(new Runnable() {
                     public void run() {
-                        AddMessage(chatMessage.getBody());
-                        //txtReceive.setText(chatMessage.getBody() + "\r\n" + txtReceive.getText());
+                        txtReceive.setText(chatMessage.getBody() + "\r\n" + txtReceive.getText());
                     }
                 });
             }
 
             @Override
             public void processError(QBPrivateChat privateChat, QBChatException error, QBChatMessage originMessage) {
-                Log.d("GVE", "StartListeningForPrivateChats: processMessage: " + error.getMessage());
+                Log.d("GVE", "processMessage: " + error.getMessage());
             }
 
             @Override
             public void processMessageDelivered(QBPrivateChat privateChat, String messageID) {
-                Log.d("GVE", "StartListeningForPrivateChats: processMessageDelivered: " + messageID);
+                Log.d("GVE", "processMessageDelivered: " + messageID);
             }
 
             @Override
             public void processMessageRead(QBPrivateChat privateChat, String messageID) {
-                Log.d("GVE", "StartListeningForPrivateChats: processMessageRead: " + messageID);
+                Log.d("GVE", "processMessageRead: " + messageID);
             }
         };
 
@@ -469,95 +377,104 @@ public class communication_frag extends base_frag {
     }
 
     private void StartListeningForGroupChats() {
-        AddStatus("StartListeningForGroupChats initialised");
-
-        final QBMessageListener<QBGroupChat> groupChatQBMessageListener = new QBMessageListener<QBGroupChat>() {
+        QBMessageListener<QBGroupChat> groupChatQBMessageListener = new QBMessageListener<QBGroupChat>() {
             @Override
             public void processMessage(final QBGroupChat groupChat, final QBChatMessage chatMessage) {
-                Log.d("GVE", "StartListeningForGroupChats: processMessage: " + chatMessage.getBody());
+                Log.d("GVE", "processMessage: " + chatMessage.getBody());
             }
 
             @Override
             public void processError(final QBGroupChat groupChat, QBChatException error, QBChatMessage originMessage) {
-                Log.d("GVE", "StartListeningForGroupChats: processError: " + error.getMessage());
+                Log.d("GVE", "processError: " + error.getMessage());
             }
 
             @Override
             public void processMessageDelivered(QBGroupChat groupChat, String messageID) {
                 // never be called, works only for 1-1 chat
-                Log.d("GVE", "StartListeningForGroupChats: processMessageDelivered: " + messageID);
+                Log.d("GVE", "processMessageDelivered: " + messageID);
             }
 
             @Override
             public void processMessageRead(QBGroupChat groupChat, String messageID) {
                 // never be called, works only for 1-1 chat
-                Log.d("GVE", "StartListeningForGroupChats: processMessageRead: " + messageID);
+                Log.d("GVE", "processMessageRead: " + messageID);
             }
         };
 
         DiscussionHistory history = new DiscussionHistory();
         history.setMaxStanzas(0);
 
-        Log.d("GVE", "groupChatManager 1");
         groupChatManager = QBChatService.getInstance().getGroupChatManager();
 
-        if (qbGroupDialog == null)
-        {
-            qbGroupDialog = new QBDialog();
-            qbGroupDialog.setName(qbThisUser.getLogin() + " initiated chat");
-            qbGroupDialog.setType(QBDialogType.GROUP);
-            Log.d("GVE", "groupChatManager 2");
-        }
-
-        Log.d("GVE", "groupChatManager 3 " + qbGroupDialog.getRoomJid());
-        final QBGroupChat currentChatRoom = groupChatManager.createGroupChat(qbGroupDialog.getRoomJid());
-
-        Log.d("GVE", "groupChatManager 4");
-
+/*        QBGroupChat currentChatRoom = groupChatManager.createGroupChat(groupDialog.getRoomJid());
         currentChatRoom.join(history, new QBEntityCallbackImpl() {
             @Override
             public void onSuccess() {
                 // add listeners
-                AddStatus("currentChatRoom join: success");
                 currentChatRoom.addMessageListener(groupChatQBMessageListener);
             }
 
             @Override
             public void onError(final List list) {
-                AddStatus("currentChatRoom join: error: " + list.toString());
             }
-        });
-
-        Log.d("GVE", "groupChatManager 5");
+        });*/
     }
 
     private void SendMessage() {
         getActivity().runOnUiThread(new Runnable() {
             public void run() {
-                GetChatDialogs();
+                RequestChatDialogs();
+            }
+        });
+    }
+
+    private void NewGroupDialog() {
+        ArrayList<Integer> occupantIdsList = new ArrayList<Integer>();
+
+        for (int i = 0; i < qbOtherUsers.size(); i++) {
+            occupantIdsList.add(qbOtherUsers.get(i).getId());
+        }
+
+        QBDialog dialog = new QBDialog();
+        dialog.setName("GVE's first chat");
+        dialog.setType(QBDialogType.GROUP);
+        dialog.setOccupantsIds(occupantIdsList);
+
+        QBGroupChatManager groupChatManager = QBChatService.getInstance().getGroupChatManager();
+        groupChatManager.createDialog(dialog, new QBEntityCallbackImpl<QBDialog>() {
+            @Override
+            public void onSuccess(QBDialog dialog, Bundle args) {
+                Log.d("GVE", "createDialog onSuccess: ");
+                NotifyOthers(dialog);
+            }
+
+            @Override
+            public void onError(List<String> errors) {
+                Log.d("GVE", "createDialog onError: " + errors);
             }
         });
     }
 
     private void NotifyOthers(QBDialog dialog) {
-        AddStatus("NotifyOthers");
+        Log.d("GVE", "NotifyOthers");
         for (Integer userID : dialog.getOccupants()) {
+
             Log.d("GVE", "NotifyOthers: " + userID);
             QBChatMessage chatMessage = createChatNotificationForGroupChatCreation(dialog);
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
-            String currentDateAndTime = sdf.format(new Date());
-            chatMessage.setProperty("date_sent", currentDateAndTime);
+            //long time = DateUtils.getCurrentTime();
+            String time = "NOWWWWW";
+            chatMessage.setProperty("date_sent", time + "");
             if (qbThisUser != null) {
-                chatMessage.setBody(getCurrentTimeStamp() + "  " + qbThisUser.getLogin() + ": " + txtSendMessage.getText());
+                Log.d("GVE", "-------------qbThisUser.getLogin(): " + qbThisUser.getLogin());
+                chatMessage.setBody(getCurrentTimeStamp() + "  " + qbThisUser.getLogin() + ": " + txtSendMessage.getText());// + " (" + qbOtherUser.getLogin() + ")");
                 Log.d("GVE", "------------SENDING: processMessage: " + chatMessage.getBody() + " from " + qbThisUser.getLogin() + " to " + userID);
             } else {
                 Log.d("GVE", "-------------qbThisUser == null ");
             }
-
             QBPrivateChat chat = QBChatService.getInstance().getPrivateChatManager().getChat(userID);
             if (chat == null) {
                 Log.d("GVE", "chat == null: " + userID);
-                chat = QBChatService.getInstance().getPrivateChatManager().createChat(userID, null);
+                chat = mChatService.getPrivateChatManager().createChat(userID, null);
             }
 
             try {
@@ -573,9 +490,12 @@ public class communication_frag extends base_frag {
         try {
 
             SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
-            return dateFormat.format(new Date());
+            String currentTimeStamp = dateFormat.format(new Date()); // Find today's date
+
+            return currentTimeStamp;
         } catch (Exception e) {
             e.printStackTrace();
+
             return null;
         }
     }
@@ -605,24 +525,91 @@ public class communication_frag extends base_frag {
         return chatMessage;
     }
 
+    private void AddConnectionListener() {
+        ConnectionListener connectionListener = new ConnectionListener() {
+            @Override
+            public void connected(XMPPConnection connection) {
+                Log.d("GVE", "connected");
+            }
+
+            @Override
+            public void authenticated(XMPPConnection connection) {
+                Log.d("GVE", "authenticated");
+            }
+
+            @Override
+            public void connectionClosed() {
+                Log.d("GVE", "connectionClosed");
+            }
+
+            @Override
+            public void connectionClosedOnError(Exception e) {
+                // connection closed on error. It will be established soon
+                Log.d("GVE", "connectionClosedOnError");
+            }
+
+            @Override
+            public void reconnectingIn(int seconds) {
+                Log.d("GVE", "reconnectingIn");
+            }
+
+            @Override
+            public void reconnectionSuccessful() {
+                Log.d("GVE", "reconnectionSuccessful");
+            }
+
+            @Override
+            public void reconnectionFailed(Exception e) {
+                Log.d("GVE", "reconnectionFailed");
+            }
+        };
+
+        QBChatService.getInstance().addConnectionListener(connectionListener);
+    }
+
+    private boolean IsLoggedIn() {
+        boolean bLoggedIn = false;
+
+        if (mChatService == null) {
+            try {
+                mChatService = QBChatService.getInstance();
+            } catch (IllegalStateException e) {
+                mChatService = null;
+            }
+        }
+
+        if (mChatService == null) {
+
+            bLoggedIn = false;
+        } else {
+            bLoggedIn = mChatService.isLoggedIn();
+        }
+
+        Log.d("GVE", "IsLoggedIn: " + bLoggedIn);
+        return bLoggedIn;
+    }
+
     private void ChatLogout() {
         Log.d("GVE", "-----ChatLogout");
 
-        if (QBChatService.getInstance().isLoggedIn()) {
-            QBChatService.getInstance().logout(new QBEntityCallbackImpl() {
-                @Override
-                public void onSuccess() {
-                    // success
-                    QBChatService.getInstance().destroy();
-                }
-
-                @Override
-                public void onError(final List list) {
-
-                }
-            });
+        if (!IsLoggedIn()) {
+            return;
         }
+
+        mChatService.logout(new QBEntityCallbackImpl() {
+            @Override
+            public void onSuccess() {
+                // success
+                mChatService.destroy();
+            }
+
+            @Override
+            public void onError(final List list) {
+
+            }
+        });
     }
+
 
     private void AddMessage(String txt) {
         final String txtCopy = txt;

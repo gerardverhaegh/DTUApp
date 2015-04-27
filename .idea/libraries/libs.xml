@@ -11,6 +11,15 @@
       <root url="jar://$PROJECT_DIR$/libs/quickblox-android-sdk-content-2.1.jar!/" />
       <root url="jar://$PROJECT_DIR$/libs/android-support-v4.jar!/" />
       <root url="jar://$PROJECT_DIR$/libs/quickblox-android-sdk-location-2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/quickblox-android-sdk-chat-2.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/quickblox-android-sdk-content-2.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/quickblox-android-sdk-core-2.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/quickblox-android-sdk-customobjects-2.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/quickblox-android-sdk-location-2.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/quickblox-android-sdk-messages-2.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/quickblox-android-sdk-ratings-2.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/quickblox-android-sdk-videochat-2.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/quickblox-android-sdk-videochat-webrtc-2.2.2.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
