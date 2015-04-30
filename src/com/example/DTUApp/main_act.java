@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -49,10 +50,13 @@ public class main_act extends FragmentActivity {
 /*        requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
         setContentView(R.layout.main_act);
-        ActionBar bar = getActionBar();
-      /*  bar.setTitle("");*/
-        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFFFF")));
 
+        if (Build.VERSION.SDK_INT > 10) {
+            ActionBar bar = getActionBar();
+        /*  bar.setTitle("");*/
+            bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFFFF")));
+
+        }
 /*            TabWidget btn_speak = (TabWidget) findViewById(R.id.btn_speak);
             btn_speak.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -77,6 +81,9 @@ public class main_act extends FragmentActivity {
 
         if (savedInstanceState == null) {
             fragments.clear();
+            radiogroup_base_frag rgbf = new radiogroup_base_frag();
+            rgbf.SetStrings();
+            addView(rgbf);
             addView(new start_frag());
         }
     }

@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.*;
 import android.util.Log;
@@ -21,8 +22,11 @@ public class preferences_act extends PreferenceActivity implements
 
 /*        requestWindowFeature(Window.FEATURE_NO_TITLE);*/
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        ActionBar bar = getActionBar();
-        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFFFF")));
+
+        if (Build.VERSION.SDK_INT > 10) {
+            ActionBar bar = getActionBar();
+            bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFFFF")));
+        }
 
         addPreferencesFromResource(R.xml.preflayout);
         initSummary(getPreferenceScreen());
@@ -75,9 +79,12 @@ public class preferences_act extends PreferenceActivity implements
                 p.setSummary(editTextPref.getText());
             }
         }
-        if (p instanceof MultiSelectListPreference) {
-            EditTextPreference editTextPref = (EditTextPreference) p;
-            p.setSummary(editTextPref.getText());
+
+        if (Build.VERSION.SDK_INT > 10) {
+            if (p instanceof MultiSelectListPreference) {
+                EditTextPreference editTextPref = (EditTextPreference) p;
+                p.setSummary(editTextPref.getText());
+            }
         }
     }
 }

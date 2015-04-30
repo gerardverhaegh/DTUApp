@@ -3,6 +3,7 @@ package com.example.DTUApp;
 import android.app.ActionBar;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -33,8 +34,12 @@ public class communication_viewpager_act extends FragmentActivity {
  /*           requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
         setContentView(R.layout.communication_viewpager);
-        ActionBar bar = getActionBar();
-        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFFFF")));
+
+        if (Build.VERSION.SDK_INT > 10) {
+            ActionBar bar = getActionBar();
+            bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFFFF")));
+        }
+
         initialisePaging();
         if (savedInstanceState == null) {
             fragments.clear();
@@ -75,7 +80,7 @@ public class communication_viewpager_act extends FragmentActivity {
         });
     }
 
-    public void addView(Fragment newPage) {
+    private void addView(Fragment newPage) {
         mPagerAdapter.addView(newPage, mPagerAdapter.getCount());
         mTitleIndicator.notifyDataSetChanged();
     }

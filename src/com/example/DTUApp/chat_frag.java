@@ -486,21 +486,17 @@ public class chat_frag extends base_frag {
         }
     }
 
-    public static String getCurrentTimeStamp() {
+    private static String getCurrentTimeStamp() {
         try {
-
             SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
-            String currentTimeStamp = dateFormat.format(new Date()); // Find today's date
-
-            return currentTimeStamp;
+            return dateFormat.format(new Date()); // Find today's date
         } catch (Exception e) {
             e.printStackTrace();
-
             return null;
         }
     }
 
-    public static QBChatMessage createChatNotificationForGroupChatCreation(QBDialog dialog) {
+    private static QBChatMessage createChatNotificationForGroupChatCreation(QBDialog dialog) {
         String dialogId = String.valueOf(dialog.getDialogId());
         String roomJid = dialog.getRoomJid();
         String occupantsIds = TextUtils.join(",", dialog.getOccupants());

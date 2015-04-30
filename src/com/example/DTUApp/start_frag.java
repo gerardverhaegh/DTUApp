@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -125,6 +126,9 @@ public class start_frag extends base_frag {
 
     private void showDatePicker(Activity context) {
 
+        if (Build.VERSION.SDK_INT < 11)
+            return;
+
         // Inflate the popup_layout.xml
         LayoutInflater layoutInflater = (LayoutInflater)getActivity().getBaseContext()
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -191,6 +195,9 @@ public class start_frag extends base_frag {
     }
 
     private void showTimePicker(Activity context) {
+
+        if (Build.VERSION.SDK_INT < 11)
+            return;
 
         // Inflate the popup_layout.xml
         LayoutInflater layoutInflater = (LayoutInflater)getActivity().getBaseContext()

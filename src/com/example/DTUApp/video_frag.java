@@ -191,8 +191,6 @@ public class video_frag extends base_frag {
 
     }
 
-    ;
-
     /**
      * Calls in case when opponent has rejected you call
      */
@@ -200,8 +198,6 @@ public class video_frag extends base_frag {
 
         AddStatus("onCallRejectByUser " + session.toString());
     }
-
-    ;
 
     /**
      * Called in case when opponent hang up
@@ -211,8 +207,6 @@ public class video_frag extends base_frag {
         AddStatus("onReceiveHangUpFromUser " + session.toString());
     }
 
-    ;
-
     /**
      * Calls once, when video track was created, while session was initializing by chat initiator
      */
@@ -220,8 +214,6 @@ public class video_frag extends base_frag {
 
         AddStatus("onLocalVideoTrackReceive " + session.toString());
     }
-
-    ;
 
     /**
      * Calls each time when some of session channels receive remote video.
@@ -231,8 +223,6 @@ public class video_frag extends base_frag {
         AddStatus("onRemoteVideoTrackReceive " + session.toString());
     }
 
-    ;
-
     /**
      * Called in case when connection state changed
      */
@@ -240,8 +230,6 @@ public class video_frag extends base_frag {
 
         AddStatus("onConnectionClosedForUser " + session.toString());
     }
-
-    ;
 
     /**
      * Calls each time when channel initialization was started for some user
@@ -261,8 +249,6 @@ public class video_frag extends base_frag {
         AddStatus("onConnectedToUser " + session.toString());
     }
 
-    ;
-
     /**
      * Called in case when opponent disconnected
      */
@@ -270,8 +256,6 @@ public class video_frag extends base_frag {
 
         AddStatus("onDisconnectedFromUser " + session.toString());
     }
-
-    ;
 
     /**
      * Called in case when disconnected by timeout
@@ -281,8 +265,6 @@ public class video_frag extends base_frag {
         AddStatus("onDisconnectedTimeoutFromUser " + session.toString());
     }
 
-    ;
-
     /**
      * Called in case when connection failed with user
      */
@@ -290,8 +272,6 @@ public class video_frag extends base_frag {
 
         AddStatus("onConnectionFailedWithUser " + session.toString());
     }
-
-    ;
 
     /**
      * Called in case when session will close
@@ -301,8 +281,6 @@ public class video_frag extends base_frag {
         AddStatus("onSessionStartClose " + session.toString());
     }
 
-    ;
-
     /**
      * Calls when session was closed.
      */
@@ -310,8 +288,6 @@ public class video_frag extends base_frag {
         AddStatus("onSessionClosed " + session.toString());
 
     }
-
-    ;
 
     private void AddMessage(String txt) {
         final String txtCopy = txt;
@@ -332,7 +308,6 @@ public class video_frag extends base_frag {
             }
         });
     }
-
 }
 /*
 

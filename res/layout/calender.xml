@@ -32,7 +32,6 @@
             android:id="@+id/btnCancel1"
             android:text="Cancel"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
             android:layout_weight="1"/>
 
         <Button
@@ -41,7 +40,6 @@
             android:id="@+id/btnOK1"
             android:text="OK"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
             android:layout_weight="1"/>
     </LinearLayout>
 </LinearLayout>

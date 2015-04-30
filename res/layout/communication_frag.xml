@@ -173,7 +173,6 @@
             android:background="@drawable/button"
             android:id="@+id/btnSendMessage"
             android:text="Send Message"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_width="fill_parent"/>
     </LinearLayout>
 </LinearLayout>

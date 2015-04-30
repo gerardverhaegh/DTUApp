@@ -35,6 +35,8 @@ public class base_frag extends Fragment {
             return "Map";
         } else if (this instanceof question_evaluation_frag) {
             return "Question";
+        } else if (this instanceof radiogroup_base_frag) {
+            return "RadioGroup";
         } else if (this instanceof start_frag) {
             return "Start";
         } else if (this instanceof video_frag) {

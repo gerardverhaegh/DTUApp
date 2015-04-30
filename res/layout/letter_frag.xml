@@ -42,7 +42,6 @@
             android:id="@+id/btnShare"
             android:text="Godt gået! Tag bogstavet med til aftenens dyst kl. XXX"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
             android:gravity="center"/>
     </LinearLayout>
 </LinearLayout>

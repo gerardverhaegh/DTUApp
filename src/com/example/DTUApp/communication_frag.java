@@ -569,7 +569,7 @@ public class communication_frag extends base_frag {
         }
     }
 
-    public static String getCurrentTimeStamp() {
+    private static String getCurrentTimeStamp() {
         try {
 
             SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
@@ -580,7 +580,7 @@ public class communication_frag extends base_frag {
         }
     }
 
-    public static QBChatMessage createChatNotificationForGroupChatCreation(QBDialog dialog) {
+    private static QBChatMessage createChatNotificationForGroupChatCreation(QBDialog dialog) {
         String dialogId = String.valueOf(dialog.getDialogId());
         String roomJid = dialog.getRoomJid();
         String occupantsIds = TextUtils.join(",", dialog.getOccupants());

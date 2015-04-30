@@ -3,6 +3,7 @@
     <style name="MyButtonStyle" parent="@android:style/TextAppearance">
         <item name="android:textColor">#FF7777FF</item>
         <item name="android:background">#FFEEEEEE</item>
+        <item name="android:layout_height">50dp</item>
     </style>
 
     <style name="MyEditStyle" parent="@android:style/TextAppearance">
