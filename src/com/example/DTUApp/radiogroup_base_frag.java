@@ -35,6 +35,7 @@ public class radiogroup_base_frag extends base_frag {
 
         Bundle bundle = getArguments();
         mFragTitle = bundle.getString("header");
+        //Log.d("GVE", "mFragTitle: " + mFragTitle);
         mTitle = bundle.getString("text");
         mButtonTexts = bundle.getStringArrayList("buttons");
 

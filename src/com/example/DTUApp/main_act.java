@@ -81,7 +81,6 @@ public class main_act extends FragmentActivity {
 
         if (savedInstanceState == null) {
             fragments.clear();
-            AddEvaluationFrags();
             addView(new start_frag());
         }
     }
@@ -164,6 +163,8 @@ public class main_act extends FragmentActivity {
     private void AddOneEvaluation(String header, String text, ArrayList<String> buttons) {
         radiogroup_base_frag f = new radiogroup_base_frag();
 
+        //Log.d("GVE", "header: " + header);
+
         Bundle bundle = new Bundle();
         bundle.putString("header", header);
         bundle.putString("text", text);
@@ -234,7 +235,7 @@ public class main_act extends FragmentActivity {
 
     public void addView(Fragment newPage) {
 
-        Log.d("GVE", "addView : " + cnt + "-" + ((base_frag) newPage).GetTitle());
+        //Log.d("GVE", "addView : " + cnt + "-" + ((base_frag) newPage).GetTitle());
         mPagerAdapter.addView(newPage, mPagerAdapter.getCount());
 
         cnt++;
@@ -248,7 +249,7 @@ public class main_act extends FragmentActivity {
 
         if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof question_evaluation_frag) {
             if (answer == "yes") {
-                addView(new evaluation_frag());
+                AddEvaluationFrags();
             } else if (answer == "no") {
                 addView(new find_location1_frag());
             }
