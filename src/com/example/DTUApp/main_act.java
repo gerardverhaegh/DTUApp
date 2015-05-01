@@ -81,11 +81,97 @@ public class main_act extends FragmentActivity {
 
         if (savedInstanceState == null) {
             fragments.clear();
-            radiogroup_base_frag rgbf = new radiogroup_base_frag();
-            rgbf.SetStrings();
-            addView(rgbf);
+            AddEvaluationFrags();
             addView(new start_frag());
         }
+    }
+
+    private void AddEvaluationFrags() {
+        // 1
+        ArrayList<String> s = new ArrayList<String>() {{
+            add("Excellent");
+            add("Very good");
+            add("Good");
+            add("Fair");
+            add("Poor");
+        }};
+
+        AddOneEvaluation("Evaluation 1", "1. In general, would you say your health is:", s);
+
+        // 2
+        s = new ArrayList<String>() {{
+            add("Yes, a lot");
+            add("Yes, a little");
+            add("Not limited at all");
+        }};
+
+        AddOneEvaluation("Evaluation 2a", "2. a). Does your health now limit you in moderate activities:", s);
+
+        // 3
+        s = new ArrayList<String>() {{
+            add("Yes, a lot");
+            add("Yes, a little");
+            add("Not limited at all");
+        }};
+
+        AddOneEvaluation("Evaluation 2b", "2. b) Does your health now limit you in climbing several flights of stairs:", s);
+
+        // 4
+        AddOneEvaluation("Evaluation 3a", "3. a) During the past 4 weeks, have you as a result of your physical health accomplished less than you would like?", s);
+
+        // 5
+        AddOneEvaluation("Evaluation 3b", "3. b) During the past 4 weeks, have you as a result of your physical health been limited in the kind of work or activities you could do?", s);
+
+        // 6
+        AddOneEvaluation("Evaluation 4a", "4. a) During the past 4 weeks, have you as as as result of any emotional problems accomplished less than you would like?", s);
+
+        // 7
+        AddOneEvaluation("Evaluation 4b", "4. b) During the past 4 weeks, have you as as as result of any emotional problems done work or other activities less carefully than usual?", s);
+
+        // 8
+        s = new ArrayList<String>() {{
+            add("Not at all");
+            add("A little bit");
+            add("Moderately");
+            add("Quite a bit");
+            add("Extremely");
+        }};
+
+        AddOneEvaluation("Evaluation 5", "5. During the past 4 weeks, how much did pain interfere with your normal activities?", s);
+
+        // 9
+        s = new ArrayList<String>() {{
+            add("All of the time");
+            add("Most of the time");
+            add("A good bit of time");
+            add("Some time");
+            add("A little time");
+            add("None");
+        }};
+
+        AddOneEvaluation("Evaluation 6a", "6. a) How much of the time during the past 4 weeks have you felt calm and peaceful?", s);
+
+        // 10
+        AddOneEvaluation("Evaluation 6b", "6. b) How much of the time during the past 4 weeks did you have a lot of energy?", s);
+
+        // 11
+        AddOneEvaluation("Evaluation 6c", "6. c) How much of the time during the past 4 weeks have you felt downhearted and blue?", s);
+
+        // 11
+        AddOneEvaluation("Evaluation 6c", "7. During the past 4 weeks, how much of the time has your physical health or emotional problems interfered with your social activities (like visiting friends, relatives, etc.)?", s);
+    }
+
+    private void AddOneEvaluation(String header, String text, ArrayList<String> buttons) {
+        radiogroup_base_frag f = new radiogroup_base_frag();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("header", header);
+        bundle.putString("text", text);
+
+        bundle.putStringArrayList("buttons", buttons);
+
+        f.setArguments(bundle);
+        addView(f);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

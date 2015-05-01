@@ -19,9 +19,8 @@ public class radiogroup_base_frag extends base_frag {
 
     private RadioGroup mRadioGroup = null;
     private TextView mtv = null;
-    private String mTitle = "Title";
+    private String mTitle = "No title";
     private ArrayList<String> mButtonTexts = null;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -34,17 +33,12 @@ public class radiogroup_base_frag extends base_frag {
         mRadioGroup = (RadioGroup) v.findViewById(R.id.radioGroup);
         mtv = (TextView) v.findViewById(R.id.radiotv);
 
-        Log.d("GVE", "mtv: " + mtv);
-        Log.d("GVE", "mRadioGroup: " + mRadioGroup);
+        Bundle bundle = getArguments();
+        mFragTitle = bundle.getString("header");
+        mTitle = bundle.getString("text");
+        mButtonTexts = bundle.getStringArrayList("buttons");
 
-        mButtonTexts = new ArrayList<String>();
-        mButtonTexts.add("Test1");
-        mButtonTexts.add("Test2");
-        mButtonTexts.add("Test3");
-        mButtonTexts.add("Test4");
-        mButtonTexts.add("Test5");
-
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < mButtonTexts.size(); i++) {
             // test adding a radio button programmatically
             RadioButton newRadioButton = new RadioButton(getActivity());
             newRadioButton.setText(mButtonTexts.get(i));
@@ -69,18 +63,12 @@ public class radiogroup_base_frag extends base_frag {
         return v;
     }
 
-    public void SetStrings() {
-        mTitle = "Better title";
+    public void SetStrings(String title, ArrayList<String> buttons) {
+        mTitle = title;
         if (mButtonTexts != null) {
             mButtonTexts.clear();
-        } else {
-            mButtonTexts = new ArrayList<String>();
         }
-        mButtonTexts.add("Test11");
-        mButtonTexts.add("Test21");
-        mButtonTexts.add("Test31");
-        mButtonTexts.add("Test41");
-        mButtonTexts.add("Test51");
+        mButtonTexts = buttons;
         UpdateStrings();
     }
 
@@ -89,24 +77,10 @@ public class radiogroup_base_frag extends base_frag {
             mtv.setText(mTitle);
         }
 
-        Log.d("GVE", "mRadioGroup2: " + mRadioGroup);
-        Log.d("GVE", "mButtonTexts: " + mButtonTexts);
         if (mRadioGroup != null && mButtonTexts != null) {
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < mButtonTexts.size(); i++) {
                 ((RadioButton) mRadioGroup.getChildAt(i)).setText(mButtonTexts.get(i));
             }
         }
     }
-
-/*    public void onCheckedChanged(RadioGroup group, int checkedId) {
-*//*        String selection = getString(R.string.radio_group_selection);
-        String none = getString(R.string.radio_group_none);*//*
-*//*        mChoice.setText(selection +
-                (checkedId == View.NO_ID ? none : checkedId));*//*
-        Log.d("GVE", "Selected: " + checkedId);
-    }
-
-    public void onClick(View v) {
-        mRadioGroup.clearCheck();
-    }*/
 }

@@ -8,6 +8,8 @@ import android.support.v4.app.Fragment;
  */
 public class base_frag extends Fragment {
 
+    protected String mFragTitle = "no frag title";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,34 +18,36 @@ public class base_frag extends Fragment {
     public String GetTitle() {
 
         if (this instanceof chat_frag) {
-            return "Chat";
+            mFragTitle = "Chat";
         } else if (this instanceof communication_frag) {
-            return "Communication";
+            mFragTitle =  "Communication";
         } else if (this instanceof evaluation_frag) {
-            return "Evaluation";
+            mFragTitle =  "Evaluation";
         } else if (this instanceof find_location1_frag) {
-            return "Location";
+            mFragTitle =  "Location";
         } else if (this instanceof find_location2_frag) {
-            return "Location";
+            mFragTitle =  "Location";
         } else if (this instanceof finished_game_frag) {
-            return "Finished";
+            mFragTitle =  "Finished";
         } else if (this instanceof letter_frag) {
-            return "Letter";
+            mFragTitle =  "Letter";
         } else if (this instanceof listofusers_frag) {
-            return "Users";
+            mFragTitle =  "Users";
         } else if (this instanceof map_frag) {
-            return "Map";
+            mFragTitle =  "Map";
         } else if (this instanceof question_evaluation_frag) {
-            return "Question";
+            mFragTitle =  "Question";
         } else if (this instanceof radiogroup_base_frag) {
-            return "RadioGroup";
+            //mFragTitle =  "RadioGroup";
         } else if (this instanceof start_frag) {
-            return "Start";
+            mFragTitle =  "Start";
         } else if (this instanceof video_frag) {
-            return "Video";
+            mFragTitle =  "Video";
         } else {
-            return "no title";
+            mFragTitle =  "no title";
         }
+
+        return mFragTitle;
     }
 
     public void Notify() {
