@@ -157,7 +157,7 @@ public class main_act extends FragmentActivity {
         AddOneEvaluation("Evaluation 6c", "6. c) How much of the time during the past 4 weeks have you felt downhearted and blue?", s);
 
         // 11
-        AddOneEvaluation("Evaluation 6c", "7. During the past 4 weeks, how much of the time has your physical health or emotional problems interfered with your social activities (like visiting friends, relatives, etc.)?", s);
+        AddOneEvaluation("Evaluation 7", "7. During the past 4 weeks, how much of the time has your physical health or emotional problems interfered with your social activities (like visiting friends, relatives, etc.)?", s);
     }
 
     private void AddOneEvaluation(String header, String text, ArrayList<String> buttons) {
@@ -171,6 +171,7 @@ public class main_act extends FragmentActivity {
 
         bundle.putStringArrayList("buttons", buttons);
 
+        f.SetTitle(header); // header comes too late via bundle arguments
         f.setArguments(bundle);
         addView(f);
     }
@@ -220,7 +221,8 @@ public class main_act extends FragmentActivity {
         mTitleIndicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
-                Log.d("GVE", "page: " + position);
+/*                Log.d("GVE", "page: " + position);
+                UpdateTitles();*/
             }
 
             @Override
@@ -232,6 +234,16 @@ public class main_act extends FragmentActivity {
             }
         });
     }
+
+/*    private void UpdateTitles() {
+        for (int i = 0; i < mPagerAdapter.getCount(); i++) {
+            CharSequence title = mPagerAdapter.getPageTitle(i);
+
+            if (title.equals("")) {
+                mTitleIndicator.notifyDataSetChanged();
+            }
+        }
+    }*/
 
     public void addView(Fragment newPage) {
 
@@ -291,10 +303,10 @@ public class main_act extends FragmentActivity {
         @Override
         public CharSequence getPageTitle(int position) {
 
-            Log.d("GVE", "getPageTitle " + position);
+            //Log.d("GVE", "getPageTitle " + position);
             if (fragments.get(position) instanceof base_frag) {
                 String title = ((base_frag) fragments.get(position)).GetTitle();
-                Log.d("GVE", "title: " + title);
+                //Log.d("GVE", "title: " + title);
                 return title;
             } else {
                 return "no base_frag";

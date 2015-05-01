@@ -23,8 +23,25 @@ public class radiogroup_base_frag extends base_frag {
     private ArrayList<String> mButtonTexts = null;
 
     @Override
+    public void  onCreate (Bundle savedInstanceState)
+    {
+        //Log.d("GVE", "onCreate");
+
+        Bundle bundle = getArguments();
+        mFragTitle = bundle.getString("header");
+        //Log.d("GVE", "mFragTitle: " + mFragTitle);
+        mTitle = bundle.getString("text");
+        mButtonTexts = bundle.getStringArrayList("buttons");
+
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
+        //Log.d("GVE", "onCreateView");
+
         /**
          * Inflate the layout for this fragment
          */
@@ -32,12 +49,6 @@ public class radiogroup_base_frag extends base_frag {
 
         mRadioGroup = (RadioGroup) v.findViewById(R.id.radioGroup);
         mtv = (TextView) v.findViewById(R.id.radiotv);
-
-        Bundle bundle = getArguments();
-        mFragTitle = bundle.getString("header");
-        //Log.d("GVE", "mFragTitle: " + mFragTitle);
-        mTitle = bundle.getString("text");
-        mButtonTexts = bundle.getStringArrayList("buttons");
 
         for (int i = 0; i < mButtonTexts.size(); i++) {
             // test adding a radio button programmatically

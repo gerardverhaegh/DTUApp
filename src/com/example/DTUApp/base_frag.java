@@ -8,7 +8,7 @@ import android.support.v4.app.Fragment;
  */
 public class base_frag extends Fragment {
 
-    protected String mFragTitle = "no frag title";
+    protected String mFragTitle = "";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,6 +39,10 @@ public class base_frag extends Fragment {
             mFragTitle =  "Question";
         } else if (this instanceof radiogroup_base_frag) {
             //mFragTitle =  "RadioGroup";
+/*            if (mFragTitle.equals(""))
+            {
+                Log.d("GVE", "still zero");
+            }*/
         } else if (this instanceof start_frag) {
             mFragTitle =  "Start";
         } else if (this instanceof video_frag) {
@@ -52,5 +56,9 @@ public class base_frag extends Fragment {
 
     public void Notify() {
         // nothing
+    }
+
+    public void SetTitle(String title) {
+        mFragTitle = title;
     }
 }
