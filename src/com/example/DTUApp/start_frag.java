@@ -58,6 +58,9 @@ public class start_frag extends base_frag {
         btnSetAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // we cheat here to make the app open at the next frag when the alarm goes off
+                global_app.GetPref().edit().putString(constants.LAST_VISIBLE_FRAGMENT, "Question").commit();
+                global_app.GetPref().edit().putString(constants.LAST_AVAILABLE_FRAGMENT, "Question").commit();
                 SetAlarm();
             }
         });
