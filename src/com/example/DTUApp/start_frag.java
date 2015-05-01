@@ -72,7 +72,7 @@ public class start_frag extends base_frag {
                 if (getActivity() instanceof main_act)
                 {
                     main_act activity = (main_act)getActivity();
-                    activity.toNextFragment();
+                    activity.toNextFragment(true);
                 }
             }
         });

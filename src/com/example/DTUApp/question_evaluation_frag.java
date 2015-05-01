@@ -34,7 +34,7 @@ public class question_evaluation_frag extends base_frag {
                 Log.d("GVE", "btn_yes pressed");
                 global_app.GetPref().edit().putString(constants.CHOSE_EVALUATION, "yes").commit();
                 main_act activity = (main_act) getActivity();
-                activity.toNextFragment();
+                activity.toNextFragment(true);
             }
         });
 
@@ -45,7 +45,7 @@ public class question_evaluation_frag extends base_frag {
                 Log.d("GVE", "btn_no pressed");
                 global_app.GetPref().edit().putString(constants.CHOSE_EVALUATION, "no").commit();
                 main_act activity = (main_act) getActivity();
-                activity.toNextFragment();
+                activity.toNextFragment(true);
             }
         });
 

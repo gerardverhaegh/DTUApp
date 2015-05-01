@@ -83,7 +83,7 @@ public class radiogroup_base_frag extends base_frag {
 
         if (mbLastEval) {
             main_act activity = (main_act) getActivity();
-            activity.toNextFragment();
+            activity.toNextFragment(true);
         }
 
         return v;

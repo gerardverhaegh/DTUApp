@@ -72,7 +72,7 @@ public class find_location1_frag extends base_frag {
             @Override
             public void onClick(View v) {
                 main_act activity = (main_act) getActivity();
-                activity.toNextFragment();
+                activity.toNextFragment(true);
             }
         });
 

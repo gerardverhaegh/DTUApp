@@ -39,7 +39,7 @@ public class main_act extends FragmentActivity {
     private GoogleMusicAdapter mPagerAdapter = null;
     private PagerSlidingTabStrip mTitleIndicator = null;
     private ViewPager mPager = null;
-    private int cnt = 0;
+    static boolean isSetting = false;
 
     private static List<Fragment> fragments = new ArrayList<Fragment>();
 
@@ -74,7 +74,7 @@ public class main_act extends FragmentActivity {
             if (!lastTitle.equals("no title")) {
                 int cnt = 0; // avoid no response
                 while (!lastTitle.equals(title) && cnt < 100) {
-                    toNextFragment();
+                    toNextFragment(false);
                     title = ((base_frag) (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1))).GetTitle();
                     Log.d("GVE", "title: " + title);
                     cnt++;
@@ -262,12 +262,10 @@ public class main_act extends FragmentActivity {
     public void addView(Fragment newPage) {
         //Log.d("GVE", "addView : " + cnt + "-" + ((base_frag) newPage).GetTitle());
         mPagerAdapter.addView(newPage, mPagerAdapter.getCount());
-
-        cnt++;
         mTitleIndicator.notifyDataSetChanged();
     }
 
-    public void toNextFragment() {
+    public void toNextFragment(boolean setNewest) {
         if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof start_frag) {
             addView(new question_evaluation_frag());
         } else if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof question_evaluation_frag) {
@@ -290,6 +288,19 @@ public class main_act extends FragmentActivity {
         } else {
             //nothing
         }
+/*
+        if (setNewest && !isSetting) {
+            isSetting = true;
+            SetNewestFrag();
+            isSetting = false;
+        }*/
+    }
+
+    private void SetNewestFrag() {
+        Log.d("GVE", "Setting");
+        mPager.setCurrentItem(mPagerAdapter.getCount() - 1);
+        mPagerAdapter.notifyDataSetChanged();
+        mTitleIndicator.notifyDataSetChanged();
     }
 
     class GoogleMusicAdapter extends FragmentPagerAdapter {
