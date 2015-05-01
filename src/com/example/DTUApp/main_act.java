@@ -57,23 +57,6 @@ public class main_act extends FragmentActivity {
             bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFFFF")));
 
         }
-/*            TabWidget btn_speak = (TabWidget) findViewById(R.id.btn_speak);
-            btn_speak.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent i = new Intent(getApplicationContext(), communication_viewpager_act.class);
-                    startActivity(i);
-                }
-            });
-
-            TabWidget btn_preferences = (TabWidget) findViewById(R.id.btn_preferences);
-            btn_preferences.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent i = new Intent(getApplicationContext(), preferences_act.class);
-                    startActivity(i);
-                }
-            });*/
 
         m_tv = (TextView) findViewById(R.id.tv);
 
@@ -82,11 +65,44 @@ public class main_act extends FragmentActivity {
         if (savedInstanceState == null) {
             fragments.clear();
             addView(new start_frag());
+
+            // add last available frags
+            String lastTitle = global_app.GetPref().getString(constants.LAST_AVAILABLE_FRAGMENT, "no title");
+            Log.d("GVE", "-----lastTitle: " + lastTitle);
+            String title = ((base_frag) (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1))).GetTitle();
+
+            if (!lastTitle.equals("no title")) {
+                int cnt = 0; // avoid no response
+                while (!lastTitle.equals(title) && cnt < 100) {
+                    toNextFragment();
+                    title = ((base_frag) (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1))).GetTitle();
+                    Log.d("GVE", "title: " + title);
+                    cnt++;
+                }
+            }
+
+            // show last visible frag
+            String lastVisibleTitle = global_app.GetPref().getString(constants.LAST_VISIBLE_FRAGMENT, "no title");
+
+            Log.d("GVE", "lastVisibleTitle: " + lastVisibleTitle);
+            if (!lastVisibleTitle.equals("no title")) {
+                for (int i = 0; i < mPagerAdapter.getCount(); i++)
+                {
+                    Log.d("GVE", "title: " + ((base_frag)mPagerAdapter.getItem(i)).GetTitle());
+                    if (((base_frag)mPagerAdapter.getItem(i)).GetTitle().equals(lastVisibleTitle)) {
+                        mPager.setCurrentItem(i);
+                        mPagerAdapter.notifyDataSetChanged();
+                        mTitleIndicator.notifyDataSetChanged();
+                        Log.d("GVE", "lastVisibleTitle: found");
+                        break;
+                    }
+                }
+            }
         }
     }
 
     private void AddEvaluationFrags() {
-        AddOneEvaluation("Evaluation", "Answer every question by selecting the answer as indicated. If you are unsure about how to answer a question, please give the best answer you can.", null);
+        AddOneEvaluation(false, "Evaluation", "Answer every question by selecting the answer as indicated. If you are unsure about how to answer a question, please give the best answer you can.", null);
 
         // 1
         ArrayList<String> s = new ArrayList<String>() {{
@@ -97,7 +113,7 @@ public class main_act extends FragmentActivity {
             add("Poor");
         }};
 
-        AddOneEvaluation("Evaluation 1", "1. In general, would you say your health is:", s);
+        AddOneEvaluation(false, "Evaluation 1", "1. In general, would you say your health is:", s);
 
         // 2
         s = new ArrayList<String>() {{
@@ -106,7 +122,7 @@ public class main_act extends FragmentActivity {
             add("Not limited at all");
         }};
 
-        AddOneEvaluation("Evaluation 2a", "2. a). Does your health now limit you in moderate activities:", s);
+        AddOneEvaluation(false, "Evaluation 2a", "2. a). Does your health now limit you in moderate activities:", s);
 
         // 3
         s = new ArrayList<String>() {{
@@ -115,19 +131,19 @@ public class main_act extends FragmentActivity {
             add("Not limited at all");
         }};
 
-        AddOneEvaluation("Evaluation 2b", "2. b) Does your health now limit you in climbing several flights of stairs:", s);
+        AddOneEvaluation(false, "Evaluation 2b", "2. b) Does your health now limit you in climbing several flights of stairs:", s);
 
         // 4
-        AddOneEvaluation("Evaluation 3a", "3. a) During the past 4 weeks, have you as a result of your physical health accomplished less than you would like?", s);
+        AddOneEvaluation(false, "Evaluation 3a", "3. a) During the past 4 weeks, have you as a result of your physical health accomplished less than you would like?", s);
 
         // 5
-        AddOneEvaluation("Evaluation 3b", "3. b) During the past 4 weeks, have you as a result of your physical health been limited in the kind of work or activities you could do?", s);
+        AddOneEvaluation(false, "Evaluation 3b", "3. b) During the past 4 weeks, have you as a result of your physical health been limited in the kind of work or activities you could do?", s);
 
         // 6
-        AddOneEvaluation("Evaluation 4a", "4. a) During the past 4 weeks, have you as as as result of any emotional problems accomplished less than you would like?", s);
+        AddOneEvaluation(false, "Evaluation 4a", "4. a) During the past 4 weeks, have you as as as result of any emotional problems accomplished less than you would like?", s);
 
         // 7
-        AddOneEvaluation("Evaluation 4b", "4. b) During the past 4 weeks, have you as as as result of any emotional problems done work or other activities less carefully than usual?", s);
+        AddOneEvaluation(false, "Evaluation 4b", "4. b) During the past 4 weeks, have you as as as result of any emotional problems done work or other activities less carefully than usual?", s);
 
         // 8
         s = new ArrayList<String>() {{
@@ -138,7 +154,7 @@ public class main_act extends FragmentActivity {
             add("Extremely");
         }};
 
-        AddOneEvaluation("Evaluation 5", "5. During the past 4 weeks, how much did pain interfere with your normal activities?", s);
+        AddOneEvaluation(false, "Evaluation 5", "5. During the past 4 weeks, how much did pain interfere with your normal activities?", s);
 
         // 9
         s = new ArrayList<String>() {{
@@ -150,19 +166,19 @@ public class main_act extends FragmentActivity {
             add("None");
         }};
 
-        AddOneEvaluation("Evaluation 6a", "6. a) How much of the time during the past 4 weeks have you felt calm and peaceful?", s);
+        AddOneEvaluation(false, "Evaluation 6a", "6. a) How much of the time during the past 4 weeks have you felt calm and peaceful?", s);
 
         // 10
-        AddOneEvaluation("Evaluation 6b", "6. b) How much of the time during the past 4 weeks did you have a lot of energy?", s);
+        AddOneEvaluation(false, "Evaluation 6b", "6. b) How much of the time during the past 4 weeks did you have a lot of energy?", s);
 
         // 11
-        AddOneEvaluation("Evaluation 6c", "6. c) How much of the time during the past 4 weeks have you felt downhearted and blue?", s);
+        AddOneEvaluation(false, "Evaluation 6c", "6. c) How much of the time during the past 4 weeks have you felt downhearted and blue?", s);
 
         // 11
-        AddOneEvaluation("Evaluation 7", "7. During the past 4 weeks, how much of the time has your physical health or emotional problems interfered with your social activities (like visiting friends, relatives, etc.)?", s);
+        AddOneEvaluation(true, "Evaluation 7", "7. During the past 4 weeks, how much of the time has your physical health or emotional problems interfered with your social activities (like visiting friends, relatives, etc.)?", s);
     }
 
-    private void AddOneEvaluation(String header, String text, ArrayList<String> buttons) {
+    private void AddOneEvaluation(boolean bLastEval, String header, String text, ArrayList<String> buttons) {
         radiogroup_base_frag f = new radiogroup_base_frag();
 
         //Log.d("GVE", "header: " + header);
@@ -172,8 +188,10 @@ public class main_act extends FragmentActivity {
         bundle.putString("text", text);
 
         bundle.putStringArrayList("buttons", buttons);
+        bundle.putBoolean("bLastEval", bLastEval);
 
         f.SetTitle(header); // header comes too late via bundle arguments
+        f.IsLastEvaluation(bLastEval); // header comes too late via bundle arguments
         f.setArguments(bundle);
         addView(f);
     }
@@ -207,7 +225,7 @@ public class main_act extends FragmentActivity {
      * Initialise the fragments to be paged
      */
     private void initialisePaging() {
-        List<Fragment> fragments = new Vector<Fragment>();
+        final List<Fragment> fragments = new Vector<Fragment>();
 
         mPagerAdapter = new GoogleMusicAdapter(getSupportFragmentManager());
         //mPagerAdapter = new pageradapter(super.getSupportFragmentManager(), fragments);
@@ -224,7 +242,11 @@ public class main_act extends FragmentActivity {
             @Override
             public void onPageSelected(int position) {
 /*                Log.d("GVE", "page: " + position);
-                UpdateTitles();*/
+                Log.d("GVE", "---title: " + ((base_frag) mPagerAdapter.getItem(position)).GetTitle());*/
+
+
+                // this is the current shown frag
+                global_app.GetPref().edit().putString(constants.LAST_VISIBLE_FRAGMENT, ((base_frag) mPagerAdapter.getItem(position)).GetTitle()).commit();
             }
 
             @Override
@@ -237,18 +259,7 @@ public class main_act extends FragmentActivity {
         });
     }
 
-/*    private void UpdateTitles() {
-        for (int i = 0; i < mPagerAdapter.getCount(); i++) {
-            CharSequence title = mPagerAdapter.getPageTitle(i);
-
-            if (title.equals("")) {
-                mTitleIndicator.notifyDataSetChanged();
-            }
-        }
-    }*/
-
     public void addView(Fragment newPage) {
-
         //Log.d("GVE", "addView : " + cnt + "-" + ((base_frag) newPage).GetTitle());
         mPagerAdapter.addView(newPage, mPagerAdapter.getCount());
 
@@ -256,39 +267,28 @@ public class main_act extends FragmentActivity {
         mTitleIndicator.notifyDataSetChanged();
     }
 
-    public void setResult(String answer) {
+    public void toNextFragment() {
         if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof start_frag) {
             addView(new question_evaluation_frag());
-        }
-
-        if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof question_evaluation_frag) {
-            if (answer == "yes") {
+        } else if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof question_evaluation_frag) {
+            String choice = global_app.GetPref().getString(constants.CHOSE_EVALUATION, "not yet");
+            if (choice.equals("yes")) {
                 AddEvaluationFrags();
-            } else if (answer == "no") {
+            } else if (choice.equals("no")) {
                 addView(new find_location1_frag());
             }
-        }
-
-        if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof evaluation_frag) {
-            addView(new find_location1_frag());
-        }
-
-        if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof find_location1_frag) {
-            if (answer == "start") {
-                addView(new map_frag());
+        } else if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof radiogroup_base_frag) {
+            if (((radiogroup_base_frag) mPagerAdapter.getItem(mPagerAdapter.getCount() - 1)).IsLastEvaluation()) {
+                addView(new find_location1_frag());
             }
-        }
-
-        if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof map_frag) {
-            if (answer == "done") {
-                addView(new letter_frag());
-            }
-        }
-
-        if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof letter_frag) {
-            if (answer == "done") {
-                addView(new finished_game_frag());
-            }
+        } else if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof find_location1_frag) {
+            addView(new map_frag());
+        } else if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof map_frag) {
+            addView(new letter_frag());
+        } else if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof letter_frag) {
+            addView(new finished_game_frag());
+        } else {
+            //nothing
         }
     }
 
@@ -304,7 +304,6 @@ public class main_act extends FragmentActivity {
 
         @Override
         public CharSequence getPageTitle(int position) {
-
             //Log.d("GVE", "getPageTitle " + position);
             if (fragments.get(position) instanceof base_frag) {
                 String title = ((base_frag) fragments.get(position)).GetTitle();
@@ -323,7 +322,7 @@ public class main_act extends FragmentActivity {
         public void addView(Fragment v, int position) {
 
             fragments.add(position, v);
-            Log.d("GVE", "add fragment " + position);
+            //Log.d("GVE", "----add fragment " + ((base_frag) v).GetTitle());
             notifyDataSetChanged();
         }
     }

@@ -20,10 +20,10 @@ public class radiogroup_base_frag extends base_frag {
     private TextView mtv = null;
     private String mTitle = "No title";
     private ArrayList<String> mButtonTexts = null;
+    private boolean mbLastEval = false;
 
     @Override
-    public void  onCreate (Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         //Log.d("GVE", "onCreate");
 
         Bundle bundle = getArguments();
@@ -31,11 +31,11 @@ public class radiogroup_base_frag extends base_frag {
         //Log.d("GVE", "mFragTitle: " + mFragTitle);
         mTitle = bundle.getString("text");
         mButtonTexts = bundle.getStringArrayList("buttons");
-        if (mButtonTexts == null)
-        {
+        if (mButtonTexts == null) {
             mButtonTexts = new ArrayList<String>();
             mButtonTexts.clear();
         }
+        mbLastEval = bundle.getBoolean("bLastEval");
 
         super.onCreate(savedInstanceState);
     }
@@ -81,6 +81,11 @@ public class radiogroup_base_frag extends base_frag {
             }
         });
 
+        if (mbLastEval) {
+            main_act activity = (main_act) getActivity();
+            activity.toNextFragment();
+        }
+
         return v;
     }
 
@@ -94,5 +99,14 @@ public class radiogroup_base_frag extends base_frag {
                 ((RadioButton) mRadioGroup.getChildAt(i)).setText(mButtonTexts.get(i));
             }
         }
+    }
+
+    public boolean IsLastEvaluation()
+    {
+        return mbLastEval;
+    }
+
+    public void IsLastEvaluation(boolean bLastEval) {
+        mbLastEval = bLastEval;
     }
 }

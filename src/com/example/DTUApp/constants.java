@@ -33,5 +33,10 @@ public class constants {
     public static final String KM_TO_WALK = "KM_TO_WALK";
 
     // last fragment
-    public static final String LAST_FRAGMENT = "LAST_FRAGMENT";
+    public static final String LAST_AVAILABLE_FRAGMENT = "LAST_AVAILABLE_FRAGMENT";
+    public static final String LAST_VISIBLE_FRAGMENT = "LAST_VISIBLE_FRAGMENT";
+
+    // evaluation choice
+    public static final String CHOSE_EVALUATION = "CHOSE_EVALUATION";
+
 }

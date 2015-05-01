@@ -23,8 +23,8 @@ public class finished_game_frag extends base_frag {
          */
         View v = inflater.inflate(R.layout.finished_game_frag, container, false);
 
-        ImageView iv = (ImageView) v.findViewById(R.id.iv);
-        iv.setImageResource(R.raw.finished_game);
+/*        ImageView iv = (ImageView) v.findViewById(R.id.iv);
+        iv.setImageResource(R.raw.finished_game);*/
 
         return v;
     }

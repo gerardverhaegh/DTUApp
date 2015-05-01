@@ -93,12 +93,12 @@ public class communication_viewpager_act extends FragmentActivity {
             }
         }
 
-        if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof listofusers_frag) {
+/*        if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof listofusers_frag) {
             if (answer == "ok") {
                 Log.d("GVE", "start video_frag");
                 addView(new video_frag());
             }
-        }
+        }*/
 
 /*        if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof chat_frag) {
             if (answer == "ok") {

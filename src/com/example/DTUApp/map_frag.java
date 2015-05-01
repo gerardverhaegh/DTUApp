@@ -278,7 +278,7 @@ public class map_frag extends base_frag implements LocationListener {
                         public void onClick(DialogInterface dialog, int which) {
                             m_bKeepGoing = false;
                             main_act activity = (main_act) getActivity();
-                            activity.setResult("done");
+                            activity.toNextFragment();
                             mIsPopupShowing = false;
                         }
                     })

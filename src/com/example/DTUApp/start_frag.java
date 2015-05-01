@@ -62,6 +62,18 @@ public class start_frag extends base_frag {
             }
         });
 
+        Button btnStartNow = (Button) v.findViewById(R.id.btnStartNow);
+        btnStartNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (getActivity() instanceof main_act)
+                {
+                    main_act activity = (main_act)getActivity();
+                    activity.toNextFragment();
+                }
+            }
+        });
+
         mtxtDate = (EditText) v.findViewById(R.id.txtDate);
         //mtxtDate.setInputType(0);
 /*        mtxtDate.setOnClickListener(new View.OnClickListener() {
@@ -114,12 +126,6 @@ public class start_frag extends base_frag {
 
         DisplayDate(m_year, m_month, m_dayOfMonth);
         DisplayTime(m_hourOfDay, m_minute);
-
-        if (getActivity() instanceof main_act)
-        {
-            main_act activity = (main_act)getActivity();
-            activity.setResult("ok");
-        }
 
         return v;
     }
