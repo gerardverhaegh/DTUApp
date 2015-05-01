@@ -86,6 +86,8 @@ public class main_act extends FragmentActivity {
     }
 
     private void AddEvaluationFrags() {
+        AddOneEvaluation("Evaluation", "Answer every question by selecting the answer as indicated. If you are unsure about how to answer a question, please give the best answer you can.", null);
+
         // 1
         ArrayList<String> s = new ArrayList<String>() {{
             add("Excellent");

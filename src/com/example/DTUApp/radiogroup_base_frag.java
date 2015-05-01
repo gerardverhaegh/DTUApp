@@ -31,6 +31,11 @@ public class radiogroup_base_frag extends base_frag {
         //Log.d("GVE", "mFragTitle: " + mFragTitle);
         mTitle = bundle.getString("text");
         mButtonTexts = bundle.getStringArrayList("buttons");
+        if (mButtonTexts == null)
+        {
+            mButtonTexts = new ArrayList<String>();
+            mButtonTexts.clear();
+        }
 
         super.onCreate(savedInstanceState);
     }
@@ -62,8 +67,10 @@ public class radiogroup_base_frag extends base_frag {
 
         UpdateStrings();
 
-        int iCheckedID = (global_app.GetPref().getInt(mFragTitle, mRadioGroup.getChildCount()/2));
-        ((RadioButton) mRadioGroup.getChildAt(iCheckedID)).setChecked(true);
+        if (mRadioGroup.getChildCount() > 0) {
+            int iCheckedID = (global_app.GetPref().getInt(mFragTitle, mRadioGroup.getChildCount() / 2));
+            ((RadioButton) mRadioGroup.getChildAt(iCheckedID)).setChecked(true);
+        }
 
         mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
