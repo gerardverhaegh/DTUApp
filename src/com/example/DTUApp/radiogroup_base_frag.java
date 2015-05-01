@@ -64,15 +64,6 @@ public class radiogroup_base_frag extends base_frag {
         return v;
     }
 
-    public void SetStrings(String title, ArrayList<String> buttons) {
-        mTitle = title;
-        if (mButtonTexts != null) {
-            mButtonTexts.clear();
-        }
-        mButtonTexts = buttons;
-        UpdateStrings();
-    }
-
     private void UpdateStrings() {
         if (mtv != null) {
             mtv.setText(mTitle);

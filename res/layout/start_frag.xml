@@ -16,20 +16,23 @@
         <ImageView
             android:id="@+id/iv"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"/>
+            android:layout_height="fill_parent"
+            android:layout_weight="1"/>
 
         <TextView
             android:id="@+id/tvMessage"
             android:text="Play with the ones you love most and improve your well being over the next 12 weeks."
             android:gravity="center"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_weight="0"/>
 
         <LinearLayout
             android:id="@+id/LinearLayout2"
             android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="0">
 
             <TextView
                 android:id="@+id/tvStartDate"
@@ -56,7 +59,8 @@
             android:id="@+id/LinearLayout3"
             android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="0">
 
             <TextView
                 android:id="@+id/tvStartTime"
@@ -83,7 +87,9 @@
             android:id="@+id/LinearLayout4"
             android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:layout_alignParentBottom="true">
 
             <Button
                 style="@style/MyButtonStyle"
@@ -93,19 +99,5 @@
                 android:layout_width="fill_parent"
                 android:layout_weight="1"/>
         </LinearLayout>
-
-<!--        <LinearLayout
-            android:id="@+id/LinearLayout5"
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/tvInvite"
-                android:text="Invite others:"
-                android:gravity="left"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>-->
     </LinearLayout>
 </LinearLayout>
