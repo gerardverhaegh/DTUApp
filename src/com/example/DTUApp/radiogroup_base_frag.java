@@ -1,7 +1,6 @@
 package com.example.DTUApp;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,12 +62,15 @@ public class radiogroup_base_frag extends base_frag {
 
         UpdateStrings();
 
+        int iCheckedID = (global_app.GetPref().getInt(mFragTitle, mRadioGroup.getChildCount()/2));
+        ((RadioButton) mRadioGroup.getChildAt(iCheckedID)).setChecked(true);
+
         mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 // checkedId is the RadioButton selected
-                Log.d("GVE", "onCheckedChanged: " + checkedId);
-                //global_app.GetPref().edit().putInt(constants.RADIO_HEALTH_VALUE, checkedId).commit();
+                //Log.d("GVE", "onCheckedChanged: " + checkedId);
+                global_app.GetPref().edit().putInt(mFragTitle, checkedId).commit();
             }
         });
 
