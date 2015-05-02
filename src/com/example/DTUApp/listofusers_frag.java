@@ -1,6 +1,5 @@
 package com.example.DTUApp;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,6 +23,8 @@ public class listofusers_frag extends base_frag implements AdapterView.OnItemCli
     private ArrayList<QBUser> qbOtherUsers = null;
     ArrayList<String> mUsers = new ArrayList<String>();
     View v = null;
+    private int SelectedItem = -1;
+    private ArrayAdapter madapter = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class listofusers_frag extends base_frag implements AdapterView.OnItemCli
 
         if (savedInstanceState == null) {
             GetAllUsers();
+            SelectedItem = -1;
         }
 
         return lv;
@@ -39,10 +41,17 @@ public class listofusers_frag extends base_frag implements AdapterView.OnItemCli
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent();
+/*        Intent intent = new Intent();
         intent.putExtra(constants.INDEX, position);
         getActivity().setResult(constants.LIST_INDEX, intent);
-        getActivity().finish(); //finishing activity
+        getActivity().finish(); //finishing activity*/
+        //view.setSelected(true);
+        SelectedItem=position;
+        Log.d("GVE", "SelectedItem: " + SelectedItem);
+
+        if (madapter != null) {
+            madapter.notifyDataSetChanged();
+        }
     }
 
     private boolean IsUserOnline(QBUser user) {
@@ -81,12 +90,13 @@ public class listofusers_frag extends base_frag implements AdapterView.OnItemCli
 
                 Collections.sort(mUsers);
 
-                lv.setAdapter(new ArrayAdapter(getActivity().getApplicationContext(), R.layout.listofusers_frag, R.id.listelement_description, mUsers) {
+                madapter = new ArrayAdapter(getActivity().getApplicationContext(), R.layout.listofusers_frag, R.id.listelement_description, mUsers) {
                     @Override
                     public View getView(int position, View cachedView, ViewGroup parent) {
                         View view = super.getView(position, cachedView, parent);
 
                         TextView le_description = (TextView) view.findViewById(R.id.listelement_description);
+                        ImageView le_image = (ImageView) view.findViewById(R.id.listelement_image);
                         //TextView le_text = (TextView) view.findViewById(R.id.listelement_text);
                         //ImageView listeelem_billede = (ImageView) view.findViewById(R.id.listeelem_billede);
                         //listeelem_billede.setImageResource(android.R.drawable.sym_action_call);
@@ -101,9 +111,19 @@ public class listofusers_frag extends base_frag implements AdapterView.OnItemCli
                             le_description.setText("* " + le_description.getText());
                             //le_description.setTextColor(0xFF295055);
                         }
+
+                        if (position == SelectedItem) {
+                            le_image.setImageResource(R.drawable.common_signin_btn_icon_dark);
+                        }
+                        else
+                        {
+                            le_image.setImageResource(R.drawable.common_signin_btn_icon_disabled_light);
+                        }
                         return view;
                     }
-                });
+                };
+
+                lv.setAdapter(madapter);
 
                 communication_viewpager_act act = (communication_viewpager_act) getActivity();
                 act.setResult("ok");

@@ -12,12 +12,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-<!--        <TextView
+        <!--        <TextView
+                    style="@style/MyGeneralStyle"
+                    android:id="@+id/listelement_text"
+                    android:text="User:"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>-->
+
+        <ImageView
             style="@style/MyGeneralStyle"
-            android:id="@+id/listelement_text"
+            android:id="@+id/listelement_image"
             android:text="User:"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>-->
+            android:layout_height="wrap_content"/>
+
         <TextView
             style="@style/MyGeneralStyle"
             android:id="@+id/listelement_description"

@@ -56,5 +56,13 @@
         <receiver android:name=".alarm_act"
                   android:configChanges="keyboardHidden|orientation|screenSize"
                   android:screenOrientation="portrait" />
+
+        <receiver android:name=".NetworkConnectionChangeReceiver"
+                  android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
     </application>
 </manifest>
