@@ -31,9 +31,10 @@ public class listofusers_frag extends base_frag implements AdapterView.OnItemCli
         lv = new ListView(getActivity());
         lv.setOnItemClickListener(this);
 
-        if (savedInstanceState == null) {
-            GetAllUsers();
-        }
+        // always refresh
+        mUsers.clear();
+        mUsersNames.clear();
+        GetAllUsers();
 
         return lv;
     }
@@ -77,6 +78,11 @@ public class listofusers_frag extends base_frag implements AdapterView.OnItemCli
         return ((currentTime - userLastRequestAtTime) <= 5 * 60 * 1000);
     }
 
+    public ArrayList<MyObject> getUsers()
+    {
+        return mUsers;
+    }
+
     private void GetAllUsers() {
         QBUsers.getUsers(null, new QBEntityCallbackImpl<ArrayList<QBUser>>() {
             @Override
@@ -87,11 +93,12 @@ public class listofusers_frag extends base_frag implements AdapterView.OnItemCli
 
                 for (int i = 0; i < qbUsers.size(); i++) {
                     MyObject obj = new MyObject();
-                    obj.name = qbOtherUsers.get(i).getLogin();
+                    obj.name = qbOtherUsers.get(i).getLogin() + " (" + qbOtherUsers.get(i).getId() + ")";
                     obj.isOnline = IsUserOnline(qbOtherUsers.get(i));
                     obj.isSelected = obj.isOnline;
+                    obj.id = qbOtherUsers.get(i).getId();
 
-                    if (!obj.name.equals("gve1")) {
+                    if (!qbOtherUsers.get(i).getLogin().equals("gve1")) {
                         mUsers.add(obj);
                     }
                     Log.d("GVE", "User: " + obj.name);
@@ -154,6 +161,7 @@ public class listofusers_frag extends base_frag implements AdapterView.OnItemCli
 
     public class MyObject implements Comparable<MyObject> {
         public String name;
+        public int id;
         public boolean isOnline;
         public boolean isSelected;
 

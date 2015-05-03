@@ -108,6 +108,19 @@ public class communication_viewpager_act extends FragmentActivity {
         }*/
     }
 
+    public listofusers_frag getListOfUsersFrag() {
+        for (Fragment f : fragments) {
+            if (f instanceof listofusers_frag)
+            {
+                Log.d("GVE", "getListOfUsersFrag found");
+                return (listofusers_frag)f;
+            }
+        }
+
+        Log.d("GVE", "getListOfUsersFrag not found");
+        return null;
+    }
+
     class GoogleMusicAdapter extends FragmentPagerAdapter {
         public GoogleMusicAdapter(FragmentManager fm) {
             super(fm);
