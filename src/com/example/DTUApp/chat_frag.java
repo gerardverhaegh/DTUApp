@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.quickblox.auth.QBAuth;
 import com.quickblox.auth.model.QBSession;
@@ -88,9 +89,21 @@ public class chat_frag extends base_frag {
             @Override
             public void onClick(View v) {
                 txtStatus.setText("");
-                txtSendMessage.setText("");
+                txtReceive.setText("");
             }
         });
+
+        if (global_app.GetPref().getBoolean(constants.DEBUGINFO, false)) {
+            LinearLayout linlayout1 = (LinearLayout) v.findViewById(R.id.txtStatusLinearLayout1);
+            linlayout1.setVisibility(View.VISIBLE);
+            LinearLayout linlayout2 = (LinearLayout) v.findViewById(R.id.txtStatusLinearLayout2);
+            linlayout2.setVisibility(View.VISIBLE);
+        } else {
+            LinearLayout linlayout1 = (LinearLayout) v.findViewById(R.id.txtStatusLinearLayout1);
+            linlayout1.setVisibility(View.GONE);
+            LinearLayout linlayout2 = (LinearLayout) v.findViewById(R.id.txtStatusLinearLayout2);
+            linlayout2.setVisibility(View.GONE);
+        }
 
         if (savedInstanceState == null) {
             Log.d("GVE", "new session");
@@ -282,16 +295,14 @@ public class chat_frag extends base_frag {
         }
     }
 
-    private void StartListenersEtc()
-    {
+    private void StartListenersEtc() {
         NotifyStartOfListOfUsers();
         AddConnectionListener();
         StartListeningForPrivateChats();
         StartListeningForGroupChats();
     }
 
-    private void NotifyStartOfListOfUsers()
-    {
+    private void NotifyStartOfListOfUsers() {
         getActivity().runOnUiThread(new Runnable() {
             public void run() {
                 if (getActivity() instanceof communication_viewpager_act) {
@@ -639,7 +650,9 @@ public class chat_frag extends base_frag {
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                txtReceive.setText(txtCopy + "\r\n" + txtReceive.getText());
+                if (txtStatus.getVisibility() == View.VISIBLE) {
+                    txtReceive.setText(txtCopy + "\r\n" + txtReceive.getText());
+                }
             }
         });
     }
@@ -649,7 +662,9 @@ public class chat_frag extends base_frag {
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                txtStatus.setText(txtCopy + "\r\n" + txtStatus.getText());
+                if (txtStatus.getVisibility() == View.VISIBLE) {
+                    txtStatus.setText(txtCopy + "\r\n" + txtStatus.getText());
+                }
             }
         });
     }

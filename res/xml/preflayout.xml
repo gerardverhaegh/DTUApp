@@ -36,4 +36,12 @@
         android:layout_weight="0.07"
         android:layout_gravity="center_horizontal"/>
 
+    <CheckBoxPreference
+        android:key="DebugInfo"
+        android:title="Debug Info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.07"
+        android:layout_gravity="center_horizontal"/>
+
 </PreferenceScreen>

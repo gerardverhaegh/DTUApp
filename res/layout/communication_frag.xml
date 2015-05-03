@@ -46,6 +46,7 @@
             android:background="#FF7777FF"/>-->
 
     <LinearLayout
+        android:id="@+id/txtStatusLinearLayout1"
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -53,7 +54,7 @@
 
         <TextView
             style="@style/MyTextViewStyle"
-            android:id="@+id/txtStatus1"
+            android:id="@+id/txtStatusLabel"
             android:text="-Status------------------------------------------------------------------------------------------------------------------------------"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
@@ -63,6 +64,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/txtStatusLinearLayout2"
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -94,7 +96,7 @@
 
         <TextView
             style="@style/MyTextViewStyle"
-            android:id="@+id/txtStatus2"
+            android:id="@+id/txtMessages"
             android:text="-Messages------------------------------------------------------------------------------------------------------------------------------"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
