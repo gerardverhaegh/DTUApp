@@ -21,9 +21,9 @@ public class listofusers_frag extends base_frag implements AdapterView.OnItemCli
     private ArrayList<String> Users = null;
     private ListView lv = null;
     private ArrayList<QBUser> qbOtherUsers = null;
-    ArrayList<String> mUsers = new ArrayList<String>();
+    ArrayList<MyObject> mUsers = new ArrayList<MyObject>();
+    ArrayList<String> mUsersNames = new ArrayList<String>();
     View v = null;
-    private int SelectedItem = -1;
     private ArrayAdapter madapter = null;
 
     @Override
@@ -33,7 +33,6 @@ public class listofusers_frag extends base_frag implements AdapterView.OnItemCli
 
         if (savedInstanceState == null) {
             GetAllUsers();
-            SelectedItem = -1;
         }
 
         return lv;
@@ -46,11 +45,14 @@ public class listofusers_frag extends base_frag implements AdapterView.OnItemCli
         getActivity().setResult(constants.LIST_INDEX, intent);
         getActivity().finish(); //finishing activity*/
         //view.setSelected(true);
-        SelectedItem=position;
-        Log.d("GVE", "SelectedItem: " + SelectedItem);
+        if (mUsers.get(position).isOnline) {
+            mUsers.get(position).isSelected = !mUsers.get(position).isSelected;
 
-        if (madapter != null) {
-            madapter.notifyDataSetChanged();
+            Log.d("GVE", "SelectedItem: " + mUsers.get(position).isSelected);
+
+            if (madapter != null) {
+                madapter.notifyDataSetChanged();
+            }
         }
     }
 
@@ -80,45 +82,59 @@ public class listofusers_frag extends base_frag implements AdapterView.OnItemCli
             @Override
             public void onSuccess(ArrayList<QBUser> qbUsers, Bundle bundle) {
                 qbOtherUsers = qbUsers;
-                mUsers = new ArrayList<String>();
+                mUsers = new ArrayList<MyObject>();
+                mUsersNames.clear();
 
                 for (int i = 0; i < qbUsers.size(); i++) {
-                    String sOnLine = (IsUserOnline(qbOtherUsers.get(i))) ? " (online)" : " (offline)";
-                    mUsers.add(qbOtherUsers.get(i).getLogin() + sOnLine);
-                    Log.d("GVE", "User: " + mUsers);
+                    MyObject obj = new MyObject();
+                    obj.name = qbOtherUsers.get(i).getLogin();
+                    obj.isOnline = IsUserOnline(qbOtherUsers.get(i));
+                    obj.isSelected = false;
+
+                    if (!obj.name.equals("gve1")) {
+                        mUsers.add(obj);
+                    }
+                    Log.d("GVE", "User: " + obj.name);
                 }
 
                 Collections.sort(mUsers);
 
-                madapter = new ArrayAdapter(getActivity().getApplicationContext(), R.layout.listofusers_frag, R.id.listelement_description, mUsers) {
+                MyObject obj = new MyObject();
+                obj.name = "Jeres FeelGood hold er sat! \n" +
+                        "\tMød dine medspillere:\n";
+
+                mUsers.add(0, obj);
+                for (int i = 0; i < mUsers.size(); i++) {
+                    mUsersNames.add( mUsers.get(i).name);
+                }
+
+                madapter = new ArrayAdapter(getActivity().getApplicationContext(), R.layout.listofusers_frag, R.id.listelement_description, mUsersNames) {
                     @Override
                     public View getView(int position, View cachedView, ViewGroup parent) {
                         View view = super.getView(position, cachedView, parent);
 
                         TextView le_description = (TextView) view.findViewById(R.id.listelement_description);
                         ImageView le_image = (ImageView) view.findViewById(R.id.listelement_image);
+                        ImageView le_image2 = (ImageView) view.findViewById(R.id.listelement_image2);
                         //TextView le_text = (TextView) view.findViewById(R.id.listelement_text);
                         //ImageView listeelem_billede = (ImageView) view.findViewById(R.id.listeelem_billede);
                         //listeelem_billede.setImageResource(android.R.drawable.sym_action_call);
-                        if (position == 0) {
-                            le_description.setText("Jeres FeelGood hold er sat! \n" +
-                                    "Mød dine medspillere:\n" + "* " + le_description.getText());
 
-                            //le_description.setTextColor(0xFF295055);
-                            //le_text.setText("");
-                            //le_text.setTextColor(0xFF295055);
-                        } else {
-                            le_description.setText("* " + le_description.getText());
-                            //le_description.setTextColor(0xFF295055);
+                        le_description.setText("\t" + le_description.getText() + "\t");
+                        if (position > 0) {
+                            if (mUsers.get(position).isSelected) {
+                                le_image.setImageResource(android.R.drawable.star_big_on);
+                            } else {
+                                le_image.setImageResource(android.R.drawable.star_big_off);
+                            }
+
+                            if (mUsers.get(position).isOnline) {
+                                le_image2.setImageResource(android.R.drawable.presence_online);
+                            } else {
+                                le_image2.setImageResource(android.R.drawable.presence_offline);
+                            }
                         }
 
-                        if (position == SelectedItem) {
-                            le_image.setImageResource(R.drawable.common_signin_btn_icon_dark);
-                        }
-                        else
-                        {
-                            le_image.setImageResource(R.drawable.common_signin_btn_icon_disabled_light);
-                        }
                         return view;
                     }
                 };
@@ -135,4 +151,16 @@ public class listofusers_frag extends base_frag implements AdapterView.OnItemCli
             }
         });
     }
+
+    public class MyObject implements Comparable<MyObject> {
+        public String name;
+        public boolean isOnline;
+        public boolean isSelected;
+
+        public int compareTo(MyObject compareMyObject) {
+            return (this.name).compareTo(compareMyObject.name);
+        }
+    }
+
+    ;
 }

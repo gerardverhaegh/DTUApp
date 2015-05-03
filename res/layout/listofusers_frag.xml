@@ -7,29 +7,36 @@
     <TableLayout
         style="@style/MyGeneralStyle"
         android:layout_weight="1"
-        android:layout_gravity="left|center_vertical"
+        android:layout_gravity="left"
         android:layout_marginLeft="5dip"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        <!--        <TextView
-                    style="@style/MyGeneralStyle"
-                    android:id="@+id/listelement_text"
-                    android:text="User:"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>-->
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dip">
 
-        <ImageView
-            style="@style/MyGeneralStyle"
-            android:id="@+id/listelement_image"
-            android:text="User:"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <ImageView
+                style="@style/MyGeneralStyle"
+                android:id="@+id/listelement_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-        <TextView
-            style="@style/MyGeneralStyle"
-            android:id="@+id/listelement_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <ImageView
+                style="@style/MyGeneralStyle"
+                android:id="@+id/listelement_image2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                style="@style/MyGeneralStyle"
+                android:id="@+id/listelement_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </TableRow>
     </TableLayout>
 </LinearLayout>
