@@ -89,7 +89,7 @@ public class listofusers_frag extends base_frag implements AdapterView.OnItemCli
                     MyObject obj = new MyObject();
                     obj.name = qbOtherUsers.get(i).getLogin();
                     obj.isOnline = IsUserOnline(qbOtherUsers.get(i));
-                    obj.isSelected = false;
+                    obj.isSelected = obj.isOnline;
 
                     if (!obj.name.equals("gve1")) {
                         mUsers.add(obj);
