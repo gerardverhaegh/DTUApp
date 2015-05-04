@@ -17,8 +17,9 @@
         android:textSize="30dp"
         android:gravity="center"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
-
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"/>
+<!--
     <TextView
         android:id="@+id/tv2"
         android:text="A"
@@ -27,7 +28,7 @@
         android:textAlignment="center"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"/>
+        android:layout_weight="1"/>-->
 
     <LinearLayout
         android:id="@+id/LinearLayout"
@@ -36,12 +37,21 @@
         android:layout_height="wrap_content"
         android:gravity="bottom">
 
-        <Button
+<!--        <Button
             style="@style/MyButtonStyle"
             android:background="@drawable/button"
             android:id="@+id/btnShare"
             android:text="Godt gået! Tag bogstavet med til aftenens dyst kl. XXX"
             android:layout_width="fill_parent"
-            android:gravity="center"/>
+            android:gravity="center"/>-->
+
+        <TextView
+            android:id="@+id/tv2"
+            android:text="Go to communication and pick up your letter there!"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"/>
     </LinearLayout>
 </LinearLayout>

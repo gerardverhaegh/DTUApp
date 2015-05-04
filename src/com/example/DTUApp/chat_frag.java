@@ -2,6 +2,7 @@ package com.example.DTUApp;
 
 //import android.app.Fragment;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -338,7 +339,20 @@ public class chat_frag extends base_frag {
                 AddStatus("private processMessage: " + chatMessage.getBody() + " from " + chatMessage.getSenderId());
                 getActivity().runOnUiThread(new Runnable() {
                     public void run() {
-                        txtReceive.setText(chatMessage.getBody() + "\r\n" + txtReceive.getText());
+                        AddReceive(chatMessage.getBody());
+
+                        MediaPlayer mp = MediaPlayer.create(getActivity(), R.raw.message);
+
+                        mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+
+                            @Override
+                            public void onCompletion(MediaPlayer mp) {
+                                mp.release();
+                            }
+
+                        });
+
+                        mp.start();
                     }
                 });
             }
@@ -664,6 +678,18 @@ public class chat_frag extends base_frag {
             public void run() {
                 if (txtStatus.getVisibility() == View.VISIBLE) {
                     txtStatus.setText(txtCopy + "\r\n" + txtStatus.getText());
+                }
+            }
+        });
+    }
+
+    private void AddReceive(String txt) {
+        final String txtCopy = txt;
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (txtReceive.getVisibility() == View.VISIBLE) {
+                    txtReceive.setText(txtCopy + "\r\n" + txtReceive.getText());
                 }
             }
         });

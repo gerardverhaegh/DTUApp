@@ -78,8 +78,7 @@ public class listofusers_frag extends base_frag implements AdapterView.OnItemCli
         return ((currentTime - userLastRequestAtTime) <= 5 * 60 * 1000);
     }
 
-    public ArrayList<MyObject> getUsers()
-    {
+    public ArrayList<MyObject> getUsers() {
         return mUsers;
     }
 
@@ -108,11 +107,11 @@ public class listofusers_frag extends base_frag implements AdapterView.OnItemCli
 
                 MyObject obj = new MyObject();
                 obj.name = "Jeres FeelGood hold er sat! \n" +
-                        "\tMød dine medspillere:\n";
+                        "\tMød dine medspillere her.\n";
 
                 mUsers.add(0, obj);
                 for (int i = 0; i < mUsers.size(); i++) {
-                    mUsersNames.add( mUsers.get(i).name);
+                    mUsersNames.add(mUsers.get(i).name);
                 }
 
                 madapter = new ArrayAdapter(getActivity().getApplicationContext(), R.layout.listofusers_frag, R.id.listelement_description, mUsersNames) {
@@ -123,12 +122,24 @@ public class listofusers_frag extends base_frag implements AdapterView.OnItemCli
                         TextView le_description = (TextView) view.findViewById(R.id.listelement_description);
                         ImageView le_image = (ImageView) view.findViewById(R.id.listelement_image);
                         ImageView le_image2 = (ImageView) view.findViewById(R.id.listelement_image2);
+                        ImageButton le_imagebutton = (ImageButton) view.findViewById(R.id.imagebutton);
                         //TextView le_text = (TextView) view.findViewById(R.id.listelement_text);
                         //ImageView listeelem_billede = (ImageView) view.findViewById(R.id.listeelem_billede);
                         //listeelem_billede.setImageResource(android.R.drawable.sym_action_call);
 
                         le_description.setText("\t" + le_description.getText() + "\t");
-                        if (position > 0) {
+                        if (position == 0) {
+                            le_imagebutton.setImageResource(android.R.drawable.ic_popup_sync);
+                            le_imagebutton.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Log.d("GVE", "GetAllUsers refresh");
+                                    GetAllUsers();
+                                }
+                            });
+                        } else {
+                            le_imagebutton.setVisibility(View.INVISIBLE);
+
                             if (mUsers.get(position).isSelected) {
                                 le_image.setImageResource(android.R.drawable.star_big_on);
                             } else {
@@ -158,6 +169,11 @@ public class listofusers_frag extends base_frag implements AdapterView.OnItemCli
             }
         });
     }
+
+/*    public void refreshGetAllUsers(View v)
+    {
+        GetAllUsers();
+    }*/
 
     public class MyObject implements Comparable<MyObject> {
         public String name;

@@ -49,7 +49,9 @@ public class base_frag extends Fragment {
             mFragTitle = "Question";
         } else if (this instanceof radiogroup_base_frag) {
             // nothing
-        } else if (this instanceof start_frag) {
+        } else if (this instanceof random_word_frag) {
+            mFragTitle = "Words";
+        }else if (this instanceof start_frag) {
             mFragTitle = "Start";
         } else if (this instanceof video_frag) {
             mFragTitle = "Video";

@@ -4,4 +4,62 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+
+    <LinearLayout
+        android:id="@+id/txtStatusLinearLayout1"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0">
+
+        <TextView
+            style="@style/MyTextViewStyle"
+            android:id="@+id/txtStatusLabel"
+            android:text="-Status------------------------------------------------------------------------------------------------------------------------------"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:minLines="1"
+            android:maxLines="1"
+            android:lines="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/txtStatusLinearLayout2"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/MyTextViewStyle"
+                android:id="@+id/txtStatus"
+                android:text=""
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"/>
+        </ScrollView>
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tv1"
+        android:text="THE LETTER"
+        android:textSize="50dp"
+        android:gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"/>
+
+    <TextView
+        android:id="@+id/tv2"
+        android:text="A"
+        android:textSize="150dp"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
 </LinearLayout>

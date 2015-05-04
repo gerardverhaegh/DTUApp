@@ -42,6 +42,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"/>
+
+            <ImageButton
+                android:id="@+id/imagebutton"
+                android:layout_height="fill_parent"/>
         </TableRow>
     </TableLayout>
 </LinearLayout>
