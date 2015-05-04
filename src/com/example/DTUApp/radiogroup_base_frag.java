@@ -56,7 +56,7 @@ public class radiogroup_base_frag extends base_frag {
 
         for (int i = 0; i < mButtonTexts.size(); i++) {
             // test adding a radio button programmatically
-            RadioButton newRadioButton = new RadioButton(getActivity());
+            RadioButton newRadioButton = new RadioButton(getActivity());//, null, R.style.MyRadioButton);
             newRadioButton.setText(mButtonTexts.get(i));
             newRadioButton.setId(i);
             LinearLayout.LayoutParams layoutParams = new RadioGroup.LayoutParams(
