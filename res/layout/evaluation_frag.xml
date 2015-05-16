@@ -7,7 +7,7 @@
 
     <ImageView
         android:id="@+id/iv"
-        android:src="@raw/evaluation"
+        android:src="@drawable/evaluation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"/>
