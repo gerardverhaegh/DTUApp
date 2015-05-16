@@ -23,7 +23,7 @@
     <uses-feature android:glEsVersion="0x00020000" android:required="true" />
 
     <application
-        android:name=".global_app"
+        android:name=".global.global_app"
         android:label="Feel Good Game"
         android:icon="@drawable/ic_launcher"
         android:theme="@style/MyTheme">
@@ -36,28 +36,28 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".start_act"
+            android:name=".activities.start_act"
             android:label="Feel Good Game">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".main_act"
+        <activity android:name=".activities.main_act"
                   android:configChanges="keyboardHidden|orientation|screenSize"
                   android:screenOrientation="portrait"/>
-        <activity android:name=".preferences_act"
+        <activity android:name=".activities.preferences_act"
                   android:configChanges="keyboardHidden|orientation|screenSize"
                   android:screenOrientation="portrait"/>
-        <activity android:name=".communication_viewpager_act"
+        <activity android:name=".activities.communication_viewpager_act"
                   android:configChanges="keyboardHidden|orientation|screenSize"
                   android:screenOrientation="portrait"/>
 
-        <receiver android:name=".alarm_act"
+        <receiver android:name=".receivers.alarm_act"
                   android:configChanges="keyboardHidden|orientation|screenSize"
                   android:screenOrientation="portrait" />
 
-        <receiver android:name=".NetworkConnectionChangeReceiver"
+        <receiver android:name=".receivers.NetworkConnectionChangeReceiver"
                   android:configChanges="keyboardHidden|orientation|screenSize"
                   android:screenOrientation="portrait" >
             <intent-filter>
