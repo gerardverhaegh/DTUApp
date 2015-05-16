@@ -4,27 +4,29 @@ import android.app.ActionBar;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import com.example.DTUApp.R;
-import com.example.DTUApp.fragments.*;
-import com.example.DTUApp.global.constants;
-import com.example.DTUApp.global.global_app;
-import com.example.DTUApp.gui.PagerSlidingTabStrip;
+import com.example.DTUApp.fragments.communication_viewpager_frag;
+import com.example.DTUApp.fragments.main_eval_frag;
+import com.example.DTUApp.fragments.main_frag;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 
 //import android.app.Fragment;
@@ -35,18 +37,27 @@ import java.util.Vector;
 /**
  * Created by Gerard Verhaegh on 3/14/2015.
  */
-public class main_act extends FragmentActivity {
+public class drawer_layout_act extends FragmentActivity {
 
     private Fragment current_frag = null;
     private int m_current_id = 0;
     private TextView m_tv = null;
     //private pageradapter mPagerAdapter = null;
-    private GoogleMusicAdapter mPagerAdapter = null;
-    private PagerSlidingTabStrip mTitleIndicator = null;
-    private ViewPager mPager = null;
+    //private GoogleMusicAdapter mPagerAdapter = null;
+    //private PagerSlidingTabStrip mTitleIndicator = null;
+    //private ViewPager mPager = null;
     static boolean isSetting = false;
 
     private static List<Fragment> fragments = new ArrayList<Fragment>();
+
+    private String[] mTitles;
+    private DrawerLayout mDrawerLayout;
+    private ListView mDrawerList;
+
+    private Bundle mSavedInstanceState = null;
+
+    Fragment mFragment = null;
+    int m_position = -1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,7 +65,7 @@ public class main_act extends FragmentActivity {
 
 /*        requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
-        setContentView(R.layout.main_act);
+        setContentView(R.layout.drawer_layout);
 
         if (Build.VERSION.SDK_INT > 10) {
             ActionBar bar = getActionBar();
@@ -64,9 +75,27 @@ public class main_act extends FragmentActivity {
 
         m_tv = (TextView) findViewById(R.id.tv);
 
-        initialisePaging(savedInstanceState);
+        // init drawer layout
+        mTitles = new String[]{getString(R.string.PlayGame), getString(R.string.Evaluation), getString(R.string.Communication)};
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerList = (ListView) findViewById(R.id.left_drawer);
+
+        // Set the adapter for the list view
+        /*mDrawerList.setAdapter(new ArrayAdapter<String>(this, R.layout.drawer_list_item, mTitles));*/
+        mDrawerList.setAdapter(new ArrayAdapter<String>(this, R.layout.drawer_list_item, mTitles));
+        // Set the list's click listener
+        mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+
+        mSavedInstanceState = savedInstanceState;
+
+
+
+        mDrawerLayout.openDrawer(mDrawerList);
+
+        //initialisePaging(savedInstanceState);
     }
 
+/*
     private void AddEvaluationFrags() {
         AddOneEvaluation(false, "Evaluation", "Answer every question by selecting the answer as indicated. If you are unsure about how to answer a question, please give the best answer you can.", null);
 
@@ -143,8 +172,9 @@ public class main_act extends FragmentActivity {
         // 11
         AddOneEvaluation(true, "Evaluation 7", "7. During the past 4 weeks, how much of the time has your physical health or emotional problems interfered with your social activities (like visiting friends, relatives, etc.)?", s);
     }
+*/
 
-    private void AddOneEvaluation(boolean bLastEval, String header, String text, ArrayList<String> buttons) {
+/*    private void AddOneEvaluation(boolean bLastEval, String header, String text, ArrayList<String> buttons) {
         radiogroup_base_frag f = new radiogroup_base_frag();
 
         //Log.d("GVE", "header: " + header);
@@ -160,7 +190,7 @@ public class main_act extends FragmentActivity {
         f.IsLastEvaluation(bLastEval); // header comes too late via bundle arguments
         f.setArguments(bundle);
         addView(f);
-    }
+    }*/
 
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
@@ -178,10 +208,10 @@ public class main_act extends FragmentActivity {
                 Intent i1 = new Intent(getApplicationContext(), preferences_act.class);
                 startActivity(i1);
                 return true;
-            case R.id.communication:
+/*            case R.id.communication:
                 Intent i2 = new Intent(getApplicationContext(), communication_viewpager_act.class);
                 startActivity(i2);
-                return true;
+                return true;*/
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -190,7 +220,7 @@ public class main_act extends FragmentActivity {
     /**
      * Initialise the fragments to be paged
      */
-    private void initialisePaging(Bundle savedInstanceState) {
+/*    private void initialisePaging() {
         final List<Fragment> fragments = new Vector<Fragment>();
 
         mPagerAdapter = new GoogleMusicAdapter(getSupportFragmentManager());
@@ -207,8 +237,8 @@ public class main_act extends FragmentActivity {
         mTitleIndicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
-/*                Log.d("GVE", "page: " + position);
-                Log.d("GVE", "---title: " + ((base_frag) mPagerAdapter.getItem(position)).GetTitle());*/
+*//*                Log.d("GVE", "page: " + position);
+                Log.d("GVE", "---title: " + ((base_frag) mPagerAdapter.getItem(position)).GetTitle());*//*
 
 
                 // this is the current shown frag
@@ -225,7 +255,7 @@ public class main_act extends FragmentActivity {
         });
 
 
-        if (savedInstanceState == null) {
+        if (mSavedInstanceState == null) {
             fragments.clear();
             addView(new start_frag());
 
@@ -249,10 +279,9 @@ public class main_act extends FragmentActivity {
 
             Log.d("GVE", "lastVisibleTitle: " + lastVisibleTitle);
             if (!lastVisibleTitle.equals("no title")) {
-                for (int i = 0; i < mPagerAdapter.getCount(); i++)
-                {
-                    Log.d("GVE", "title: " + ((base_frag)mPagerAdapter.getItem(i)).GetTitle());
-                    if (((base_frag)mPagerAdapter.getItem(i)).GetTitle().equals(lastVisibleTitle)) {
+                for (int i = 0; i < mPagerAdapter.getCount(); i++) {
+                    Log.d("GVE", "title: " + ((base_frag) mPagerAdapter.getItem(i)).GetTitle());
+                    if (((base_frag) mPagerAdapter.getItem(i)).GetTitle().equals(lastVisibleTitle)) {
                         mPager.setCurrentItem(i);
                         mPagerAdapter.notifyDataSetChanged();
                         mTitleIndicator.notifyDataSetChanged();
@@ -262,15 +291,15 @@ public class main_act extends FragmentActivity {
                 }
             }
         }
-    }
+    }*/
 
-    public void addView(Fragment newPage) {
+/*    public void addView(Fragment newPage) {
         //Log.d("GVE", "addView : " + cnt + "-" + ((base_frag) newPage).GetTitle());
         mPagerAdapter.addView(newPage, mPagerAdapter.getCount());
         mTitleIndicator.notifyDataSetChanged();
-    }
+    }*/
 
-    public void toNextFragment(boolean setNewest) {
+/*    public void toNextFragment(boolean setNewest) {
         if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof start_frag) {
             addView(new question_evaluation_frag());
         } else if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof question_evaluation_frag) {
@@ -293,22 +322,22 @@ public class main_act extends FragmentActivity {
         } else {
             //nothing
         }
-/*
+*//*
         if (setNewest && !isSetting) {
             isSetting = true;
             SetNewestFrag();
             isSetting = false;
-        }*/
-    }
+        }*//*
+    }*/
 
-    private void SetNewestFrag() {
+/*    private void SetNewestFrag() {
         Log.d("GVE", "Setting");
         mPager.setCurrentItem(mPagerAdapter.getCount() - 1);
         mPagerAdapter.notifyDataSetChanged();
         mTitleIndicator.notifyDataSetChanged();
-    }
+    }*/
 
-    class GoogleMusicAdapter extends FragmentPagerAdapter {
+ /*   class GoogleMusicAdapter extends FragmentPagerAdapter {
         public GoogleMusicAdapter(FragmentManager fm) {
             super(fm);
         }
@@ -341,5 +370,88 @@ public class main_act extends FragmentActivity {
             //Log.d("GVE", "----add fragment " + ((base_frag) v).GetTitle());
             notifyDataSetChanged();
         }
+    }*/
+
+    private class DrawerItemClickListener implements ListView.OnItemClickListener {
+        @Override
+        public void onItemClick(AdapterView parent, View view, int position, long id) {
+            /*Log.d("GVE", "position2: " + position);*/
+            selectItem(position);
+        }
+    }
+
+    /**
+     * Swaps fragments in the main content view
+     */
+    private void selectItem(int position) {
+
+       /* Log.d("GVE", "position: " + position);*/
+
+        m_position = position;
+
+        switch (position)
+        {
+            case 0:
+                mFragment = null;
+                mFragment = new main_frag();
+                break;
+            case 1:
+                mFragment = null;
+                mFragment = new main_eval_frag();
+                break;
+            case 2:
+                mFragment = null;
+                mFragment = new communication_viewpager_frag();
+                break;
+        }
+
+        if (mFragment != null) {
+
+            Log.d("GVE", "selectItem fm  -----------------------------");
+/*        Bundle args = new Bundle();
+        args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
+        fragment.setArguments(args);*/
+
+            // Insert the fragment by replacing any existing fragment
+            final FragmentManager fragmentManager = getSupportFragmentManager();
+
+            new AsyncTask() {
+                @Override
+                protected Object doInBackground(Object... arg0) {
+                    try {
+
+                        fragmentManager.beginTransaction()
+                                .replace(R.id.content_frame, mFragment)
+                                .commit();
+
+                        return "OK";
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        return "Error: " + e;
+                    }
+                }
+
+                @Override
+                protected void onPostExecute(Object result) {
+
+                    // Highlight the selected item, update the title, and close the drawer
+                    mDrawerList.setItemChecked(m_position, true);
+                    setTitle(mTitles[m_position]);
+                    mDrawerLayout.closeDrawer(mDrawerList);
+                }
+            }.execute();
+
+
+        }
+    }
+
+/*    @Override
+    public void setTitle(CharSequence title) {
+        mTitle = title;
+        getActionBar().setTitle(mTitle);
+    }*/
+
+    public Fragment GetFrag() {
+        return mFragment;
     }
 }

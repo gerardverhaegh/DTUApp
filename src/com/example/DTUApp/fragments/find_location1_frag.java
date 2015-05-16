@@ -12,7 +12,6 @@ import android.widget.RadioGroup;
 import com.example.DTUApp.R;
 import com.example.DTUApp.global.constants;
 import com.example.DTUApp.global.global_app;
-import com.example.DTUApp.activities.main_act;
 
 //import android.app.Fragment;
 
@@ -74,8 +73,7 @@ public class find_location1_frag extends base_frag {
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                main_act activity = (main_act) getActivity();
-                activity.toNextFragment(true);
+                ToNextFragment();
             }
         });
 

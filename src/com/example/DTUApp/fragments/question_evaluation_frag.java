@@ -13,7 +13,6 @@ import android.widget.ImageView;
 import com.example.DTUApp.R;
 import com.example.DTUApp.global.constants;
 import com.example.DTUApp.global.global_app;
-import com.example.DTUApp.activities.main_act;
 
 /**
  * Created by Gerard Verhaegh on 3/14/2015.
@@ -37,8 +36,7 @@ public class question_evaluation_frag extends base_frag {
             public void onClick(View v) {
                 Log.d("GVE", "btn_yes pressed");
                 global_app.GetPref().edit().putString(constants.CHOSE_EVALUATION, "yes").commit();
-                main_act activity = (main_act) getActivity();
-                activity.toNextFragment(true);
+                ToNextFragment();
             }
         });
 
@@ -48,8 +46,7 @@ public class question_evaluation_frag extends base_frag {
             public void onClick(View v) {
                 Log.d("GVE", "btn_no pressed");
                 global_app.GetPref().edit().putString(constants.CHOSE_EVALUATION, "no").commit();
-                main_act activity = (main_act) getActivity();
-                activity.toNextFragment(true);
+                ToNextFragment();
             }
         });
 

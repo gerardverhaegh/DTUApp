@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 import com.example.DTUApp.R;
-import com.example.DTUApp.activities.communication_viewpager_act;
 import com.quickblox.core.QBEntityCallbackImpl;
 import com.quickblox.users.QBUsers;
 import com.quickblox.users.model.QBUser;
@@ -160,9 +159,7 @@ public class listofusers_frag extends base_frag implements AdapterView.OnItemCli
                 };
 
                 lv.setAdapter(madapter);
-
-                communication_viewpager_act act = (communication_viewpager_act) getActivity();
-                act.setResult("ok");
+                ToNextFragment();
             }
 
             @Override

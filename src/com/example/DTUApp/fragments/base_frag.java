@@ -17,12 +17,12 @@ public class base_frag extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         mCnt++;
-        Log.d("GVE", "adding: " + GetTitle());
+        //Log.d("GVE", "adding: " + GetTitle());
 
         // see what last available frag was, if current is higher, remember it
         //if (global_app.GetPref().getInt(constants.LAST_AVAILABLE_FRAGMENT, 0) < mCnt) {
-            global_app.GetPref().edit().putString(constants.LAST_AVAILABLE_FRAGMENT, mFragTitle).commit();
-            Log.d("GVE", "Last Fragment : " + mFragTitle);
+        global_app.GetPref().edit().putString(constants.LAST_AVAILABLE_FRAGMENT, mFragTitle).commit();
+        //Log.d("GVE", "Last Fragment : " + mFragTitle);
         //}
 
         super.onCreate(savedInstanceState);
@@ -53,7 +53,7 @@ public class base_frag extends Fragment {
             // nothing
         } else if (this instanceof random_word_frag) {
             mFragTitle = "Words";
-        }else if (this instanceof start_frag) {
+        } else if (this instanceof start_frag) {
             mFragTitle = "Start";
         } else if (this instanceof video_frag) {
             mFragTitle = "Video";
@@ -70,5 +70,27 @@ public class base_frag extends Fragment {
 
     public void SetTitle(String title) {
         mFragTitle = title;
+    }
+
+    public void ToNextFragment() {
+        if (getActivity() instanceof com.example.DTUApp.activities.drawer_layout_act) {
+            com.example.DTUApp.activities.drawer_layout_act dla = (com.example.DTUApp.activities.drawer_layout_act) getActivity();
+
+            if (dla.GetFrag() instanceof main_frag) {
+                Log.d("GVE", "instanceof main_frag)------------");
+                main_frag mf = ((main_frag) dla.GetFrag());
+                mf.toNextFragment(true);
+            } else if (dla.GetFrag() instanceof main_eval_frag) {
+                Log.d("GVE", "instanceof main_eval_frag)------------");
+                main_eval_frag mf = ((main_eval_frag) dla.GetFrag());
+                mf.toNextFragment(true);
+            } else if (dla.GetFrag() instanceof communication_viewpager_frag) {
+                Log.d("GVE", "instanceof communication_viewpager_frag)------------");
+                communication_viewpager_frag mf = ((communication_viewpager_frag) dla.GetFrag());
+                mf.toNextFragment(true);
+            } else {
+                // nothing
+            }
+        }
     }
 }

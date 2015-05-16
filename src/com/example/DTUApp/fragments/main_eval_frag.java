@@ -1,23 +1,20 @@
-package com.example.DTUApp.activities;
+package com.example.DTUApp.fragments;
 
 import android.app.ActionBar;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.DTUApp.R;
-import com.example.DTUApp.fragments.*;
 import com.example.DTUApp.global.constants;
 import com.example.DTUApp.global.global_app;
 import com.example.DTUApp.gui.PagerSlidingTabStrip;
@@ -35,7 +32,7 @@ import java.util.Vector;
 /**
  * Created by Gerard Verhaegh on 3/14/2015.
  */
-public class main_act extends FragmentActivity {
+public class main_eval_frag extends base_frag {
 
     private Fragment current_frag = null;
     private int m_current_id = 0;
@@ -49,22 +46,104 @@ public class main_act extends FragmentActivity {
     private static List<Fragment> fragments = new ArrayList<Fragment>();
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Log.d("GVE", "onCreateView main_eval_frag 1 -----------------------------");
+        final View v = inflater.inflate(R.layout.main_act, container, false);
 
 /*        requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
-        setContentView(R.layout.main_act);
+        //setContentView(R.layout.main_act);
 
         if (Build.VERSION.SDK_INT > 10) {
-            ActionBar bar = getActionBar();
+            ActionBar bar = getActivity().getActionBar();
         /*  bar.setTitle("");*/
             bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFFFF")));
         }
 
-        m_tv = (TextView) findViewById(R.id.tv);
+        m_tv = (TextView) v.findViewById(R.id.tv);
 
-        initialisePaging(savedInstanceState);
+        if (savedInstanceState == null) {
+
+            Log.d("GVE", "onCreateView main_eval_frag 2 -----------------------------");
+
+            final List<Fragment> fragments = new Vector<Fragment>();
+
+            mPagerAdapter = new GoogleMusicAdapter(getActivity().getSupportFragmentManager());
+            //mPagerAdapter = new pageradapter(super.getSupportFragmentManager(), fragments);
+
+            mPager = (ViewPager) v.findViewById(R.id.viewpager);
+            mPager.setAdapter(mPagerAdapter);
+
+            //Bind the title indicator to the adapter
+            mTitleIndicator = (PagerSlidingTabStrip) v.findViewById(R.id.titles);
+            mTitleIndicator.setViewPager(mPager);
+            final float density = getResources().getDisplayMetrics().density;
+
+            mTitleIndicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+                @Override
+                public void onPageSelected(int position) {
+/*                Log.d("GVE", "page: " + position);
+                Log.d("GVE", "---title: " + ((base_frag) mPagerAdapter.getItem(position)).GetTitle());*/
+
+
+                    // this is the current shown frag
+                    global_app.GetPref().edit().putString(constants.LAST_VISIBLE_FRAGMENT, ((base_frag) mPagerAdapter.getItem(position)).GetTitle()).commit();
+                }
+
+                @Override
+                public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                }
+
+                @Override
+                public void onPageScrollStateChanged(int state) {
+                }
+            });
+
+
+            if (savedInstanceState == null) {
+
+                Log.d("GVE", "onCreateView main_eval_frag 3 -----------------------------");
+
+                mPagerAdapter.clear();
+                addView(new question_evaluation_frag());
+
+/*                // add last available frags
+                String lastTitle = global_app.GetPref().getString(constants.LAST_AVAILABLE_FRAGMENT, "no title");
+                Log.d("GVE", "-----lastTitle: " + lastTitle);
+                String title = ((base_frag) (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1))).GetTitle();
+
+                if (!lastTitle.equals("no title")) {
+                    int cnt = 0; // avoid no response
+                    while (!lastTitle.equals(title) && cnt < 100) {
+                        toNextFragment(false);
+                        title = ((base_frag) (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1))).GetTitle();
+                        Log.d("GVE", "title: " + title);
+                        cnt++;
+                    }
+                }
+
+                // show last visible frag
+                String lastVisibleTitle = global_app.GetPref().getString(constants.LAST_VISIBLE_FRAGMENT, "no title");
+
+                Log.d("GVE", "lastVisibleTitle: " + lastVisibleTitle);
+                if (!lastVisibleTitle.equals("no title")) {
+                    for (int i = 0; i < mPagerAdapter.getCount(); i++) {
+                        Log.d("GVE", "title: " + ((base_frag) mPagerAdapter.getItem(i)).GetTitle());
+                        if (((base_frag) mPagerAdapter.getItem(i)).GetTitle().equals(lastVisibleTitle)) {
+                            mPager.setCurrentItem(i);
+                            mPagerAdapter.notifyDataSetChanged();
+                            mTitleIndicator.notifyDataSetChanged();
+                            Log.d("GVE", "lastVisibleTitle: found");
+                            break;
+                        }
+                    }
+                }*/
+            }
+        }
+
+        return v;
     }
 
     private void AddEvaluationFrags() {
@@ -162,16 +241,16 @@ public class main_act extends FragmentActivity {
         addView(f);
     }
 
-    public boolean onCreateOptionsMenu(Menu menu) {
+/*    public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
 
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
 
         return true;
-    }
+    }*/
 
-    @Override
+/*    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.settings:
@@ -185,84 +264,7 @@ public class main_act extends FragmentActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    /**
-     * Initialise the fragments to be paged
-     */
-    private void initialisePaging(Bundle savedInstanceState) {
-        final List<Fragment> fragments = new Vector<Fragment>();
-
-        mPagerAdapter = new GoogleMusicAdapter(getSupportFragmentManager());
-        //mPagerAdapter = new pageradapter(super.getSupportFragmentManager(), fragments);
-
-        mPager = (ViewPager) super.findViewById(R.id.viewpager);
-        mPager.setAdapter(mPagerAdapter);
-
-        //Bind the title indicator to the adapter
-        mTitleIndicator = (PagerSlidingTabStrip) findViewById(R.id.titles);
-        mTitleIndicator.setViewPager(mPager);
-        final float density = getResources().getDisplayMetrics().density;
-
-        mTitleIndicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageSelected(int position) {
-/*                Log.d("GVE", "page: " + position);
-                Log.d("GVE", "---title: " + ((base_frag) mPagerAdapter.getItem(position)).GetTitle());*/
-
-
-                // this is the current shown frag
-                global_app.GetPref().edit().putString(constants.LAST_VISIBLE_FRAGMENT, ((base_frag) mPagerAdapter.getItem(position)).GetTitle()).commit();
-            }
-
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-            }
-        });
-
-
-        if (savedInstanceState == null) {
-            fragments.clear();
-            addView(new start_frag());
-
-            // add last available frags
-            String lastTitle = global_app.GetPref().getString(constants.LAST_AVAILABLE_FRAGMENT, "no title");
-            Log.d("GVE", "-----lastTitle: " + lastTitle);
-            String title = ((base_frag) (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1))).GetTitle();
-
-            if (!lastTitle.equals("no title")) {
-                int cnt = 0; // avoid no response
-                while (!lastTitle.equals(title) && cnt < 100) {
-                    toNextFragment(false);
-                    title = ((base_frag) (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1))).GetTitle();
-                    Log.d("GVE", "title: " + title);
-                    cnt++;
-                }
-            }
-
-            // show last visible frag
-            String lastVisibleTitle = global_app.GetPref().getString(constants.LAST_VISIBLE_FRAGMENT, "no title");
-
-            Log.d("GVE", "lastVisibleTitle: " + lastVisibleTitle);
-            if (!lastVisibleTitle.equals("no title")) {
-                for (int i = 0; i < mPagerAdapter.getCount(); i++)
-                {
-                    Log.d("GVE", "title: " + ((base_frag)mPagerAdapter.getItem(i)).GetTitle());
-                    if (((base_frag)mPagerAdapter.getItem(i)).GetTitle().equals(lastVisibleTitle)) {
-                        mPager.setCurrentItem(i);
-                        mPagerAdapter.notifyDataSetChanged();
-                        mTitleIndicator.notifyDataSetChanged();
-                        Log.d("GVE", "lastVisibleTitle: found");
-                        break;
-                    }
-                }
-            }
-        }
-    }
+    }*/
 
     public void addView(Fragment newPage) {
         //Log.d("GVE", "addView : " + cnt + "-" + ((base_frag) newPage).GetTitle());
@@ -271,25 +273,13 @@ public class main_act extends FragmentActivity {
     }
 
     public void toNextFragment(boolean setNewest) {
-        if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof start_frag) {
-            addView(new question_evaluation_frag());
-        } else if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof question_evaluation_frag) {
+        if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof question_evaluation_frag) {
             String choice = global_app.GetPref().getString(constants.CHOSE_EVALUATION, "not yet");
             if (choice.equals("yes")) {
                 AddEvaluationFrags();
             } else if (choice.equals("no")) {
-                addView(new find_location1_frag());
+                // nothing
             }
-        } else if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof radiogroup_base_frag) {
-            if (((radiogroup_base_frag) mPagerAdapter.getItem(mPagerAdapter.getCount() - 1)).IsLastEvaluation()) {
-                addView(new find_location1_frag());
-            }
-        } else if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof find_location1_frag) {
-            addView(new map_frag());
-        } else if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof map_frag) {
-            addView(new letter_frag());
-        } else if (mPagerAdapter.getItem(mPagerAdapter.getCount() - 1) instanceof letter_frag) {
-            addView(new finished_game_frag());
         } else {
             //nothing
         }
@@ -302,7 +292,7 @@ public class main_act extends FragmentActivity {
     }
 
     private void SetNewestFrag() {
-        Log.d("GVE", "Setting");
+        //Log.d("GVE", "Setting");
         mPager.setCurrentItem(mPagerAdapter.getCount() - 1);
         mPagerAdapter.notifyDataSetChanged();
         mTitleIndicator.notifyDataSetChanged();
@@ -339,6 +329,11 @@ public class main_act extends FragmentActivity {
 
             fragments.add(position, v);
             //Log.d("GVE", "----add fragment " + ((base_frag) v).GetTitle());
+            notifyDataSetChanged();
+        }
+
+        public void clear() {
+            fragments.clear();
             notifyDataSetChanged();
         }
     }

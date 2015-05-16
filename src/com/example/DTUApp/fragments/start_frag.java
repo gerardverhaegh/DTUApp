@@ -14,11 +14,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.*;
 import android.widget.*;
-import com.example.DTUApp.*;
-import com.example.DTUApp.receivers.alarm_act;
-import com.example.DTUApp.activities.main_act;
+import com.example.DTUApp.R;
 import com.example.DTUApp.global.constants;
 import com.example.DTUApp.global.global_app;
+import com.example.DTUApp.receivers.alarm_act;
 
 import java.util.Calendar;
 
@@ -72,11 +71,7 @@ public class start_frag extends base_frag {
         btnStartNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (getActivity() instanceof main_act)
-                {
-                    main_act activity = (main_act)getActivity();
-                    activity.toNextFragment(true);
-                }
+                ToNextFragment();
             }
         });
 

@@ -71,6 +71,8 @@ public class chat_frag extends base_frag {
          */
         View v = inflater.inflate(R.layout.communication_frag, container, false);
 
+        Log.d("GVE", "chat onCreateView");
+
         // keep QB data in memory
         setRetainInstance(true);
 
@@ -111,7 +113,7 @@ public class chat_frag extends base_frag {
         }
 
         if (savedInstanceState == null) {
-            Log.d("GVE", "new session");
+            Log.d("GVE", "new session--------------------------------");
             CreateSession();
         }
 
@@ -397,10 +399,7 @@ public class chat_frag extends base_frag {
 
                 getActivity().runOnUiThread(new Runnable() {
                     public void run() {
-                        if (getActivity() instanceof communication_viewpager_act) {
-                            communication_viewpager_act act = (communication_viewpager_act) getActivity();
-                            act.setResult("ok");
-                        }
+                        ToNextFragment();
                     }
                 });
 
@@ -631,7 +630,6 @@ public class chat_frag extends base_frag {
         }*/
 
         if (QBChatService.getInstance() == null) {
-
             bLoggedIn = false;
         } else {
             bLoggedIn = QBChatService.getInstance().isLoggedIn();

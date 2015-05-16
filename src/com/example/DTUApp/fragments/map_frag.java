@@ -17,7 +17,6 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 import com.example.DTUApp.R;
-import com.example.DTUApp.activities.main_act;
 import com.example.DTUApp.global.constants;
 import com.example.DTUApp.global.global_app;
 import com.google.android.gms.common.ConnectionResult;
@@ -279,8 +278,7 @@ public class map_frag extends base_frag implements LocationListener {
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             m_bKeepGoing = false;
-                            main_act activity = (main_act) getActivity();
-                            activity.toNextFragment(true);
+                            ToNextFragment();
                             mIsPopupShowing = false;
                         }
                     })

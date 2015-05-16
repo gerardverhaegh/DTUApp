@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -35,7 +36,8 @@ public class start_act extends Activity implements Runnable {
     }
 
     public void run() {
-        startActivity(new Intent(this, main_act.class));
+        Log.d("GVE", "hier");
+        startActivity(new Intent(this, drawer_layout_act.class));
         currentAct.finish();
         currentAct = null;
     }

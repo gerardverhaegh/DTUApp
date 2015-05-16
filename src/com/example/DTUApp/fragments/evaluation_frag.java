@@ -31,6 +31,8 @@ public class evaluation_frag extends base_frag {
         ImageView iv = (ImageView) v.findViewById(R.id.iv);
         iv.setImageResource(R.drawable.evaluation);
 
+        Log.d("GVE", "evaluation onCreateView");
+
         RadioButton radExcellent = (RadioButton) v.findViewById(R.id.radioExcellent);
         RadioButton radVeryGood = (RadioButton) v.findViewById(R.id.radioVeryGood);
         RadioButton radGood = (RadioButton) v.findViewById(R.id.radioGood);

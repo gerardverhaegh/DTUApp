@@ -10,7 +10,6 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import com.example.DTUApp.R;
 import com.example.DTUApp.global.global_app;
-import com.example.DTUApp.activities.main_act;
 
 import java.util.ArrayList;
 
@@ -85,8 +84,7 @@ public class radiogroup_base_frag extends base_frag {
         });
 
         if (mbLastEval) {
-            main_act activity = (main_act) getActivity();
-            activity.toNextFragment(true);
+            ToNextFragment();
         }
 
         return v;
