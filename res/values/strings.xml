@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">DTUApp</string>
+    <string name="Communication">Communication</string>
+    <string name="Settings">Settings</string>
+    <string name="Cancel">Cancel</string>
+    <string name="OK">OK</string>
+    <string name="Evaluation">Evaluation</string>
+    <string name="PlayGame">Play Game</string>
 </resources>
