@@ -192,9 +192,11 @@ public class drawer_layout_act extends FragmentActivity {
         addView(f);
     }*/
 
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
 
+        Log.d("GVE", "Menu CREATED");
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
 
@@ -203,8 +205,10 @@ public class drawer_layout_act extends FragmentActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Log.d("GVE", "Menu SELECTED");
         switch (item.getItemId()) {
             case R.id.settings:
+                Log.d("GVE", "Menu SELECTED 1");
                 Intent i1 = new Intent(getApplicationContext(), preferences_act.class);
                 startActivity(i1);
                 return true;

@@ -178,10 +178,10 @@ public class main_act extends FragmentActivity {
                 Intent i1 = new Intent(getApplicationContext(), preferences_act.class);
                 startActivity(i1);
                 return true;
-            case R.id.communication:
+/*            case R.id.communication:
                 Intent i2 = new Intent(getApplicationContext(), communication_viewpager_act.class);
                 startActivity(i2);
-                return true;
+                return true;*/
             default:
                 return super.onOptionsItemSelected(item);
         }
