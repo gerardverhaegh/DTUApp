@@ -1,13 +1,13 @@
-package com.example.DTUApp;
+package com.example.DTUApp.fragments;
 
-import android.app.Activity;
 //import android.app.Fragment;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+        import com.example.DTUApp.R;
+        import com.example.DTUApp.fragments.base_frag;
 
 /**
  * Created by gve on 18-03-2015.
@@ -20,7 +20,7 @@ public class find_location2_frag extends base_frag {
         View v = inflater.inflate(R.layout.find_location2_frag, container, false);
 
         ImageView iv = (ImageView) v.findViewById(R.id.iv);
-        iv.setImageResource(R.raw.find_location2);
+        iv.setImageResource(R.drawable.find_location2);
 
         return v;
     }

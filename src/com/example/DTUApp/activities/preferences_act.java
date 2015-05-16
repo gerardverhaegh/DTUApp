@@ -1,4 +1,4 @@
-package com.example.DTUApp;
+package com.example.DTUApp.activities;
 
 import android.app.ActionBar;
 import android.content.SharedPreferences;
@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.preference.*;
 import android.util.Log;
 import android.view.WindowManager;
+import com.example.DTUApp.R;
+import com.example.DTUApp.global.global_app;
 
 /**
  * Created by Gerard Verhaegh on 3/21/2015.

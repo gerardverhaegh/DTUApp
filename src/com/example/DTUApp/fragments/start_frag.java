@@ -1,4 +1,4 @@
-package com.example.DTUApp;
+package com.example.DTUApp.fragments;
 
 
 //import android.app.Fragment;
@@ -8,14 +8,17 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.*;
 import android.widget.*;
+import com.example.DTUApp.*;
+import com.example.DTUApp.receivers.alarm_act;
+import com.example.DTUApp.activities.main_act;
+import com.example.DTUApp.global.constants;
+import com.example.DTUApp.global.global_app;
 
 import java.util.Calendar;
 
@@ -52,7 +55,7 @@ public class start_frag extends base_frag {
 
         mv = v;
         ImageView iv = (ImageView)v.findViewById(R.id.iv);
-        iv.setImageResource(R.raw.start);
+        iv.setImageResource(R.drawable.start);
 
         Button btnSetAlarm = (Button) v.findViewById(R.id.btnSetAlarm);
         btnSetAlarm.setOnClickListener(new View.OnClickListener() {

@@ -1,4 +1,4 @@
-package com.example.DTUApp;
+package com.example.DTUApp.fragments;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -16,6 +16,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import com.example.DTUApp.R;
+import com.example.DTUApp.activities.main_act;
+import com.example.DTUApp.global.constants;
+import com.example.DTUApp.global.global_app;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -28,9 +32,7 @@ import com.quickblox.location.model.QBLocation;
 import com.quickblox.location.request.QBLocationRequestBuilder;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class map_frag extends base_frag implements LocationListener {
 
@@ -38,7 +40,7 @@ public class map_frag extends base_frag implements LocationListener {
     //private Resources resources;
     private GoogleMap googleMap;
     private Location lastLocation;
-    private Map<Marker, data> storageMap = new HashMap<Marker, data>();
+    //private Map<Marker, data> storageMap = new HashMap<Marker, data>();
     //private Marker myMarker;
     private DialogInterface.OnClickListener checkInPositiveButton;
     private DialogInterface.OnClickListener checkInNegativeButton;

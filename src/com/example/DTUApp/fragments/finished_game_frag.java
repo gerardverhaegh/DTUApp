@@ -1,4 +1,4 @@
-package com.example.DTUApp;
+package com.example.DTUApp.fragments;
 
 //import android.app.Fragment;
 
@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import com.example.DTUApp.R;
+import com.example.DTUApp.fragments.base_frag;
 
 /**
  * Created by gve on 18-03-2015.

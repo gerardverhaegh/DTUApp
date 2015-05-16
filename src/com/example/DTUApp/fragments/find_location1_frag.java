@@ -1,7 +1,6 @@
-package com.example.DTUApp;
+package com.example.DTUApp.fragments;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +9,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import com.example.DTUApp.R;
+import com.example.DTUApp.global.constants;
+import com.example.DTUApp.global.global_app;
+import com.example.DTUApp.activities.main_act;
 
 //import android.app.Fragment;
 
@@ -24,7 +27,7 @@ public class find_location1_frag extends base_frag {
         View v = inflater.inflate(R.layout.find_location1_frag, container, false);
 
         ImageView iv = (ImageView) v.findViewById(R.id.iv);
-        iv.setImageResource(R.raw.find_location1);
+        iv.setImageResource(R.drawable.find_location1);
 
         RadioButton radioMost = (RadioButton)v.findViewById(R.id.radioMost);
         RadioButton radioAvg = (RadioButton)v.findViewById(R.id.radioAvg);

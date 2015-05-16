@@ -1,4 +1,4 @@
-package com.example.DTUApp;
+package com.example.DTUApp.gui;
 /**
  *
  */

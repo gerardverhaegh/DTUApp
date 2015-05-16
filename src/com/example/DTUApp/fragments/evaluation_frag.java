@@ -1,4 +1,4 @@
-package com.example.DTUApp;
+package com.example.DTUApp.fragments;
 
 
 //import android.app.Fragment;
@@ -11,6 +11,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import com.example.DTUApp.R;
+import com.example.DTUApp.global.constants;
+import com.example.DTUApp.global.global_app;
 
 /**
  * Created by Gerard Verhaegh on 3/14/2015.
@@ -26,7 +29,7 @@ public class evaluation_frag extends base_frag {
         View v = inflater.inflate(R.layout.evaluation_frag, container, false);
 
         ImageView iv = (ImageView) v.findViewById(R.id.iv);
-        iv.setImageResource(R.raw.evaluation);
+        iv.setImageResource(R.drawable.evaluation);
 
         RadioButton radExcellent = (RadioButton) v.findViewById(R.id.radioExcellent);
         RadioButton radVeryGood = (RadioButton) v.findViewById(R.id.radioVeryGood);

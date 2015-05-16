@@ -1,8 +1,10 @@
-package com.example.DTUApp;
+package com.example.DTUApp.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import com.example.DTUApp.global.constants;
+import com.example.DTUApp.global.global_app;
 
 /**
  * Created by Gerard Verhaegh on 4/14/2015.

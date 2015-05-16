@@ -1,4 +1,4 @@
-package com.example.DTUApp;
+package com.example.DTUApp.fragments;
 
 //import android.app.Fragment;
 
@@ -11,6 +11,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import com.example.DTUApp.R;
+import com.example.DTUApp.activities.communication_viewpager_act;
+import com.example.DTUApp.global.constants;
+import com.example.DTUApp.global.global_app;
 import com.quickblox.auth.QBAuth;
 import com.quickblox.auth.model.QBSession;
 import com.quickblox.chat.QBChatService;

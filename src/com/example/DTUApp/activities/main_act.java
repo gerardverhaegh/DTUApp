@@ -1,4 +1,4 @@
-package com.example.DTUApp;
+package com.example.DTUApp.activities;
 
 import android.app.ActionBar;
 import android.content.Intent;
@@ -16,6 +16,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
+import com.example.DTUApp.gui.PagerSlidingTabStrip;
+import com.example.DTUApp.R;
+import com.example.DTUApp.global.constants;
+import com.example.DTUApp.fragments.*;
+import com.example.DTUApp.global.global_app;
 
 import java.util.ArrayList;
 import java.util.List;

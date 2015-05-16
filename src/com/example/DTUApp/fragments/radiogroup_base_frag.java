@@ -1,4 +1,4 @@
-package com.example.DTUApp;
+package com.example.DTUApp.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +8,9 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import com.example.DTUApp.R;
+import com.example.DTUApp.global.global_app;
+import com.example.DTUApp.activities.main_act;
 
 import java.util.ArrayList;
 

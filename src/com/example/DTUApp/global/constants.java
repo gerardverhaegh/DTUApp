@@ -1,4 +1,4 @@
-package com.example.DTUApp;
+package com.example.DTUApp.global;
 
 /**
  * Created by Gerard Verhaegh on 3/19/2015.

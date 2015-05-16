@@ -1,4 +1,4 @@
-package com.example.DTUApp;
+package com.example.DTUApp.global;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import com.example.DTUApp.fragments.base_frag;
 
 import java.util.*;
 

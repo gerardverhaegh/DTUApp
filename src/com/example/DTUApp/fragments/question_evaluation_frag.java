@@ -1,4 +1,4 @@
-package com.example.DTUApp;
+package com.example.DTUApp.fragments;
 
 
 //import android.app.Fragment;
@@ -10,6 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import com.example.DTUApp.R;
+import com.example.DTUApp.global.constants;
+import com.example.DTUApp.global.global_app;
+import com.example.DTUApp.activities.main_act;
 
 /**
  * Created by Gerard Verhaegh on 3/14/2015.
@@ -25,7 +29,7 @@ public class question_evaluation_frag extends base_frag {
         View v = inflater.inflate(R.layout.question_evaluation_frag, container, false);
 
         ImageView iv = (ImageView) v.findViewById(R.id.iv);
-        iv.setImageResource(R.raw.question_evaluation);
+        iv.setImageResource(R.drawable.question_evaluation);
 
         Button btn_yes = (Button) v.findViewById(R.id.btn_yes);
         btn_yes.setOnClickListener(new View.OnClickListener() {

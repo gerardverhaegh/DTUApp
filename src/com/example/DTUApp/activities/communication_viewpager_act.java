@@ -1,4 +1,4 @@
-package com.example.DTUApp;
+package com.example.DTUApp.activities;
 
 import android.app.ActionBar;
 import android.graphics.Color;
@@ -11,6 +11,12 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import com.example.DTUApp.gui.PagerSlidingTabStrip;
+import com.example.DTUApp.R;
+import com.example.DTUApp.fragments.base_frag;
+import com.example.DTUApp.fragments.chat_frag;
+import com.example.DTUApp.fragments.listofusers_frag;
+import com.example.DTUApp.fragments.random_word_frag;
 
 import java.util.ArrayList;
 import java.util.List;

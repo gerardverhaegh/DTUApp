@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.DTUApp;
+package com.example.DTUApp.gui;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -38,6 +38,7 @@ import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.example.DTUApp.R;
 
 import java.util.Locale;
 

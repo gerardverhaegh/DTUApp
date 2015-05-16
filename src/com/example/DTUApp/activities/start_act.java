@@ -1,15 +1,13 @@
-package com.example.DTUApp;
+package com.example.DTUApp.activities;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import com.example.DTUApp.R;
 
 public class start_act extends Activity implements Runnable {
 
@@ -28,7 +26,7 @@ public class start_act extends Activity implements Runnable {
 
         // set splash screen logo
         ImageView iv = (ImageView)findViewById(R.id.iv);
-        iv.setImageResource(R.raw.splash);
+        iv.setImageResource(R.drawable.splash);
 
         if (savedInstanceState == null) {
             handler.postDelayed(this, 1000);

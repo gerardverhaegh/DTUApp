@@ -1,4 +1,4 @@
-package com.example.DTUApp;
+package com.example.DTUApp.receivers;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
+import com.example.DTUApp.fragments.base_frag;
 
 import java.util.Vector;
 
