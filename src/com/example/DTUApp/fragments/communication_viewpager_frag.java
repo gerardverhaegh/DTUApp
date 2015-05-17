@@ -49,11 +49,25 @@ public class communication_viewpager_frag extends base_frag {
         initialisePaging(v);
 
         if (savedInstanceState == null) {
+            Log.d("GVE", "communication frag savedInstanceState null");
             mPagerAdapter.clear();
-            addView(new chat_frag());
+            chat_frag f = new chat_frag();
+            addView(f);
+            Log.d("GVE", "communication frag savedInstanceState null 2");
         }
 
         return v;
+    }
+
+    @Override
+    public void onDestroyView()
+    {
+        mPagerAdapter.clear();
+        mPagerAdapter = null;
+        mTitleIndicator = null;
+        mPager = null;
+        super.onDestroyView();
+        Log.d("GVE", "communication frag onDestroyView");
     }
 
     /**
@@ -156,6 +170,11 @@ public class communication_viewpager_frag extends base_frag {
         }
 
         public void clear() {
+            for (Fragment f : fragments)
+            {
+                Log.d("GVE", "f == null: " + ((base_frag)f).GetTitle());
+                f = null;
+            }
             fragments.clear();
             notifyDataSetChanged();
         }

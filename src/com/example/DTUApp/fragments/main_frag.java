@@ -66,6 +66,8 @@ public class main_frag extends base_frag {
         m_tv = (TextView) v.findViewById(R.id.tv);
 
         if (savedInstanceState == null) {
+            Log.d("GVE", "savedInstanceState null-----------------------------");
+
             final List<Fragment> fragments = new Vector<Fragment>();
 
             mPagerAdapter = new GoogleMusicAdapter(getActivity().getSupportFragmentManager());
@@ -140,6 +142,17 @@ public class main_frag extends base_frag {
         }
 
         return v;
+    }
+
+    @Override
+    public void onDestroyView()
+    {
+        mPagerAdapter.clear();
+        mPagerAdapter = null;
+        mTitleIndicator = null;
+        mPager = null;
+        super.onDestroyView();
+        Log.d("GVE", "main_frag onDestroyView");
     }
 
 /*    private void AddEvaluationFrags() {

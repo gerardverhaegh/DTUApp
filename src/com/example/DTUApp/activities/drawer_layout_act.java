@@ -95,6 +95,15 @@ public class drawer_layout_act extends FragmentActivity {
         //initialisePaging(savedInstanceState);
     }
 
+    @Override
+    public void finish() {
+        if (!mDrawerLayout.isDrawerOpen(mDrawerList)) {
+            mDrawerLayout.openDrawer(mDrawerList);
+            return;
+        }
+        super.finish();
+    }
+
 /*
     private void AddEvaluationFrags() {
         AddOneEvaluation(false, "Evaluation", "Answer every question by selecting the answer as indicated. If you are unsure about how to answer a question, please give the best answer you can.", null);
@@ -393,6 +402,14 @@ public class drawer_layout_act extends FragmentActivity {
 
         m_position = position;
 
+        final FragmentManager fragmentManager = getSupportFragmentManager();
+
+/*        if (mFragment != null) {
+            fragmentManager.beginTransaction()
+                    .detach(mFragment)
+                    .commit();
+        }*/
+
         switch (position)
         {
             case 0:
@@ -417,13 +434,11 @@ public class drawer_layout_act extends FragmentActivity {
         fragment.setArguments(args);*/
 
             // Insert the fragment by replacing any existing fragment
-            final FragmentManager fragmentManager = getSupportFragmentManager();
 
             new AsyncTask() {
                 @Override
                 protected Object doInBackground(Object... arg0) {
                     try {
-
                         fragmentManager.beginTransaction()
                                 .replace(R.id.content_frame, mFragment)
                                 .commit();
@@ -444,8 +459,6 @@ public class drawer_layout_act extends FragmentActivity {
                     mDrawerLayout.closeDrawer(mDrawerList);
                 }
             }.execute();
-
-
         }
     }
 

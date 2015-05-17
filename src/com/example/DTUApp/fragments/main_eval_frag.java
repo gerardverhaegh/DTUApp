@@ -146,6 +146,16 @@ public class main_eval_frag extends base_frag {
         return v;
     }
 
+    @Override
+    public void onDestroyView()
+    {
+        mPagerAdapter.clear();
+        mPagerAdapter = null;
+        mTitleIndicator = null;
+        mPager = null;
+        super.onDestroyView();
+    }
+
     private void AddEvaluationFrags() {
         AddOneEvaluation(false, "Evaluation", "Answer every question by selecting the answer as indicated. If you are unsure about how to answer a question, please give the best answer you can.", null);
 

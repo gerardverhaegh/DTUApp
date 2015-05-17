@@ -27,6 +27,8 @@ public class question_evaluation_frag extends base_frag {
          */
         View v = inflater.inflate(R.layout.question_evaluation_frag, container, false);
 
+        Log.d("GVE", "question_evaluation_frag onCreateView---------");
+
         ImageView iv = (ImageView) v.findViewById(R.id.iv);
         iv.setImageResource(R.drawable.question_evaluation);
 

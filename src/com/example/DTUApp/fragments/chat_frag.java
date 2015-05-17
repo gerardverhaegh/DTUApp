@@ -128,7 +128,14 @@ public class chat_frag extends base_frag {
     public void onDestroyView() {
         super.onDestroyView();
 
-        Log.d("GVE", "onDestroyView");
+        Log.d("GVE", "chat_frag onDestroyView");
+    }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        Log.d("GVE", "chat_frag onResume");
     }
 
     private void CreateSession() {
@@ -469,9 +476,10 @@ public class chat_frag extends base_frag {
     private void NewGroupDialog() {
         ArrayList<Integer> occupantIdsList = new ArrayList<Integer>();
 
-        communication_viewpager_act cva = (communication_viewpager_act) getActivity();
+        com.example.DTUApp.activities.drawer_layout_act dlf = (com.example.DTUApp.activities.drawer_layout_act) getActivity();
 
-        listofusers_frag lou = cva.getListOfUsersFrag();
+        communication_viewpager_frag mf = ((communication_viewpager_frag) dlf.GetFrag());
+        listofusers_frag lou = mf.getListOfUsersFrag();
 
         if (lou != null) {
             Log.d("GVE", "Getting users from list of users fragment");
