@@ -13,8 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.example.DTUApp.*;
-import com.example.DTUApp.activities.communication_viewpager_act;
+import com.example.DTUApp.R;
 import com.example.DTUApp.global.constants;
 import com.example.DTUApp.global.global_app;
 import com.quickblox.auth.QBAuth;
@@ -326,10 +325,7 @@ public class chat_frag extends base_frag {
     private void NotifyStartOfListOfUsers() {
         getActivity().runOnUiThread(new Runnable() {
             public void run() {
-                if (getActivity() instanceof communication_viewpager_act) {
-                    communication_viewpager_act act = (communication_viewpager_act) getActivity();
-                    act.setResult("ok");
-                }
+                ToNextFragment();
             }
         });
     }

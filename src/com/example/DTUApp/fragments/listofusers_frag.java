@@ -184,6 +184,4 @@ public class listofusers_frag extends base_frag implements AdapterView.OnItemCli
             return (this.name).compareTo(compareMyObject.name);
         }
     }
-
-    ;
 }
