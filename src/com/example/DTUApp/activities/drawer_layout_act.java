@@ -56,7 +56,7 @@ public class drawer_layout_act extends FragmentActivity {
 
     private Bundle mSavedInstanceState = null;
 
-    Fragment mFragment = null;
+    private Fragment mFragment = null;
     int m_position = -1;
     private boolean mHasChosen = false;
 
@@ -86,13 +86,8 @@ public class drawer_layout_act extends FragmentActivity {
         mDrawerList.setAdapter(new ArrayAdapter<String>(this, R.layout.drawer_list_item, mTitles));
         // Set the list's click listener
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
-
         mSavedInstanceState = savedInstanceState;
-
-
-
         mDrawerLayout.openDrawer(mDrawerList);
-
         //initialisePaging(savedInstanceState);
     }
 
@@ -111,20 +106,15 @@ public class drawer_layout_act extends FragmentActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
-
-        Log.d("GVE", "Menu CREATED");
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
-
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Log.d("GVE", "Menu SELECTED");
         switch (item.getItemId()) {
             case R.id.settings:
-                Log.d("GVE", "Menu SELECTED 1");
                 Intent i1 = new Intent(getApplicationContext(), preferences_act.class);
                 startActivity(i1);
                 return true;
@@ -150,9 +140,6 @@ public class drawer_layout_act extends FragmentActivity {
      * Swaps fragments in the main content view
      */
     private void selectItem(int position) {
-
-       /* Log.d("GVE", "position: " + position);*/
-
         m_position = position;
 
         final FragmentManager fragmentManager = getSupportFragmentManager();
