@@ -260,7 +260,11 @@ public class chat_frag extends base_frag {
     private void StartChat() {
         // Initialise Chat service
         if (!QBChatService.isInitialized()) {
-            QBChatService.init(getActivity().getApplicationContext());
+            try {
+                QBChatService.init(getActivity().getApplicationContext());
+            } catch (NullPointerException e) {
+                // nothing
+            }
             //mChatService = QBChatService.getInstance();
         }
 
