@@ -70,7 +70,7 @@ public class communication_frag extends base_frag {
         View v = inflater.inflate(R.layout.communication_frag, container, false);
 
         // keep QB data in memory
-        setRetainInstance(true);
+        //setRetainInstance(true);
 
         txtStatus = (TextView) v.findViewById(R.id.txtStatus);
         txtReceive = (TextView) v.findViewById(R.id.txtReceive);

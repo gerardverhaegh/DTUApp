@@ -43,7 +43,7 @@ public class main_eval_frag extends base_frag {
     private ViewPager mPager = null;
     static boolean isSetting = false;
 
-    private static List<Fragment> fragments = new ArrayList<Fragment>();
+    private List<Fragment> fragments = new ArrayList<Fragment>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -70,7 +70,7 @@ public class main_eval_frag extends base_frag {
 
             final List<Fragment> fragments = new Vector<Fragment>();
 
-            mPagerAdapter = new GoogleMusicAdapter(getActivity().getSupportFragmentManager());
+            mPagerAdapter = new GoogleMusicAdapter(getChildFragmentManager());
             //mPagerAdapter = new pageradapter(super.getSupportFragmentManager(), fragments);
 
             mPager = (ViewPager) v.findViewById(R.id.viewpager);
@@ -149,11 +149,12 @@ public class main_eval_frag extends base_frag {
     @Override
     public void onDestroyView()
     {
+        super.onDestroyView();
         mPagerAdapter.clear();
         mPagerAdapter = null;
         mTitleIndicator = null;
         mPager = null;
-        super.onDestroyView();
+        fragments = null;
     }
 
     private void AddEvaluationFrags() {

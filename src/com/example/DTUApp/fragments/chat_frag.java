@@ -74,7 +74,7 @@ public class chat_frag extends base_frag {
         Log.d("GVE", "chat onCreateView");
 
         // keep QB data in memory
-        setRetainInstance(true);
+        //setRetainInstance(true);
 
         txtStatus = (TextView) v.findViewById(R.id.txtStatus);
         txtReceive = (TextView) v.findViewById(R.id.txtReceive);
@@ -118,6 +118,13 @@ public class chat_frag extends base_frag {
         }
 
         return v;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        Log.d("GVE", "chat_frag onCreate");
     }
 
     private void StopSession() {

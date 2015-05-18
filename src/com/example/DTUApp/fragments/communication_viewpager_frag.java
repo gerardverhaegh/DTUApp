@@ -25,7 +25,7 @@ import java.util.Vector;
  */
 public class communication_viewpager_frag extends base_frag {
 
-    private static List<Fragment> fragments = new ArrayList<Fragment>();
+    private List<Fragment> fragments = new ArrayList<Fragment>();
 
     private GoogleMusicAdapter mPagerAdapter = null;
     private PagerSlidingTabStrip mTitleIndicator = null;
@@ -50,7 +50,7 @@ public class communication_viewpager_frag extends base_frag {
 
         if (savedInstanceState == null) {
             Log.d("GVE", "communication frag savedInstanceState null");
-            mPagerAdapter.clear();
+            //mPagerAdapter.clear();
             chat_frag f = new chat_frag();
             addView(f);
             Log.d("GVE", "communication frag savedInstanceState null 2");
@@ -66,6 +66,7 @@ public class communication_viewpager_frag extends base_frag {
         mPagerAdapter = null;
         mTitleIndicator = null;
         mPager = null;
+        fragments = null;
         super.onDestroyView();
         Log.d("GVE", "communication frag onDestroyView");
     }
@@ -76,7 +77,7 @@ public class communication_viewpager_frag extends base_frag {
     private void initialisePaging(View v) {
         List<Fragment> fragments = new Vector<Fragment>();
 
-        mPagerAdapter = new GoogleMusicAdapter(getActivity().getSupportFragmentManager());
+        mPagerAdapter = new GoogleMusicAdapter(getChildFragmentManager());
         //mPagerAdapter = new pageradapter(super.getSupportFragmentManager(), fragments);
 
         mPager = (ViewPager) v.findViewById(R.id.viewpager);
