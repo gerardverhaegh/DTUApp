@@ -43,13 +43,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activities.main_act"
-                  android:configChanges="keyboardHidden|orientation|screenSize"
-                  android:screenOrientation="portrait"/>
         <activity android:name=".activities.preferences_act"
-                  android:configChanges="keyboardHidden|orientation|screenSize"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activities.communication_viewpager_act"
                   android:configChanges="keyboardHidden|orientation|screenSize"
                   android:screenOrientation="portrait"/>
         <activity android:name=".activities.drawer_layout_act"

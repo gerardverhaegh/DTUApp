@@ -120,8 +120,7 @@ public class chat_frag extends base_frag {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d("GVE", "chat_frag onCreate");
     }
@@ -138,8 +137,7 @@ public class chat_frag extends base_frag {
     }
 
     @Override
-    public void onResume()
-    {
+    public void onResume() {
         super.onResume();
         Log.d("GVE", "chat_frag onResume");
     }
@@ -674,47 +672,63 @@ public class chat_frag extends base_frag {
 
     private void AddMessage(String txt) {
         final String txtCopy = txt;
-        getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                if (txtStatus.getVisibility() == View.VISIBLE) {
-                    txtReceive.setText(txtCopy + "\r\n" + txtReceive.getText());
+        try {
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if (txtStatus.getVisibility() == View.VISIBLE) {
+                        txtReceive.setText(txtCopy + "\r\n" + txtReceive.getText());
+                    }
                 }
-            }
-        });
+            });
+        } catch (NullPointerException e) {
+            // do nothing
+        }
     }
 
     private void AddStatus(String txt) {
         final String txtCopy = txt;
-        getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                if (txtStatus.getVisibility() == View.VISIBLE) {
-                    txtStatus.setText(txtCopy + "\r\n" + txtStatus.getText());
+        try {
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if (txtStatus.getVisibility() == View.VISIBLE) {
+                        txtStatus.setText(txtCopy + "\r\n" + txtStatus.getText());
+                    }
                 }
-            }
-        });
+            });
+        } catch (NullPointerException e) {
+            // do nothing
+        }
     }
 
     private void AddReceive(String txt) {
         final String txtCopy = txt;
-        getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                if (txtReceive.getVisibility() == View.VISIBLE) {
-                    txtReceive.setText(txtCopy + "\r\n" + txtReceive.getText());
+        try {
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if (txtReceive.getVisibility() == View.VISIBLE) {
+                        txtReceive.setText(txtCopy + "\r\n" + txtReceive.getText());
+                    }
                 }
-            }
-        });
+            });
+        } catch (NullPointerException e) {
+            // do nothing
+        }
     }
 
     private void AddLogin(String txt) {
         final String txtCopy = txt;
-        getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                txtLogin.setText(txtLogin.getText() + txtCopy);
-            }
-        });
+        try {
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    txtLogin.setText(txtLogin.getText() + txtCopy);
+                }
+            });
+        } catch (NullPointerException e) {
+            // do nothing
+        }
     }
 }

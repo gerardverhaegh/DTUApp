@@ -31,13 +31,9 @@ public class base_frag extends Fragment {
     public String GetTitle() {
         if (this instanceof chat_frag) {
             mFragTitle = "Chat";
-        } else if (this instanceof communication_frag) {
-            mFragTitle = "Communication";
         } else if (this instanceof evaluation_frag) {
             mFragTitle = "Evaluation";
         } else if (this instanceof find_location1_frag) {
-            mFragTitle = "Location";
-        } else if (this instanceof find_location2_frag) {
             mFragTitle = "Location";
         } else if (this instanceof finished_game_frag) {
             mFragTitle = "Finished";
