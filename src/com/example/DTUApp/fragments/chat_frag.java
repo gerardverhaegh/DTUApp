@@ -325,11 +325,15 @@ public class chat_frag extends base_frag {
     }
 
     private void NotifyStartOfListOfUsers() {
-        getActivity().runOnUiThread(new Runnable() {
-            public void run() {
-                ToNextFragment();
-            }
-        });
+        try {
+            getActivity().runOnUiThread(new Runnable() {
+                public void run() {
+                    ToNextFragment();
+                }
+            });
+        } catch (NullPointerException e) {
+            // nothing
+        }
     }
 
     private void RequestChatDialogs() {
@@ -358,9 +362,7 @@ public class chat_frag extends base_frag {
                 getActivity().runOnUiThread(new Runnable() {
                     public void run() {
                         AddReceive(chatMessage.getBody());
-
                         MediaPlayer mp = MediaPlayer.create(getActivity(), R.raw.message);
-
                         mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 
                             @Override
@@ -369,7 +371,6 @@ public class chat_frag extends base_frag {
                             }
 
                         });
-
                         mp.start();
                     }
                 });
